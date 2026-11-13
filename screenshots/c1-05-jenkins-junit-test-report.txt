@@ -1,0 +1,20 @@
+﻿=== JENKINS JUNIT TEST REPORT (BUILD #1) ===
+Job Name: devops-task-manager-pipeline
+Build Number: 1
+Build Status: SUCCESS
+Duration: 78.538 seconds
+
+Test Summary:
+- Total Tests: 15
+- Passed Tests: 15
+- Failed Tests: 0
+- Skipped Tests: 0
+
+Suites Executed:
+1. com.devops.taskmanager.HealthControllerTest (1/1 Passed)
+2. com.devops.taskmanager.TaskControllerTest (7/7 Passed)
+3. com.devops.taskmanager.TaskManagerApplicationTests (1/1 Passed)
+4. com.devops.taskmanager.TaskServiceTest (6/6 Passed)
+
+Archived Artifacts:
+- devops-task-manager-1.0.0.jar (target/devops-task-manager-1.0.0.jar)
