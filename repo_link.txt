@@ -1,10 +1,17 @@
-# DevOps Task Manager API - GitHub Repository Link
-# Configured Remote / Target URL:
-https://github.com/viveksharma4083/devops-task-manager
+# ==============================================================================
+# DevOps Task Manager API - Official GitHub Repository
+# ==============================================================================
 
-# Status:
-# Local Git repository initialized with main and feature/api-endpoints branches and merge history.
-# Run 'gh auth login' in your terminal and authorize via browser, then push:
-#   git remote add origin https://github.com/viveksharma4083/devops-task-manager.git
-#   git push -u origin main
-#   git push origin feature/api-endpoints
+Repository URL:
+https://github.com/VivekSharma4083/devops-task-manager
+
+Clone Command (HTTPS):
+git clone https://github.com/VivekSharma4083/devops-task-manager.git
+
+Available Remote Branches:
+- main (Default Production / Stable Branch)
+- feature/api-endpoints (Feature Development Branch with Merge History)
+
+Merge Evidence:
+Non-fast-forward merge commit '27ba223' integrating 'feature/api-endpoints' into 'main'.
+Verified on GitHub via GitHub CLI on 2026-11-13.
