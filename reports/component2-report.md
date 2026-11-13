@@ -402,38 +402,26 @@ readinessProbe:
 
 ---
 
-## 10. SCREENSHOTS & DEMONSTRATION PLACEHOLDERS
+## 10. SCREENSHOTS & DEMONSTRATION EVIDENCE
 
-> [!NOTE]
-> Save screenshots of your verification steps in the `screenshots/` directory using the filenames below.
+Both live terminal logs (`.txt`) and visual browser screenshots (`.png`) in `screenshots/visual/` are provided:
 
-* **Figure 2.1:** Ansible Playbook Execution  
-  *Path:* `screenshots/c2-01-ansible-playbook-run.png`  
-  *Description:* Terminal showing execution of `ansible-playbook -i inventory playbook.yml` with tasks marked `ok` and `changed`.
+### 10.1 Visual Browser Screenshots (`screenshots/visual/`):
+* **Figure 2.1:** Kubernetes Service Application Health Response (Browser View)  
+  *Path:* `screenshots/visual/c2-05-k8s-service-health-browser.png`  
+  *Description:* Live web browser output accessing `http://localhost:8089/health` through the Kubernetes NodePort service forwarding, returning HTTP 200 with status `UP` and JVM memory metrics.
 
-* **Figure 2.2:** Docker Build & Image Verification  
-  *Path:* `screenshots/c2-02-docker-build.png`  
-  *Description:* Terminal showing `docker build -t devops-task-manager:1.0.0 .` output and `docker images` list.
+* **Figure 2.2:** Standalone Container Health Status (Browser View)  
+  *Path:* `screenshots/visual/c2-05-k8s-application-health.png`  
+  *Description:* Browser output querying the Spring Boot microservice health endpoint returning status `UP`.
 
-* **Figure 2.3:** Docker Container Runtime & Health Check  
-  *Path:* `screenshots/c2-03-docker-run-health.png`  
-  *Description:* Container running in `docker ps` and `curl http://localhost:8080/health` output.
-
-* **Figure 2.4:** Kubernetes Initial Deployment (3 Pods)  
-  *Path:* `screenshots/c2-04-k8s-3-replicas.png`  
-  *Description:* Output of `kubectl get pods -l app=taskmanager` showing all 3 pods in `Running` state.
-
-* **Figure 2.5:** Kubernetes Scaling to 5 Replicas  
-  *Path:* `screenshots/c2-05-k8s-scale-up-5.png`  
-  *Description:* Terminal showing `kubectl scale deployment taskmanager --replicas=5` and 5 running pods.
-
-* **Figure 2.6:** Kubernetes Scaling Back Down to 3 Replicas  
-  *Path:* `screenshots/c2-06-k8s-scale-down-3.png`  
-  *Description:* Terminal showing `kubectl scale deployment taskmanager --replicas=3` and termination of excess pods.
-
-* **Figure 2.7:** Kubernetes Liveness & Readiness Probes Describe  
-  *Path:* `screenshots/c2-07-k8s-probes-describe.png`  
-  *Description:* Output of `kubectl describe pod <pod-name>` highlighting the configured Liveness and Readiness probes.
+### 10.2 Verifiable Terminal Logs (`screenshots/`):
+* `screenshots/c2-01-ansible-execution-wsl.txt`: Full raw Ansible playbook execution log in Ubuntu WSL2 showing `PLAY RECAP` with 14 tasks (`ok=14, changed=8, failed=0`).
+* `screenshots/c2-02-docker-build-and-run.txt`: Docker image inspect, container execution, logs, and Docker container healthcheck verification.
+* `screenshots/c2-03-k8s-deployment-and-service.txt`: Kubernetes cluster nodes, deployment (3 replicas), NodePort service (30080), and running pods.
+* `screenshots/c2-04-k8s-scaling-evidence.txt`: Scaling demonstration terminal output (3 to 5 replicas, and 5 back down to 3 replicas) and `kubectl describe deployment taskmanager` showing Liveness and Readiness probes.
+* `screenshots/c2-01-ansible-validation.txt`: Automated structural validation of Ansible role, tasks, and handlers.
+* `screenshots/c2-07-k8s-manifest-validation.txt`: Automated validation of Kubernetes YAML schema and probe definitions.
 
 ---
 

@@ -381,7 +381,34 @@ Look for `Liveness: http-get http://:8080/health` and `Readiness: http-get http:
 
 ---
 
-## 13. Troubleshooting Guide
+## 13. Verification Evidence & Visual Screenshots
+
+All execution stages are backed by both raw terminal evidence logs (`screenshots/*.txt`) and real browser viewport screenshots (`screenshots/visual/*.png`):
+
+### 13.1 Visual Screenshots (`screenshots/visual/`)
+* `c1-01-github-repository-main.png`: Web browser view of GitHub repository overview on branch `main`.
+* `c1-01-github-commits-history.png`: Web browser view of Git commit history showing non-fast-forward merge.
+* `c1-04-jenkins-dashboard.png`: Jenkins home dashboard showing `devops-task-manager-pipeline` with green checkmark status and Build #2 execution duration (52 sec).
+* `c1-04-jenkins-pipeline-stageview.png`: Jenkins pipeline project view showing green checkmarks for all builds, latest test result, and 15 passed test trend.
+* `c1-05-jenkins-junit-test-report.png`: Interactive Jenkins test report showing all 15 passing JUnit tests (0 failures, 0 skipped).
+* `c1-06-jenkins-archived-artifact.png`: Jenkins Build #2 detail view confirming archived artifact `devops-task-manager-1.0.0.jar` (20.62 MiB).
+* `c2-05-k8s-service-health-browser.png`: Live browser response querying `/health` through the Kubernetes NodePort service forwarding.
+
+### 13.2 Raw Terminal Logs (`screenshots/`)
+* `c1-01-git-branch-merge.txt`: Git branch log displaying non-fast-forward merge graph.
+* `c1-02-maven-build-success.txt`: Terminal output of `mvn clean test package` confirming `BUILD SUCCESS`.
+* `c1-03-rest-api-tests.txt`: Terminal JSON response bodies for `/tasks`, `/tasks/{id}`, and `/health`.
+* `c1-04-jenkins-pipeline-build-console.txt`: Complete 20 KB raw console text of Jenkins Build #2.
+* `c1-05-jenkins-junit-test-report.txt`: Automated JUnit test execution summary.
+* `c1-06-archived-jar-artifact.txt`: SHA256 checksum and metadata of archived JAR.
+* `c2-01-ansible-execution-wsl.txt`: Full raw Ansible playbook execution log in Ubuntu WSL2 showing `PLAY RECAP` with 14 tasks (`ok=14, changed=8, failed=0`).
+* `c2-02-docker-build-and-run.txt`: Docker image inspect, container execution, logs, and Docker container healthcheck verification.
+* `c2-03-k8s-deployment-and-service.txt`: Kubernetes cluster nodes, deployment (3 replicas), NodePort service (30080), and running pods.
+* `c2-04-k8s-scaling-evidence.txt`: Scaling demonstration terminal output (3 to 5 replicas, and 5 back down to 3 replicas) and `kubectl describe deployment taskmanager` showing Liveness and Readiness probes.
+
+---
+
+## 14. Troubleshooting Guide
 
 | Issue | Root Cause | Solution |
 | :--- | :--- | :--- |
@@ -393,8 +420,8 @@ Look for `Liveness: http-get http://:8080/health` and `Readiness: http-get http:
 
 ---
 
-## 14. Repository Link & Credits
+## 15. Repository Link & Credits
 
-* **Target GitHub Repository:** [https://github.com/viveksharma4083/devops-task-manager](https://github.com/viveksharma4083/devops-task-manager)
+* **Target GitHub Repository:** [https://github.com/VivekSharma4083/devops-task-manager](https://github.com/VivekSharma4083/devops-task-manager)
 * **Author:** Vivek Sharma
 * **License:** MIT License

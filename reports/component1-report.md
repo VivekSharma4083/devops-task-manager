@@ -269,54 +269,45 @@ The packaged JAR was executed locally and verified:
 - **Console Log Evidence:** Saved in `screenshots/c1-04-jenkins-pipeline-build-console.txt` (20,572 bytes).
 - **JUnit Report Evidence:** Saved in `screenshots/c1-05-jenkins-junit-test-report.txt` (15/15 tests passed across 4 test classes).
 - **Archived Artifact:** `target/devops-task-manager-1.0.0.jar` (verified in `screenshots/c1-06-archived-jar-artifact.txt`).
-      "activeTaskCount": 3,
-      "jvmMemoryFreeMb": 17,
-      "jvmMemoryTotalMb": 42
-    }
-  }
-  ```
-- **`GET /tasks`:** Successfully returned initial in-memory seed tasks.
-- **`POST /tasks`:** Created task ID 4 (`Automate with Jenkins`).
-- **`DELETE /tasks/4`:** Successfully removed task with confirmation response.
-
-### 9.2 Jenkins Automated CI Results
-- **Job Name:** `devops-task-manager-pipeline`
-- **Build Number:** `1`
-- **Status:** `SUCCESS`
-- **Console Log Evidence:** Saved in `screenshots/c1-04-jenkins-pipeline-build-console.txt` (20,511 bytes)
-- **JUnit Report Evidence:** Saved in `screenshots/c1-05-jenkins-junit-test-report.txt` (15 tests passed)
-- **Archived Artifact:** `target/devops-task-manager-1.0.0.jar` (18.48 MB)
 
 ---
 
-## 10. SCREENSHOTS & DEMONSTRATION PLACEHOLDERS
+## 10. SCREENSHOTS & DEMONSTRATION EVIDENCE
 
-> [!NOTE]
-> Save screenshots of your verification steps in the `screenshots/` directory using the filenames below.
+Both live terminal logs (`.txt`) and genuine visual browser screenshots (`.png`) in `screenshots/visual/` are provided:
 
-* **Figure 1.1:** Git Branching and Merge History  
-  *Path:* `screenshots/c1-01-git-branch-merge.png`  
-  *Description:* Console output of `git log --graph --oneline --all` displaying the non-fast-forward merge from `feature/api-endpoints` to `main`.
+### 10.1 Visual Browser Screenshots (`screenshots/visual/`):
+* **Figure 1.1A:** GitHub Repository Overview  
+  *Path:* `screenshots/visual/c1-01-github-repository-main.png`  
+  *Description:* Web browser view of the public GitHub repository showing project files, branches, and commit count on `main`.
 
-* **Figure 1.2:** Maven Build & Test Success  
-  *Path:* `screenshots/c1-02-maven-build-success.png`  
-  *Description:* Terminal displaying `BUILD SUCCESS` and 15 passed tests from `mvn clean test package`.
+* **Figure 1.1B:** GitHub Commit History & Merge Demonstration  
+  *Path:* `screenshots/visual/c1-01-github-commits-history.png`  
+  *Description:* Web browser view of the Git commit history showing non-fast-forward merge and feature commits.
 
-* **Figure 1.3:** REST API Endpoints Verification  
-  *Path:* `screenshots/c1-03-rest-api-tests.png`  
-  *Description:* HTTP responses for `GET /tasks`, `POST /tasks`, and `GET /health`.
+* **Figure 1.2:** Jenkins Pipeline Dashboard  
+  *Path:* `screenshots/visual/c1-04-jenkins-dashboard.png`  
+  *Description:* Jenkins home dashboard showing `devops-task-manager-pipeline` with green checkmark status, sunny weather report, and Build #2 execution duration (52 sec).
 
-* **Figure 1.4:** Jenkins Pipeline Stage View  
-  *Path:* `screenshots/c1-04-jenkins-pipeline-stageview.png`  
-  *Description:* Jenkins UI dashboard displaying all 5 pipeline stages in green.
+* **Figure 1.3:** Jenkins Pipeline Overview & Stage History  
+  *Path:* `screenshots/visual/c1-04-jenkins-pipeline-stageview.png`  
+  *Description:* Pipeline project view showing green checkmarks for all builds, latest test result (no failures), 15 passed test trend, and permalinks.
 
-* **Figure 1.5:** Jenkins JUnit Test Result Trend  
-  *Path:* `screenshots/c1-05-jenkins-junit-trend.png`  
-  *Description:* Jenkins test report page displaying 15 passed JUnit tests.
+* **Figure 1.4:** Jenkins JUnit 5 Test Report  
+  *Path:* `screenshots/visual/c1-05-jenkins-junit-test-report.png`  
+  *Description:* Interactive Jenkins test result report displaying "All tests are passing! (15/15 tests passing)" with 0 failures and 0 skipped.
 
-* **Figure 1.6:** Jenkins Archived Artifact  
-  *Path:* `screenshots/c1-06-jenkins-archived-artifact.png`  
-  *Description:* Build summary page showing `devops-task-manager-1.0.0.jar` archived.
+* **Figure 1.5:** Jenkins Archived Fat JAR Artifact  
+  *Path:* `screenshots/visual/c1-06-jenkins-archived-artifact.png`  
+  *Description:* Build #2 detail view confirming archived artifact `devops-task-manager-1.0.0.jar` (20.62 MiB), SCM polling cause, and commit revision.
+
+### 10.2 Verifiable Terminal Logs (`screenshots/`):
+* `screenshots/c1-01-git-branch-merge.txt`: Git branch log displaying non-fast-forward merge graph.
+* `screenshots/c1-02-maven-build-success.txt`: Terminal output of `mvn clean test package` confirming `BUILD SUCCESS`.
+* `screenshots/c1-03-rest-api-tests.txt`: Terminal JSON response bodies for `/tasks`, `/tasks/{id}`, and `/health`.
+* `screenshots/c1-04-jenkins-pipeline-build-console.txt`: Complete 20 KB raw console text of Jenkins Build #2.
+* `screenshots/c1-05-jenkins-junit-test-report.txt`: Automated JUnit test execution summary.
+* `screenshots/c1-06-archived-jar-artifact.txt`: SHA256 checksum and metadata of archived JAR.
 
 ---
 
