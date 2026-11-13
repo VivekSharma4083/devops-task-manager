@@ -1,0 +1,4 @@
+﻿Jenkins LTS Version: 2.580.2
+HTTP URL: http://localhost:8085/
+Initial Admin Password: 10c13300adee482d86522c87a9c7a0a3
+Secrets file: C:\Users\HP\.jenkins\secrets\initialAdminPassword

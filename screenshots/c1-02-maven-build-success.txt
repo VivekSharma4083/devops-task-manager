@@ -1,0 +1,14 @@
+﻿=== MAVEN BUILD & TEST VERIFICATION EVIDENCE ===
+Command: mvn clean test package
+Java Version: OpenJDK 17.0.14+7 (Eclipse Adoptium)
+Maven Version: Apache Maven 3.9.9
+
+--- TEST RESULTS ---
+Running com.devops.taskmanager.HealthControllerTest: 1/1 passed (0 failures, 0 errors, 0 skipped)
+Running com.devops.taskmanager.TaskControllerTest: 7/7 passed (0 failures, 0 errors, 0 skipped)
+Running com.devops.taskmanager.TaskManagerApplicationTests: 1/1 passed (0 failures, 0 errors, 0 skipped)
+Running com.devops.taskmanager.TaskServiceTest: 6/6 passed (0 failures, 0 errors, 0 skipped)
+
+Total: 15 Tests Run, 0 Failures, 0 Errors, 0 Skipped
+BUILD SUCCESS
+Executable Fat JAR: target/devops-task-manager-1.0.0.jar (18,485,321 bytes)
