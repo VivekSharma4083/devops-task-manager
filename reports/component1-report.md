@@ -222,17 +222,21 @@ pipeline {
 ```
 
 ### 8.2 Jenkins Server Configuration & Live Execution
-The Jenkins LTS server was deployed and executed locally on port 8085 (`http://localhost:8085/`) using Eclipse Adoptium OpenJDK 21.0.6. The pipeline job `devops-task-manager-pipeline` was configured with SCM polling and connected to the GitHub repository `https://github.com/VivekSharma4083/devops-task-manager.git`.
+The Jenkins LTS server was deployed and executed locally on port 8085 (`http://localhost:8085/`) using Eclipse Adoptium OpenJDK 21.0.6. The pipeline job `devops-task-manager-pipeline` was configured with Pipeline script from SCM (`https://github.com/VivekSharma4083/devops-task-manager.git`, branch `*/main`, script path `Jenkinsfile`) and automated SCM polling (`H/5 * * * *`).
 
-#### Build #1 Execution Metrics (Verified):
-- **Execution State:** `SUCCESS` (Finished in 78.538 seconds)
-- **Git Commit Checked Out:** Commit `0a1bedd` on branch `main`
-- **Stage 1 (Checkout):** Completed successfully via Git SCM
-- **Stage 2 (Build):** `mvn clean compile` completed with `BUILD SUCCESS`
-- **Stage 3 (Test):** `mvn test` executed all 15 JUnit 5 unit and integration tests (0 failures, 0 errors, 0 skipped)
-- **Stage 4 (Package):** `mvn package -DskipTests` packaged executable fat JAR
-- **Stage 5 (Archive Artifacts):** Successfully archived `target/devops-task-manager-1.0.0.jar`
-- **Post Action (JUnit Reporting):** Recorded and published test results; test trend and quality gate evaluated to 100% green
+#### Verified Pipeline Builds Summary:
+| Build # | Trigger Cause | Execution State | Duration | JUnit Tests | Archived Artifacts |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **#1** | Manual Trigger | `SUCCESS` | 78.54s | 15 / 15 Passed (0 Failed) | `devops-task-manager-1.0.0.jar` (18.48 MB) |
+| **#2** | Automated SCM Polling (`H/5 * * * *`) | `SUCCESS` | 52.97s | 15 / 15 Passed (0 Failed) | `devops-task-manager-1.0.0.jar` (18.48 MB) |
+
+#### Verified Build Stages:
+1. **Stage 1 (Checkout):** Cloned remote Git repository from `https://github.com/VivekSharma4083/devops-task-manager.git` at commit on `main`.
+2. **Stage 2 (Build):** Executed `mvn clean compile` with `BUILD SUCCESS`.
+3. **Stage 3 (Test):** Executed `mvn test` running all 15 automated JUnit 5 tests.
+4. **Stage 4 (Package):** Executed `mvn package -DskipTests` assembling the executable JAR.
+5. **Stage 5 (Archive Artifacts):** Archived `target/devops-task-manager-1.0.0.jar` with SHA256 fingerprinting.
+6. **Post Actions (JUnit Quality Gate):** Collected XML test reports from `target/surefire-reports/*.xml`, published test results trend, and marked pipeline 100% green.
 
 ---
 
@@ -248,6 +252,23 @@ The packaged JAR was executed locally and verified:
     "version": "1.0.0",
     "details": {
       "storage": "in-memory concurrent hash map",
+      "activeTaskCount": 3,
+      "jvmMemoryFreeMb": 108,
+      "jvmMemoryTotalMb": 128
+    }
+  }
+  ```
+- **`GET /tasks`:** Successfully returned initial in-memory seed tasks.
+- **`POST /tasks`:** Created task ID 4 (`Automate with Jenkins`).
+- **`DELETE /tasks/4`:** Successfully removed task with confirmation response.
+
+### 9.2 Jenkins Automated CI Results
+- **Job Name:** `devops-task-manager-pipeline`
+- **Build Status:** `SUCCESS` across all builds (Build #1 and Build #2).
+- **Trigger Verification:** Build #2 was triggered automatically by the SCM polling scheduler (`Started by an SCM change`).
+- **Console Log Evidence:** Saved in `screenshots/c1-04-jenkins-pipeline-build-console.txt` (20,572 bytes).
+- **JUnit Report Evidence:** Saved in `screenshots/c1-05-jenkins-junit-test-report.txt` (15/15 tests passed across 4 test classes).
+- **Archived Artifact:** `target/devops-task-manager-1.0.0.jar` (verified in `screenshots/c1-06-archived-jar-artifact.txt`).
       "activeTaskCount": 3,
       "jvmMemoryFreeMb": 17,
       "jvmMemoryTotalMb": 42

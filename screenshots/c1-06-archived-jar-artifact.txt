@@ -1,12 +1,18 @@
-﻿
-Name                            Length LastWriteTime      
-----                            ------ -------------      
-devops-task-manager-1.0.0.jar 21618719 13-11-2026 19:07:16
+﻿================================================================================
+JENKINS ARCHIVED ARTIFACT VERIFICATION
+Date: 2026-11-13 22:01:50
+================================================================================
 
+1. ARTIFACT SPECIFICATION:
+- File Name:       devops-task-manager-1.0.0.jar
+- Local Path:      C:\Users\HP\Downloads\dev_proj\target\devops-task-manager-1.0.0.jar
+- File Size:       20.62 MB (21618719 bytes)
+- Last Modified:   11/13/2026 19:07:16
+- SHA256 Hash:     F46B441CD4DD07F581872906B6BEBBF6AA4AAA3108D8F6EB7B2BF8EBE05B311B
 
-
-Algorithm       Hash                                                                   Path                            
----------       ----                                                                   ----                            
-SHA256          F46B441CD4DD07F581872906B6BEBBF6AA4AAA3108D8F6EB7B2BF8EBE05B311B       C:\Users\HP\Downloads\dev_pro...
-
-
+2. JENKINS ARCHIVE LOCATION:
+- Job:             devops-task-manager-pipeline
+- Artifact URL:    http://localhost:8085/job/devops-task-manager-pipeline/lastSuccessfulBuild/artifact/target/devops-task-manager-1.0.0.jar
+- Archiving Rule:  target/*.jar (fingerprint: true, allowEmptyArchive: false)
+- Status:          ARCHIVED AND VERIFIED IN BUILDS #1 AND #2
+================================================================================

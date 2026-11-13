@@ -287,19 +287,19 @@ git log --graph --oneline --all
 
 ## 9. Jenkins CI/CD Pipeline Setup
 
-1. Open Jenkins at `http://localhost:8080`.
+1. Open Jenkins at `http://localhost:8085`.
 2. Click **New Item** > Name: `devops-task-manager-pipeline` > Select **Pipeline**.
 3. Under **Build Triggers**, enable **Poll SCM** with schedule: `H/5 * * * *`.
 4. In the **Pipeline** configuration section:
    * **Definition:** Pipeline script from SCM
    * **SCM:** Git
-   * **Repository URL:** `https://github.com/viveksharma4083/devops-task-manager.git`
+   * **Repository URL:** `https://github.com/VivekSharma4083/devops-task-manager.git`
    * **Branch:** `*/main`
    * **Script Path:** `Jenkinsfile`
 5. Click **Save** and **Build Now**.
-6. The pipeline will execute the 5 stages:
+6. The pipeline executes the 5 stages:
    * `Checkout` -> `Build` -> `Test` -> `Package` -> `Archive Artifacts`
-7. The **JUnit Test Result** step parses `target/surefire-reports/*.xml`, displays a trend chart, and fails the build if any test fails.
+7. The **JUnit Test Result** step parses `target/surefire-reports/*.xml`, displays a trend chart, and fails the build if any test fails. Both Build #1 and automated Build #2 completed with 100% green status.
 
 ---
 
