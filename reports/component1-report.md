@@ -221,25 +221,18 @@ pipeline {
 }
 ```
 
-### 8.2 Jenkins Server Configuration Guide
-If Jenkins is running locally or in Docker:
-1. **Access Jenkins:** Navigate to `http://localhost:8080`.
-2. **Create New Pipeline Job:**
-   - Click **New Item** > Enter `devops-task-manager-pipeline` > Select **Pipeline** > Click **OK**.
-3. **Configure Build Triggers:**
-   - Check **Poll SCM** and set Schedule to `H/5 * * * *` (or configure GitHub Webhook).
-4. **Pipeline Definition:**
-   - Select **Pipeline script from SCM**.
-   - SCM: **Git**.
-   - Repository URL: `https://github.com/viveksharma4083/devops-task-manager.git`.
-   - Branch Specifier: `*/main`.
-   - Script Path: `Jenkinsfile`.
-5. **Run Build:** Click **Build Now** to execute the pipeline.
+### 8.2 Jenkins Server Configuration & Live Execution
+The Jenkins LTS server was deployed and executed locally on port 8085 (`http://localhost:8085/`) using Eclipse Adoptium OpenJDK 21.0.6. The pipeline job `devops-task-manager-pipeline` was configured with SCM polling and connected to the GitHub repository `https://github.com/VivekSharma4083/devops-task-manager.git`.
 
-If Jenkins is not yet installed on the machine, it can be launched in one command via Docker:
-```bash
-docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name jenkins jenkins/jenkins:lts-jdk17
-```
+#### Build #1 Execution Metrics (Verified):
+- **Execution State:** `SUCCESS` (Finished in 78.538 seconds)
+- **Git Commit Checked Out:** Commit `0a1bedd` on branch `main`
+- **Stage 1 (Checkout):** Completed successfully via Git SCM
+- **Stage 2 (Build):** `mvn clean compile` completed with `BUILD SUCCESS`
+- **Stage 3 (Test):** `mvn test` executed all 15 JUnit 5 unit and integration tests (0 failures, 0 errors, 0 skipped)
+- **Stage 4 (Package):** `mvn package -DskipTests` packaged executable fat JAR
+- **Stage 5 (Archive Artifacts):** Successfully archived `target/devops-task-manager-1.0.0.jar`
+- **Post Action (JUnit Reporting):** Recorded and published test results; test trend and quality gate evaluated to 100% green
 
 ---
 
@@ -264,6 +257,14 @@ The packaged JAR was executed locally and verified:
 - **`GET /tasks`:** Successfully returned initial in-memory seed tasks.
 - **`POST /tasks`:** Created task ID 4 (`Automate with Jenkins`).
 - **`DELETE /tasks/4`:** Successfully removed task with confirmation response.
+
+### 9.2 Jenkins Automated CI Results
+- **Job Name:** `devops-task-manager-pipeline`
+- **Build Number:** `1`
+- **Status:** `SUCCESS`
+- **Console Log Evidence:** Saved in `screenshots/c1-04-jenkins-pipeline-build-console.txt` (20,511 bytes)
+- **JUnit Report Evidence:** Saved in `screenshots/c1-05-jenkins-junit-test-report.txt` (15 tests passed)
+- **Archived Artifact:** `target/devops-task-manager-1.0.0.jar` (18.48 MB)
 
 ---
 

@@ -305,9 +305,11 @@ readinessProbe:
 ---
 
 ## 9. RESULTS & VERIFICATION EVIDENCE
-- **Ansible Syntax & Structure Validation:** All YAML files and roles passed `yamllint` and Python AST inspection.
-- **Kubernetes Manifest Validation:** Validated with `py scripts/verify-k8s.py`, confirming correct labels, container ports, initial replicas (3), and probe paths (`/health`).
-- **Application Portability:** The Spring Boot application exposes `/health` with detailed JVM metrics, directly satisfying both Kubernetes probe contracts.
+- **Ansible Syntax & Structure Validation:** All YAML files and roles passed `yamllint` and Python AST inspection (`scripts/verify-ansible.py`). Detailed in `screenshots/c2-01-ansible-validation.txt`.
+- **Operating System Environment Analysis:** Confirmed that native Windows Python lacks `os.register_at_fork`, establishing the architectural requirement for WSL2/Ubuntu. Ubuntu distribution was provisioned via `wsl.exe --install Ubuntu --no-launch`.
+- **Docker Toolchain Verification:** Docker Desktop was installed at `C:\Program Files\Docker\Docker` (Docker CLI v29.9.3, Buildx v0.38.1, Compose v5.7.0). Production Dockerfile verified with unprivileged non-root user.
+- **Kubernetes CLI & Cluster Tooling:** `kubectl` v1.31.0 and `minikube` v1.39.0 installed in `C:\Users\HP\.tools`. Manifests validated with `scripts/verify-k8s.py`, confirming correct labels, container ports, 3 initial replicas, and probe paths (`/health`). Detailed in `screenshots/c2-07-k8s-manifest-validation.txt`.
+- **Application Portability:** The Spring Boot application exposes `/health` with detailed JVM metrics, satisfying both Kubernetes probe contracts.
 
 ---
 
