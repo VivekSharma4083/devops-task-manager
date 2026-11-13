@@ -3,23 +3,23 @@
 
 ---
 
-### [TITLE PAGE PLACEHOLDER]
+### TITLE PAGE
 **Project Title:** DevOps Task Manager REST API — Continuous Integration & Continuous Delivery (CI/CD) Pipeline  
 **Course:** DevOps Engineering Laboratory / Capstone  
-**Student Name:** [Student Name Placeholder]  
-**Roll / Registration Number:** [Student ID Placeholder]  
-**Department:** Computer Science & Engineering / Information Technology  
+**Student Name:** Vivek Shreeranga Sharma M V  
+**Roll / Registration Number (USN):** 1MS24CY069  
+**Department:** Department of Computer Science & Engineering (Cyber Security)  
 **Academic Year:** 2026–2027  
-**Institution:** [College / University Name Placeholder]  
+**Institution:** Ramaiah Institute of Technology, Bengaluru  
 
 ---
 
-### [CERTIFICATE PLACEHOLDER]
-*This is to certify that the project entitled "DevOps Task Manager REST API — Continuous Integration & Continuous Delivery Pipeline" is a bona fide record of independent work carried out by [Student Name Placeholder] under the guidance and supervision of [Supervisor/Faculty Name Placeholder] in partial fulfillment of the requirements for the DevOps course evaluation.*
+### CERTIFICATE
+*This is to certify that the project entitled "DevOps Task Manager REST API — Continuous Integration & Continuous Delivery Pipeline" is a bona fide record of independent work carried out by **Vivek Shreeranga Sharma M V** (USN: **1MS24CY069**) under the guidance and supervision of **Prashanth Reddy, Assistant Professor**, Department of Computer Science & Engineering (Cyber Security), Ramaiah Institute of Technology, in partial fulfillment of the requirements for the DevOps course evaluation.*
 
 **Faculty Supervisor Signature:** _______________________  
 **Head of Department Signature:** _______________________  
-**Date:** [Date Placeholder]  
+**Date:** November 2026  
 
 ---
 
@@ -45,13 +45,13 @@ The development, build, and verification environment specifications are detailed
 
 | Component | Specification / Version | Role in Project |
 | :--- | :--- | :--- |
-| **Operating System** | Microsoft Windows 11 (build 26200 x64) | Host Operating System |
+| **Operating System** | Microsoft Windows 11 (build 26200 x64) | Host Workstation Operating System |
 | **Java Development Kit** | Eclipse Adoptium OpenJDK 17.0.14+7 (HotSpot 64-bit) | Application Runtime & Compiler |
 | **Build Automation** | Apache Maven 3.9.9 | Lifecycle, Dependency & Package Management |
 | **Version Control** | Git 2.53.0 / GitHub CLI 2.104.0 | Distributed SCM & Remote Repository Management |
 | **Application Framework**| Spring Boot 3.3.5 (Spring Framework 6.1.14) | Embedded Servlet & REST Controller Framework |
-| **Unit Testing Framework**| JUnit 5 (Jupiter), AssertJ, MockMvc | Test Automation & Regression Suite |
-| **CI Automation** | Jenkins Declarative Pipeline | Continuous Integration Engine |
+| **Unit Testing Framework**| JUnit 5 (Jupiter 5.10.3), AssertJ, MockMvc | Test Automation & Regression Suite |
+| **CI Automation** | Jenkins 2.580.2 LTS (JDK 21.0.6 runtime, port 8085) | Continuous Integration Pipeline Engine |
 
 ---
 
@@ -227,16 +227,16 @@ The Jenkins LTS server was deployed and executed locally on port 8085 (`http://l
 #### Verified Pipeline Builds Summary:
 | Build # | Trigger Cause | Execution State | Duration | JUnit Tests | Archived Artifacts |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **#1** | Manual Trigger | `SUCCESS` | 78.54s | 15 / 15 Passed (0 Failed) | `devops-task-manager-1.0.0.jar` (18.48 MB) |
-| **#2** | Automated SCM Polling (`H/5 * * * *`) | `SUCCESS` | 52.97s | 15 / 15 Passed (0 Failed) | `devops-task-manager-1.0.0.jar` (18.48 MB) |
+| **#1** | Manual Trigger | `SUCCESS` | 78.54s | 15 / 15 Passed (0 Failed) | `devops-task-manager-1.0.0.jar` (20.62 MiB) |
+| **#2** | Automated SCM Polling (`H/5 * * * *`) | `SUCCESS` | 52.97s | 15 / 15 Passed (0 Failed) | `devops-task-manager-1.0.0.jar` (20.62 MiB) |
 
 #### Verified Build Stages:
 1. **Stage 1 (Checkout):** Cloned remote Git repository from `https://github.com/VivekSharma4083/devops-task-manager.git` at commit on `main`.
 2. **Stage 2 (Build):** Executed `mvn clean compile` with `BUILD SUCCESS`.
 3. **Stage 3 (Test):** Executed `mvn test` running all 15 automated JUnit 5 tests.
 4. **Stage 4 (Package):** Executed `mvn package -DskipTests` assembling the executable JAR.
-5. **Stage 5 (Archive Artifacts):** Archived `target/devops-task-manager-1.0.0.jar` with SHA256 fingerprinting.
-6. **Post Actions (JUnit Quality Gate):** Collected XML test reports from `target/surefire-reports/*.xml`, published test results trend, and marked pipeline 100% green.
+5. **Stage 5 (Archive Artifacts):** Archived `target/devops-task-manager-1.0.0.jar` (20.62 MiB) with SHA256 fingerprinting.
+6. **Post Actions (JUnit Quality Gate):** Collected XML test reports from `target/surefire-reports/*.xml`, published test results trend, and evaluated pipeline quality gate to 100% green.
 
 ---
 
@@ -268,7 +268,7 @@ The packaged JAR was executed locally and verified:
 - **Trigger Verification:** Build #2 was triggered automatically by the SCM polling scheduler (`Started by an SCM change`).
 - **Console Log Evidence:** Saved in `screenshots/c1-04-jenkins-pipeline-build-console.txt` (20,572 bytes).
 - **JUnit Report Evidence:** Saved in `screenshots/c1-05-jenkins-junit-test-report.txt` (15/15 tests passed across 4 test classes).
-- **Archived Artifact:** `target/devops-task-manager-1.0.0.jar` (verified in `screenshots/c1-06-archived-jar-artifact.txt`).
+- **Archived Artifact:** `target/devops-task-manager-1.0.0.jar` (20.62 MiB, verified in `screenshots/c1-06-archived-jar-artifact.txt`).
 
 ---
 
@@ -303,7 +303,7 @@ Both live terminal logs (`.txt`) and genuine visual browser screenshots (`.png`)
 
 ### 10.2 Verifiable Terminal Logs (`screenshots/`):
 * `screenshots/c1-01-git-branch-merge.txt`: Git branch log displaying non-fast-forward merge graph.
-* `screenshots/c1-02-maven-build-success.txt`: Terminal output of `mvn clean test package` confirming `BUILD SUCCESS`.
+* `screenshots/c1-02-maven-build-success.txt`: Raw terminal output of `mvn clean test package` confirming `BUILD SUCCESS` (optional manual terminal screenshot path: `screenshots/visual/c1-02-maven-build-terminal.png`).
 * `screenshots/c1-03-rest-api-tests.txt`: Terminal JSON response bodies for `/tasks`, `/tasks/{id}`, and `/health`.
 * `screenshots/c1-04-jenkins-pipeline-build-console.txt`: Complete 20 KB raw console text of Jenkins Build #2.
 * `screenshots/c1-05-jenkins-junit-test-report.txt`: Automated JUnit test execution summary.
@@ -312,7 +312,7 @@ Both live terminal logs (`.txt`) and genuine visual browser screenshots (`.png`)
 ---
 
 ## 11. CONCLUSION
-Component 1 successfully delivers a production-grade REST API backend configured with full SCM versioning, automated testing, and CI pipeline automation. By incorporating JUnit 5 test reporting as an automated quality gate inside the Jenkinsfile, the pipeline guarantees that broken code cannot progress to artifact packaging or deployment stages.
+Component 1 successfully delivers a production-grade REST API backend configured with full SCM versioning, automated testing, and CI pipeline automation. By incorporating JUnit 5 test reporting as an automated quality gate inside the Jenkinsfile, the pipeline is engineered to fail fast upon test failures, helping ensure that defective code does not advance to artifact packaging or deployment stages.
 
 ---
 

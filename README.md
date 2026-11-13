@@ -16,8 +16,11 @@
 
 The **DevOps Task Manager API** is an academic and industry-aligned DevOps demonstration project designed to showcase the complete modern software delivery lifecycle across two core components:
 
-* **Component 1 (CI/CD Pipeline):** REST API development using Spring Boot and Java 17, Git feature-branch workflow with non-fast-forward merge history, Apache Maven build automation, Declarative Jenkins Pipeline with automated SCM polling triggers, and an automated JUnit 5 testing enhancement.
-* **Component 2 (Ansible + Docker + Kubernetes):** Infrastructure provisioning with an Ansible role (`taskmanager`) containing inventory, playbooks, variables, templates, and restart handlers; production Docker containerization using Alpine Linux and non-root execution; and Kubernetes orchestration featuring 3 initial replicas, NodePort exposure, horizontal scaling to 5 replicas and back down, and high-reliability Liveness & Readiness health probes.
+* **[Component 1 Report (CI/CD Pipeline)](reports/component1-report.md):** REST API development using Spring Boot and Java 17, Git feature-branch workflow with non-fast-forward merge history, Apache Maven build automation, Declarative Jenkins Pipeline with automated SCM polling triggers, and an automated JUnit 5 testing enhancement.
+* **[Component 2 Report (Ansible + Docker + Kubernetes)](reports/component2-report.md):** Infrastructure provisioning with an Ansible role (`taskmanager`) containing inventory, playbooks, variables, templates, and restart handlers; production Docker containerization using Alpine Linux and non-root execution; and Kubernetes orchestration featuring 3 initial replicas, NodePort exposure, manual horizontal scaling to 5 replicas and back down, and high-reliability Liveness & Readiness health probes.
+* **Evidence Archives:**
+  * **[Visual Screenshots Directory](screenshots/visual/):** High-resolution browser viewport PNG screenshots of Jenkins, GitHub, and Kubernetes health checks.
+  * **[Raw Terminal Logs Directory](screenshots/):** Verifiable text logs containing raw command outputs from live terminal runs.
 
 ---
 
@@ -423,5 +426,8 @@ All execution stages are backed by both raw terminal evidence logs (`screenshots
 ## 15. Repository Link & Credits
 
 * **Target GitHub Repository:** [https://github.com/VivekSharma4083/devops-task-manager](https://github.com/VivekSharma4083/devops-task-manager)
-* **Author:** Vivek Sharma
+* **Author:** Vivek Shreeranga Sharma M V (USN: 1MS24CY069)
+* **Department:** Department of Computer Science & Engineering (Cyber Security)
+* **Institution:** Ramaiah Institute of Technology, Bengaluru
+* **Faculty Supervisor:** Prashanth Reddy, Assistant Professor
 * **License:** MIT License

@@ -3,28 +3,28 @@
 
 ---
 
-### [TITLE PAGE PLACEHOLDER]
+### TITLE PAGE
 **Project Title:** DevOps Task Manager API — Infrastructure Automation with Ansible, Docker Containerization, and Kubernetes Orchestration  
 **Course:** DevOps Engineering Laboratory / Capstone  
-**Student Name:** [Student Name Placeholder]  
-**Roll / Registration Number:** [Student ID Placeholder]  
-**Department:** Computer Science & Engineering / Information Technology  
+**Student Name:** Vivek Shreeranga Sharma M V  
+**Roll / Registration Number (USN):** 1MS24CY069  
+**Department:** Department of Computer Science & Engineering (Cyber Security)  
 **Academic Year:** 2026–2027  
-**Institution:** [College / University Name Placeholder]  
+**Institution:** Ramaiah Institute of Technology, Bengaluru  
 
 ---
 
-### [CERTIFICATE PLACEHOLDER]
-*This is to certify that the project entitled "DevOps Task Manager API — Infrastructure Automation with Ansible, Docker Containerization, and Kubernetes Orchestration" is a bona fide record of independent work carried out by [Student Name Placeholder] under the guidance and supervision of [Supervisor/Faculty Name Placeholder] in partial fulfillment of the requirements for the DevOps course evaluation.*
+### CERTIFICATE
+*This is to certify that the project entitled "DevOps Task Manager API — Infrastructure Automation with Ansible, Docker Containerization, and Kubernetes Orchestration" is a bona fide record of independent work carried out by **Vivek Shreeranga Sharma M V** (USN: **1MS24CY069**) under the guidance and supervision of **Prashanth Reddy, Assistant Professor**, Department of Computer Science & Engineering (Cyber Security), Ramaiah Institute of Technology, in partial fulfillment of the requirements for the DevOps course evaluation.*
 
 **Faculty Supervisor Signature:** _______________________  
 **Head of Department Signature:** _______________________  
-**Date:** [Date Placeholder]  
+**Date:** November 2026  
 
 ---
 
 ## 1. ABSTRACT
-Component 2 addresses the automated configuration, containerization, and orchestration stages of the DevOps lifecycle using the **DevOps Task Manager API** developed in Component 1. Infrastructure as Code (IaC) is implemented using an **Ansible role** (`taskmanager`) containing modular tasks, handlers, variables, and Jinja2 templates to provision Java runtimes and manage the application as a systemd service. The service is containerized using a hardened, multi-stage **Docker** image running as an unprivileged non-root user atop Alpine Linux. Orchestration is achieved using **Kubernetes**, deploying an initial cluster of 3 replicas managed by a NodePort Service. The report demonstrates dynamic horizontal pod autoscaling (scaling to 5 replicas and back down to 3). As a core deployment enhancement, **Kubernetes Liveness and Readiness Probes** are integrated and analyzed in depth to guarantee self-healing zero-downtime operations.
+Component 2 addresses the automated configuration, containerization, and orchestration stages of the DevOps lifecycle using the **DevOps Task Manager API** developed in Component 1. Infrastructure as Code (IaC) is implemented using an **Ansible role** (`taskmanager`) containing modular tasks, handlers, variables, and Jinja2 templates to provision Java runtimes and manage the application as a systemd service. The service is containerized using a hardened, single-stage **Docker** runtime image running as an unprivileged non-root user atop Alpine Linux. Orchestration is achieved using **Kubernetes**, deploying an initial cluster of 3 replicas managed by a NodePort Service. The report demonstrates manual horizontal pod scaling (scaling from 3 to 5 replicas and scaling back down to 3). As a core deployment enhancement, **Kubernetes Liveness and Readiness Probes** are integrated and analyzed to facilitate automated container health monitoring and self-healing restarts.
 
 ---
 
@@ -35,7 +35,7 @@ Manual server configuration leads to configuration drift and inconsistent deploy
 To solve these industry challenges, Component 2 implements three foundational pillars:
 1. **Configuration Management:** Using Ansible to declaratively define target server configuration and application lifecycle.
 2. **Containerization:** Packaging the application and its runtime dependencies into a lightweight, isolated Docker container image.
-3. **Container Orchestration:** Deploying, scaling, and managing the container workload using Kubernetes with automated health self-healing.
+3. **Container Orchestration:** Deploying, scaling, and managing the container workload using Kubernetes with automated health monitoring.
 
 ---
 
@@ -44,12 +44,12 @@ To solve these industry challenges, Component 2 implements three foundational pi
 | Environment Component | Specification | Description / Technical Details |
 | :--- | :--- | :--- |
 | **Host Operating System** | Microsoft Windows 11 (build 26200 x64) | Host Workstation Development Environment |
-| **Target OS for Ansible** | Ubuntu 22.04 LTS / Debian Linux (or WSL) | Target Managed Node with systemd support |
-| **Ansible Core Engine** | Ansible-core 2.22.0 / Python 3.14 | Configuration Management Engine |
-| **Container Engine** | Docker Engine / Docker Desktop | Container Runtime & Image Builder |
+| **Target OS for Ansible** | Ubuntu 26.04 LTS (WSL2 with systemd) | Target Managed Node running systemd |
+| **Ansible Core Engine** | Ansible-core 2.20.1 / Python 3.14.4 | Configuration Management Engine (executed in WSL2) |
+| **Container Engine** | Docker Desktop 4.99.0 (Engine 29.9.3, containerd 2.4.2) | Container Runtime & Image Builder |
 | **Base Image** | `eclipse-temurin:17-jre-alpine` | Minimal unprivileged Java 17 runtime base |
-| **Kubernetes Cluster** | Minikube / Kind (Kubernetes v1.28+) | Local Single/Multi-node Kubernetes Cluster |
-| **Cluster Management** | `kubectl` CLI | Declarative manifest application & scaling |
+| **Kubernetes Cluster** | Minikube v1.37.0 (Kubernetes Server v1.37.0) | Local Single-node Kubernetes Cluster |
+| **Cluster Management** | `kubectl` CLI (Client v1.31.0) | Declarative manifest application & scaling |
 
 ---
 
@@ -208,8 +208,8 @@ Full terminal log is preserved in `screenshots/c2-01-ansible-execution-wsl.txt`.
 ## 5. DOCKER CONTAINERIZATION
 
 ### 5.1 Dockerfile Architecture
-The `Dockerfile` is engineered according to container security and image optimization best practices:
-1. **Lightweight Base Image:** Utilizes `eclipse-temurin:17-jre-alpine`, reducing the image footprint from >500 MB (standard Ubuntu JDK) to ~160 MB.
+The `Dockerfile` is engineered as a single-stage, optimized runtime container according to container security and image optimization best practices:
+1. **Lightweight Single-Stage Runtime Base:** Utilizes `eclipse-temurin:17-jre-alpine`, copying the pre-compiled executable fat JAR directly from `target/devops-task-manager-1.0.0.jar`, reducing the final image footprint from >500 MB (standard Ubuntu JDK) to ~228 MB.
 2. **Non-Root Execution:** A dedicated unprivileged system user `appuser` (group `appgroup`) is created. The container runs with `USER appuser` to mitigate container breakout vulnerabilities.
 3. **Predictable Port & JVM Options:** Exposes port `8080` and sets optimized container memory flags (`-Xms128m -Xmx256m -XX:+UseG1GC`).
 4. **Built-in Healthcheck:** Includes a container-level `HEALTHCHECK` pointing to `/health`.
@@ -239,13 +239,13 @@ ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dserver.port=$SERVER_PORT -jar /app/ap
 # Build the Docker image
 docker build -t devops-task-manager:1.0.0 .
 
-# Run the container in detached mode
-docker run -d --name taskmanager-app -p 8080:8080 devops-task-manager:1.0.0
+# Run the container in detached mode (host port 8082 mapped to container port 8080)
+docker run -d --name taskmanager-app -p 8082:8080 devops-task-manager:1.0.0
 
 # Verify container status and health
-docker ps
-curl http://localhost:8080/health
-curl http://localhost:8080/tasks
+docker ps --filter "name=taskmanager-app"
+curl http://localhost:8082/health
+curl http://localhost:8082/tasks
 ```
 
 ---
@@ -310,7 +310,7 @@ taskmanager-7fcd6ddf9f-w79rk   1/1     Running   0          24m   10.244.0.4   m
 ```
 
 ### 7.2 Scaling Up (3 to 5 Replicas)
-Kubernetes facilitates declarative horizontal pod autoscaling. To accommodate sudden traffic spikes:
+Kubernetes enables manual horizontal pod scaling via the `kubectl scale` command to adapt to increased traffic demand:
 ```bash
 # Scale deployment to 5 replicas
 kubectl scale deployment taskmanager --replicas=5
@@ -348,7 +348,7 @@ taskmanager-7fcd6ddf9f-s8rdk   1/1     Running       0          24m   10.244.0.5
 taskmanager-7fcd6ddf9f-w79rk   1/1     Running       0          24m   10.244.0.4    minikube   <none>           <none>
 taskmanager-7fcd6ddf9f-zzvjh   0/1     Terminating   0          18s   10.244.0.11   minikube   <none>           <none>
 ```
-Kubernetes gracefully terminates 2 pods using `SIGTERM`, allowing active HTTP connections to complete before removing the endpoints. All 3 remaining pods continue serving traffic uninterrupted. Full evidence log is preserved in `screenshots/c2-04-k8s-scaling-evidence.txt`.
+Kubernetes terminates the 2 excess pods using `SIGTERM`, while the 3 baseline pods continue running uninterrupted. Full evidence log is preserved in `screenshots/c2-04-k8s-scaling-evidence.txt`.
 
 ---
 
@@ -361,7 +361,7 @@ A **Liveness Probe** determines whether an application inside a container is ali
 
 ### 8.2 What is a Readiness Probe?
 A **Readiness Probe** determines whether a container is ready to accept and process network traffic.
-- **Kubelet Action:** Unlike liveness probes, a readiness probe failure **never kills or restarts the container**. Instead, Kubernetes removes the pod's IP address from the endpoints of all matching Services. Traffic is only routed to pods where the readiness probe returns HTTP 200.
+- **Kubelet Action:** Unlike liveness probes, a readiness probe failure does not kill or restart the container. Instead, Kubernetes removes the pod's IP address from the endpoints of all matching Services. Traffic is only routed to pods where the readiness probe returns HTTP 200.
 - **Failure Scenario Addressed:** Heavy startup initialization (e.g., Spring context loading, warming caches, establishing database pools). During this warm-up window, clients do not receive `502 Bad Gateway` or connection refused errors.
 
 ### 8.3 Probe Configuration in `deployment.yaml`
@@ -386,19 +386,19 @@ readinessProbe:
   successThreshold: 1        # Restored to service after 1 successful check
 ```
 
-### 8.4 Why Probes Improve Application Reliability
-1. **Zero-Downtime Rolling Updates:** During rolling deployments (`RollingUpdate`), the old pods remain active until the new pods pass their readiness checks.
-2. **Automatic Self-Healing:** Crashed or locked JVM instances are automatically detected and replaced without human operator intervention.
-3. **Traffic Isolation:** Temporarily overwhelmed or garbage-collecting pods are isolated from the load balancer until they recover, preserving user-perceived SLA.
+### 8.4 Theoretical Benefits of Health Probes in Production
+1. **Designed for Disruption-Free Rolling Updates:** During rolling deployments (`RollingUpdate`), old pods can remain active until new pods pass their readiness checks.
+2. **Automated Failure Detection & Restart:** Crashed or locked JVM instances can be detected by the Kubelet and restarted automatically according to the pod restart policy.
+3. **Traffic Isolation:** Temporarily overwhelmed or initializing pods are isolated from the load balancer until they recover, helping preserve application availability.
 
 ---
 
 ## 9. RESULTS & VERIFICATION EVIDENCE
 - **Ansible Automated Provisioning & Systemd Service Execution:** Executed `ansible-playbook -i inventory playbook.yml -v` inside Ubuntu on WSL2 against local node. All 14 tasks succeeded (`ok=14, changed=8, unreachable=0, failed=0`). Provisioned `taskmanager` system user/group, directories (`/opt/taskmanager`), deployed JAR, templated `application.properties` and `taskmanager.service`. Systemd service is running actively (`Active: active (running)`) and health endpoint returned HTTP 200 with JSON payload. Preserved in `screenshots/c2-01-ansible-execution-wsl.txt`.
-- **Docker Container Build & Healthcheck:** Built production image `devops-task-manager:1.0.0` (228 MB) from `Dockerfile` based on `eclipse-temurin:17-jre-alpine` running as unprivileged `appuser`. Ran container `taskmanager-app` with port mapping `8082:8080`. Container evaluated to `Up (healthy)`. Verified `GET /health` and `GET /tasks` returning HTTP 200. Preserved in `screenshots/c2-02-docker-build-and-run.txt`.
+- **Docker Container Build & Healthcheck:** Built production image `devops-task-manager:1.0.0` (228 MB) from single-stage `Dockerfile` based on `eclipse-temurin:17-jre-alpine` running as unprivileged `appuser`. Ran container `taskmanager-app` with port mapping `8082:8080`. Container evaluated to `Up (healthy)`. Verified `GET /health` and `GET /tasks` returning HTTP 200. Preserved in `screenshots/c2-02-docker-build-and-run.txt`.
 - **Kubernetes Deployment & NodePort Service:** Deployed on Minikube Kubernetes v1.37.0 cluster using `kubernetes/deployment.yaml` and `kubernetes/service.yaml`. Initial state: 3 pods running in `default` namespace. NodePort service exposed at port `30080`. Querying `http://localhost:30080/health` and `http://localhost:30080/tasks` returned HTTP 200 with runtime metrics. Preserved in `screenshots/c2-03-k8s-deployment-and-service.txt`.
-- **Scaling Demonstration (3 -> 5 -> 3 Replicas):** Scaled deployment to 5 replicas (`kubectl scale deployment taskmanager --replicas=5`). Verified all 5 pods in `1/1 Running` state. Scaled back down to 3 replicas (`kubectl scale deployment taskmanager --replicas=3`), demonstrating graceful termination of excess pods without downtime. Preserved in `screenshots/c2-04-k8s-scaling-evidence.txt`.
-- **Deployment Enhancement (Probes):** Verified Liveness (`/health`, delay 20s, period 10s) and Readiness (`/health`, delay 15s, period 5s) probes actively monitoring container health. Preserved in `screenshots/c2-04-k8s-scaling-evidence.txt`.
+- **Scaling Demonstration (3 -> 5 -> 3 Replicas):** Scaled deployment manually to 5 replicas (`kubectl scale deployment taskmanager --replicas=5`). Verified all 5 pods in `1/1 Running` state. Scaled back down to 3 replicas (`kubectl scale deployment taskmanager --replicas=3`), demonstrating termination of excess pods. Preserved in `screenshots/c2-04-k8s-scaling-evidence.txt`.
+- **Deployment Enhancement (Probes):** Verified Liveness (`/health`, delay 20s, period 10s) and Readiness (`/health`, delay 15s, period 5s) probes actively configured and monitoring container health. Preserved in `screenshots/c2-04-k8s-scaling-evidence.txt`.
 
 ---
 
@@ -416,17 +416,17 @@ Both live terminal logs (`.txt`) and visual browser screenshots (`.png`) in `scr
   *Description:* Browser output querying the Spring Boot microservice health endpoint returning status `UP`.
 
 ### 10.2 Verifiable Terminal Logs (`screenshots/`):
-* `screenshots/c2-01-ansible-execution-wsl.txt`: Full raw Ansible playbook execution log in Ubuntu WSL2 showing `PLAY RECAP` with 14 tasks (`ok=14, changed=8, failed=0`).
-* `screenshots/c2-02-docker-build-and-run.txt`: Docker image inspect, container execution, logs, and Docker container healthcheck verification.
-* `screenshots/c2-03-k8s-deployment-and-service.txt`: Kubernetes cluster nodes, deployment (3 replicas), NodePort service (30080), and running pods.
-* `screenshots/c2-04-k8s-scaling-evidence.txt`: Scaling demonstration terminal output (3 to 5 replicas, and 5 back down to 3 replicas) and `kubectl describe deployment taskmanager` showing Liveness and Readiness probes.
+* `screenshots/c2-01-ansible-execution-wsl.txt`: Full raw Ansible playbook execution log in Ubuntu WSL2 showing `PLAY RECAP` with 14 tasks (`ok=14, changed=8, failed=0`). (Optional manual desktop terminal screenshot path: `screenshots/visual/c2-01-ansible-wsl-terminal.png`).
+* `screenshots/c2-02-docker-build-and-run.txt`: Docker image inspect, container execution, logs, and Docker container healthcheck verification. (Optional manual desktop terminal screenshot path: `screenshots/visual/c2-02-docker-ps-terminal.png`).
+* `screenshots/c2-03-k8s-deployment-and-service.txt`: Kubernetes cluster nodes, deployment (3 replicas), NodePort service (30080), and running pods. (Optional manual desktop terminal screenshot path: `screenshots/visual/c2-03-k8s-3pods-service-terminal.png`).
+* `screenshots/c2-04-k8s-scaling-evidence.txt`: Scaling demonstration terminal output (3 to 5 replicas, and 5 back down to 3 replicas) and `kubectl describe deployment taskmanager` showing Liveness and Readiness probes. (Optional manual desktop terminal screenshot paths: `screenshots/visual/c2-04-k8s-scale5-terminal.png`, `screenshots/visual/c2-04-k8s-scale3-terminal.png`).
 * `screenshots/c2-01-ansible-validation.txt`: Automated structural validation of Ansible role, tasks, and handlers.
 * `screenshots/c2-07-k8s-manifest-validation.txt`: Automated validation of Kubernetes YAML schema and probe definitions.
 
 ---
 
 ## 11. CONCLUSION
-Component 2 successfully demonstrates an end-to-end modern deployment lifecycle. Infrastructure provisioning is standardized using an Ansible role, the Java application is encapsulated in a lightweight unprivileged Alpine container, and Kubernetes provides elastic horizontal scaling and automated health recovery through liveness and readiness probes.
+Component 2 demonstrates an end-to-end modern deployment lifecycle. Infrastructure provisioning is standardized using an Ansible role, the Java application is encapsulated in a lightweight unprivileged Alpine container, and Kubernetes provides manual horizontal scaling (demonstrated by scaling from 3 to 5 replicas and back down to 3) alongside automated container health monitoring through liveness and readiness probes.
 
 ---
 
@@ -434,4 +434,4 @@ Component 2 successfully demonstrates an end-to-end modern deployment lifecycle.
 1. Ansible Documentation: *Roles, Handlers, and Playbook Architecture* (https://docs.ansible.com/)
 2. Docker Documentation: *Best Practices for Writing Dockerfiles* (https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 3. Kubernetes Documentation: *Configure Liveness, Readiness and Startup Probes* (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-4. Kubernetes Documentation: *Deployments and Horizontal Pod Autoscaling* (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+4. Kubernetes Documentation: *Deployments and Scaling Workloads* (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
