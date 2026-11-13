@@ -1,0 +1,10 @@
+# DevOps Task Manager API - GitHub Repository Link
+# Configured Remote / Target URL:
+https://github.com/viveksharma4083/devops-task-manager
+
+# Status:
+# Local Git repository initialized with main and feature/api-endpoints branches and merge history.
+# Run 'gh auth login' in your terminal and authorize via browser, then push:
+#   git remote add origin https://github.com/viveksharma4083/devops-task-manager.git
+#   git push -u origin main
+#   git push origin feature/api-endpoints
