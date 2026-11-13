@@ -5,7 +5,7 @@
 
 - name: Provision and Deploy DevOps Task Manager API
   hosts: taskmanager_servers
-  become: yes
+  become: true
   vars:
     # Port variable definition (can be overridden with -e "app_port=8081")
     app_port: 8080
@@ -14,7 +14,7 @@
   pre_tasks:
     - name: Display pre-deployment notice
       ansible.builtin.debug:
-        msg: "Beginning provisioning for {{ app_name }} on {{ inventory_hostname }} on port {{ app_port }}"
+        msg: "Provisioning {{ app_name }} on {{ inventory_hostname }} (port {{ app_port }})"
 
   roles:
     - role: taskmanager

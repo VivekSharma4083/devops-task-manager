@@ -7,7 +7,7 @@
   ansible.builtin.apt:
     name: "{{ java_package }}"
     state: present
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == 'Debian'
 
 - name: Install Java 17 Runtime Environment on RedHat family
@@ -19,16 +19,16 @@
 - name: Create dedicated system group for taskmanager
   ansible.builtin.group:
     name: "{{ app_group }}"
-    system: yes
+    system: true
     state: present
 
 - name: Create dedicated system user for taskmanager
   ansible.builtin.user:
     name: "{{ app_user }}"
     group: "{{ app_group }}"
-    system: yes
+    system: true
     shell: /sbin/nologin
-    create_home: no
+    create_home: false
     comment: "DevOps Task Manager Service User"
     state: present
 
@@ -77,9 +77,9 @@
 - name: Enable and ensure taskmanager systemd service is started
   ansible.builtin.systemd:
     name: "{{ service_name }}"
-    enabled: yes
+    enabled: true
     state: started
-    daemon_reload: yes
+    daemon_reload: true
 
 - name: Wait for Task Manager REST API health check endpoint to respond
   ansible.builtin.uri:
