@@ -683,18 +683,62 @@ Before containerization, the packaged JAR was executed on the host workstation a
 - **`GET /tasks/4`** returned the newly created task entity.
 - **`DELETE /tasks/4`** returned HTTP 200 with confirmation message.
 
-### 9.2 Jenkins CI Results & Screenshots Reference
-Table 1.4 maps the visual screenshots and verifiable logs preserved in the project directory:
+### 9.2 Visual Verification Screenshots & Evidence Figures
+
+The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:
+
+#### Figure 1.1: GitHub Repository Overview on Main Branch
+![Figure 1.1: GitHub Repository Overview](screenshots/c1-01-github-repository-main.png)
+*Figure 1.1: Web browser view of the public GitHub repository (`https://github.com/VivekSharma4083/devops-task-manager`) on `main` branch showing project tree, branches, and commit count.*
+
+#### Figure 1.2: Git Branch & Merge History on GitHub
+![Figure 1.2: Git Branch & Merge History](screenshots/c1-01-github-commits-history.png)
+*Figure 1.2: Web browser view of the Git commit history showing feature commits and non-fast-forward merge commit `27ba223`.*
+
+#### Figure 1.3: Git Branch & Non-Fast-Forward Merge Terminal
+![Figure 1.3: Git Branch & Non-Fast-Forward Merge Terminal](screenshots/c1-01-git-branch-merge-terminal.png)
+*Figure 1.3: Terminal log displaying git branch topology and explicit merge commit integrating `feature/api-endpoints` into `main`.*
+
+#### Figure 1.4: Maven Build & Unit Test Success Terminal
+![Figure 1.4: Maven Build & Unit Test Success Terminal](screenshots/c1-02-maven-build-terminal.png)
+*Figure 1.4: Terminal output of `mvn clean test package` confirming 15 passing tests, fat JAR packaging, and BUILD SUCCESS.*
+
+#### Figure 1.5: REST API Local Verification Terminal
+![Figure 1.5: REST API Local Verification Terminal](screenshots/c1-03-rest-api-tests-terminal.png)
+*Figure 1.5: Terminal execution of cURL verifying HTTP 200 on `/health`, retrieval of seed tasks, and validation handling.*
+
+#### Figure 1.6: Jenkins Pipeline Dashboard
+![Figure 1.6: Jenkins Pipeline Dashboard](screenshots/c1-04-jenkins-dashboard.png)
+*Figure 1.6: Jenkins home dashboard showing `devops-task-manager-pipeline` with green checkmark status and Build #2 execution duration (52 sec).*
+
+#### Figure 1.7: Jenkins Pipeline Stage View & Test Trend
+![Figure 1.7: Jenkins Pipeline Stage View & Test Trend](screenshots/c1-04-jenkins-pipeline-stageview.png)
+*Figure 1.7: Jenkins Stage View displaying 5 green pipeline stages (Checkout, Build, Test, Package, Archive) and test trend.*
+
+#### Figure 1.8: Jenkins Interactive JUnit 5 Test Report
+![Figure 1.8: Jenkins Interactive JUnit 5 Test Report](screenshots/c1-05-jenkins-junit-test-report.png)
+*Figure 1.8: Interactive Jenkins test result report displaying "All tests are passing! (15/15 tests passing)" with zero failures.*
+
+#### Figure 1.9: Jenkins Archived Fat JAR Artifact
+![Figure 1.9: Jenkins Archived Fat JAR Artifact](screenshots/c1-06-jenkins-archived-artifact.png)
+*Figure 1.9: Build #2 detail view confirming archived artifact `devops-task-manager-1.0.0.jar` (20.62 MiB), SCM polling cause, and commit revision.*
+
+---
+
+### 9.3 Verification Summary Matrix
 
 #### Table 1.4: Component 1 Verification Evidence
 | Evidence Item | File Reference | Description / Verification Detail |
 | :--- | :--- | :--- |
 | **Figure 1.1** | `screenshots/c1-01-github-repository-main.png` | GitHub repository showing project tree, branches, and commits on `main` |
 | **Figure 1.2** | `screenshots/c1-01-github-commits-history.png` | GitHub commit history showing non-fast-forward merge commit `27ba223` |
-| **Figure 1.3** | `screenshots/c1-04-jenkins-dashboard.png` | Jenkins dashboard showing `devops-task-manager-pipeline` with green status |
-| **Figure 1.4** | `screenshots/c1-04-jenkins-pipeline-stageview.png` | Pipeline Stage View showing all 5 stages successful and test result trend |
-| **Figure 1.5** | `screenshots/c1-05-jenkins-junit-test-report.png` | Interactive Jenkins JUnit report: "All tests are passing! (15/15)" |
-| **Figure 1.6** | `screenshots/c1-06-jenkins-archived-artifact.png` | Build #2 details showing archived `devops-task-manager-1.0.0.jar` (20.62 MiB) |
+| **Figure 1.3** | `screenshots/c1-01-git-branch-merge-terminal.png` | Terminal view of Git commit graph and branch list |
+| **Figure 1.4** | `screenshots/c1-02-maven-build-terminal.png` | Terminal view of `mvn clean test package` execution |
+| **Figure 1.5** | `screenshots/c1-03-rest-api-tests-terminal.png` | Terminal view of cURL REST API tests |
+| **Figure 1.6** | `screenshots/c1-04-jenkins-dashboard.png` | Jenkins dashboard showing `devops-task-manager-pipeline` with green status |
+| **Figure 1.7** | `screenshots/c1-04-jenkins-pipeline-stageview.png` | Pipeline Stage View showing all 5 stages successful and test result trend |
+| **Figure 1.8** | `screenshots/c1-05-jenkins-junit-test-report.png` | Interactive Jenkins JUnit report: "All tests are passing! (15/15)" |
+| **Figure 1.9** | `screenshots/c1-06-jenkins-archived-artifact.png` | Build #2 details showing archived `devops-task-manager-1.0.0.jar` (20.62 MiB) |
 | **Log 1.1** | `screenshots/c1-01-git-branch-merge.txt` | Raw Git branch and non-fast-forward merge log |
 | **Log 1.2** | `screenshots/c1-02-maven-build-success.txt` | Terminal output of `mvn clean test package` (`BUILD SUCCESS` in 71s) |
 | **Log 1.3** | `screenshots/c1-03-rest-api-tests.txt` | Live terminal JSON responses for API endpoints |

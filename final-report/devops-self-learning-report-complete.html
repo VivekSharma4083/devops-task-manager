@@ -121,14 +121,33 @@
     color: #0369a1;
   }
   img {
-    max-width: 95%;
-    height: auto;
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
     display: block;
-    margin: 1em auto 0.5em auto;
+    margin: 1em auto 0.4em auto;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
     page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
   }
   .page-break {
     page-break-before: always;
@@ -719,6 +738,28 @@ git merge --no-ff feature/api-endpoints -m &quot;Merge branch &#39;feature/api-e
 <p>In executing Component 1, I designed the RESTful architecture of the <strong>DevOps Task Manager API</strong>, separating concerns across controllers, services, DTOs, and global exception mappers. I initialized Git version control, configured <code>.gitignore</code>, and established a dedicated feature branch named <code>feature/api-endpoints</code>. In this branch, I developed the API, input validation, and unit tests. After local validation, I performed a non-fast-forward merge (<code>git merge --no-ff</code>) into <code>main</code>, creating merge commit <code>27ba223</code>, and pushed to GitHub.</p>
 <p>I configured Apache Maven 3.9.9 (<code>pom.xml</code>) for Java 17 bytecode, using <code>spring-boot-maven-plugin</code> and <code>maven-surefire-plugin</code>. I then deployed Jenkins 2.580.2 LTS on port 8085 and defined a 5-stage declarative pipeline with automated SCM polling (<code>H/5 * * * *</code>). When an executor disk space threshold paused execution, I resolved it by clearing installer temporary files and bringing the node online. Both Build #1 and Build #2 executed successfully, validating all 15 JUnit tests and archiving the 20.62 MiB fat JAR artifact.</p>
 <h2>9. RESULTS &amp; VERIFICATION EVIDENCE (COMPONENT 1)</h2>
+<h3>Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 1.1: GitHub Repository Overview on Main Branch</h4>
+<p><img src="screenshots/c1-01-github-repository-main.png" alt="Figure 1.1: GitHub Repository Overview"><br><em>Figure 1.1: Web browser view of the public GitHub repository (<code>https://github.com/VivekSharma4083/devops-task-manager</code>) on <code>main</code> branch showing project tree, branches, and commit count.</em></p>
+<h4>Figure 1.2: Git Branch &amp; Merge History on GitHub</h4>
+<p><img src="screenshots/c1-01-github-commits-history.png" alt="Figure 1.2: Git Branch &amp; Merge History"><br><em>Figure 1.2: Web browser view of the Git commit history showing feature commits and non-fast-forward merge commit <code>27ba223</code>.</em></p>
+<h4>Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal</h4>
+<p><img src="screenshots/c1-01-git-branch-merge-terminal.png" alt="Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal"><br><em>Figure 1.3: Terminal log displaying git branch topology and explicit merge commit integrating <code>feature/api-endpoints</code> into <code>main</code>.</em></p>
+<h4>Figure 1.4: Maven Build &amp; Unit Test Success Terminal</h4>
+<p><img src="screenshots/c1-02-maven-build-terminal.png" alt="Figure 1.4: Maven Build &amp; Unit Test Success Terminal"><br><em>Figure 1.4: Terminal output of <code>mvn clean test package</code> confirming 15 passing tests, fat JAR packaging, and BUILD SUCCESS.</em></p>
+<h4>Figure 1.5: REST API Local Verification Terminal</h4>
+<p><img src="screenshots/c1-03-rest-api-tests-terminal.png" alt="Figure 1.5: REST API Local Verification Terminal"><br><em>Figure 1.5: Terminal execution of cURL verifying HTTP 200 on <code>/health</code>, retrieval of seed tasks, and validation handling.</em></p>
+<h4>Figure 1.6: Jenkins Pipeline Dashboard</h4>
+<p><img src="screenshots/c1-04-jenkins-dashboard.png" alt="Figure 1.6: Jenkins Pipeline Dashboard"><br><em>Figure 1.6: Jenkins home dashboard showing <code>devops-task-manager-pipeline</code> with green checkmark status and Build #2 execution duration (52 sec).</em></p>
+<h4>Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend</h4>
+<p><img src="screenshots/c1-04-jenkins-pipeline-stageview.png" alt="Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend"><br><em>Figure 1.7: Jenkins Stage View displaying 5 green pipeline stages (Checkout, Build, Test, Package, Archive) and test trend.</em></p>
+<h4>Figure 1.8: Jenkins Interactive JUnit 5 Test Report</h4>
+<p><img src="screenshots/c1-05-jenkins-junit-test-report.png" alt="Figure 1.8: Jenkins Interactive JUnit 5 Test Report"><br><em>Figure 1.8: Interactive Jenkins test result report displaying &quot;All tests are passing! (15/15 tests passing)&quot; with zero failures.</em></p>
+<h4>Figure 1.9: Jenkins Archived Fat JAR Artifact</h4>
+<p><img src="screenshots/c1-06-jenkins-archived-artifact.png" alt="Figure 1.9: Jenkins Archived Fat JAR Artifact"><br><em>Figure 1.9: Build #2 detail view confirming archived artifact <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB), SCM polling cause, and commit revision.</em></p>
+<hr>
+<h3>Verification Summary Matrix</h3>
 <h4>Table 1.4: Component 1 Verification Evidence</h4>
 <table>
 <thead>
@@ -740,21 +781,36 @@ git merge --no-ff feature/api-endpoints -m &quot;Merge branch &#39;feature/api-e
 </tr>
 <tr>
 <td align="left"><strong>Figure 1.3</strong></td>
+<td align="left"><code>screenshots/c1-01-git-branch-merge-terminal.png</code></td>
+<td align="left">Terminal view of Git commit graph and branch list</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.4</strong></td>
+<td align="left"><code>screenshots/c1-02-maven-build-terminal.png</code></td>
+<td align="left">Terminal view of <code>mvn clean test package</code> execution</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.5</strong></td>
+<td align="left"><code>screenshots/c1-03-rest-api-tests-terminal.png</code></td>
+<td align="left">Terminal view of cURL REST API tests</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.6</strong></td>
 <td align="left"><code>screenshots/c1-04-jenkins-dashboard.png</code></td>
 <td align="left">Jenkins dashboard showing <code>devops-task-manager-pipeline</code> with green status</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 1.4</strong></td>
+<td align="left"><strong>Figure 1.7</strong></td>
 <td align="left"><code>screenshots/c1-04-jenkins-pipeline-stageview.png</code></td>
 <td align="left">Pipeline Stage View showing all 5 stages successful and test result trend</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 1.5</strong></td>
+<td align="left"><strong>Figure 1.8</strong></td>
 <td align="left"><code>screenshots/c1-05-jenkins-junit-test-report.png</code></td>
 <td align="left">Interactive Jenkins JUnit report: &quot;All tests are passing! (15/15)&quot;</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 1.6</strong></td>
+<td align="left"><strong>Figure 1.9</strong></td>
 <td align="left"><code>screenshots/c1-06-jenkins-archived-artifact.png</code></td>
 <td align="left">Build #2 details showing archived <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
 </tr>
@@ -1132,6 +1188,28 @@ Observed Kubernetes send <code>SIGTERM</code> signals to 2 excess pods, graceful
 <p>In executing Component 2, I implemented infrastructure automation, container packaging, and cluster orchestration. I authored the Ansible role <code>taskmanager</code>, structuring tasks, handlers, variables, and templates. Because native Windows lacks POSIX systemd controls, I ran the playbook in Ubuntu 26.04 on WSL2, verifying that 14 tasks executed successfully (<code>ok=14, changed=8, failed=0</code>) and the systemd service started cleanly.</p>
 <p>I then built the <code>Dockerfile</code> using <code>eclipse-temurin:17-jre-alpine</code> with an unprivileged non-root user <code>appuser</code> and container healthcheck, producing a 228 MB image. I deployed the application to Minikube using declarative manifests with 3 initial replicas. I demonstrated manual horizontal scaling to 5 replicas and scaling back down to 3 replicas, observing graceful pod termination. I verified that the NodePort service forwarded traffic to healthy pods and confirmed that Liveness and Readiness probes actively monitored container health.</p>
 <h2>10. RESULTS &amp; VERIFICATION EVIDENCE (COMPONENT 2)</h2>
+<h3>Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2</h4>
+<p><img src="screenshots/c2-01-ansible-wsl-terminal.png" alt="Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2"><br><em>Figure 2.1: Terminal view of <code>ansible-playbook -i inventory playbook.yml -v</code> executed in Ubuntu 26.04 on WSL2 showing PLAY RECAP (ok=14, changed=8, failed=0).</em></p>
+<h4>Figure 2.2: Systemd Service Unit Active State</h4>
+<p><img src="screenshots/c2-01-systemd-status-terminal.png" alt="Figure 2.2: Systemd Service Unit Active State"><br><em>Figure 2.2: Terminal output of <code>systemctl status taskmanager.service</code> confirming active (running) state and process metadata.</em></p>
+<h4>Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal</h4>
+<p><img src="screenshots/c2-02-docker-terminal.png" alt="Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal"><br><em>Figure 2.3: Docker CLI output showing container running in healthy state on port 8082:8080 and image size of 228MB.</em></p>
+<h4>Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal</h4>
+<p><img src="screenshots/c2-03-k8s-3pods-terminal.png" alt="Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal"><br><em>Figure 2.4: Kubernetes deployment with 3 running pods and NodePort service on port 30080.</em></p>
+<h4>Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale5-terminal.png" alt="Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal"><br><em>Figure 2.5: Terminal output demonstrating manual horizontal scaling to 5 running replicas via <code>kubectl scale</code>.</em></p>
+<h4>Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale3-terminal.png" alt="Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal"><br><em>Figure 2.6: Terminal output demonstrating graceful SIGTERM termination of 2 excess pods back down to baseline 3 replicas.</em></p>
+<h4>Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection</h4>
+<p><img src="screenshots/c2-04-k8s-probes-terminal.png" alt="Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection"><br><em>Figure 2.7: Terminal output of <code>kubectl describe deployment taskmanager</code> highlighting probe configurations on <code>/health</code>.</em></p>
+<h4>Figure 2.8: Kubernetes Service Health Response in Web Browser</h4>
+<p><img src="screenshots/c2-05-k8s-service-health-browser.png" alt="Figure 2.8: Kubernetes Service Health Response in Web Browser"><br><em>Figure 2.8: Web browser view querying <code>/health</code> through the Kubernetes NodePort service forwarding, returning status UP.</em></p>
+<h4>Figure 2.9: Microservice Application Health JSON Response</h4>
+<p><img src="screenshots/c2-05-k8s-application-health.png" alt="Figure 2.9: Microservice Application Health JSON Response"><br><em>Figure 2.9: Web browser view showing JSON response payload with status UP and JVM memory metrics.</em></p>
+<hr>
+<h3>Verification Summary Matrix</h3>
 <h4>Table 2.3: Component 2 Verification Evidence</h4>
 <table>
 <thead>
@@ -1143,11 +1221,46 @@ Observed Kubernetes send <code>SIGTERM</code> signals to 2 excess pods, graceful
 </thead>
 <tbody><tr>
 <td align="left"><strong>Figure 2.1</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-wsl-terminal.png</code></td>
+<td align="left">Terminal view of Ansible playbook execution in WSL2</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.2</strong></td>
+<td align="left"><code>screenshots/c2-01-systemd-status-terminal.png</code></td>
+<td align="left">Terminal view of systemd service status</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.3</strong></td>
+<td align="left"><code>screenshots/c2-02-docker-terminal.png</code></td>
+<td align="left">Terminal view of Docker container build, run, and healthcheck</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.4</strong></td>
+<td align="left"><code>screenshots/c2-03-k8s-3pods-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes 3 pods and NodePort service</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.5</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale5-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale up to 5 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.6</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale3-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale down to 3 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.7</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-probes-terminal.png</code></td>
+<td align="left">Terminal view of probe configuration in deployment</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.8</strong></td>
 <td align="left"><code>screenshots/c2-05-k8s-service-health-browser.png</code></td>
 <td align="left">Browser view querying <code>http://localhost:8089/health</code> via Kubernetes NodePort</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 2.2</strong></td>
+<td align="left"><strong>Figure 2.9</strong></td>
 <td align="left"><code>screenshots/c2-05-k8s-application-health.png</code></td>
 <td align="left">Browser view showing JSON payload with status <code>UP</code> and JVM memory metrics</td>
 </tr>

@@ -121,14 +121,33 @@
     color: #0369a1;
   }
   img {
-    max-width: 95%;
-    height: auto;
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
     display: block;
-    margin: 1em auto 0.5em auto;
+    margin: 1em auto 0.4em auto;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
     page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
   }
   .page-break {
     page-break-before: always;
@@ -1042,8 +1061,28 @@ public class HealthControllerTest {
 <li><strong><code>GET /tasks/4</code></strong> returned the newly created task entity.</li>
 <li><strong><code>DELETE /tasks/4</code></strong> returned HTTP 200 with confirmation message.</li>
 </ul>
-<h3>9.2 Jenkins CI Results &amp; Screenshots Reference</h3>
-<p>Table 1.4 maps the visual screenshots and verifiable logs preserved in the project directory:</p>
+<h3>9.2 Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 1.1: GitHub Repository Overview on Main Branch</h4>
+<p><img src="screenshots/c1-01-github-repository-main.png" alt="Figure 1.1: GitHub Repository Overview"><br><em>Figure 1.1: Web browser view of the public GitHub repository (<code>https://github.com/VivekSharma4083/devops-task-manager</code>) on <code>main</code> branch showing project tree, branches, and commit count.</em></p>
+<h4>Figure 1.2: Git Branch &amp; Merge History on GitHub</h4>
+<p><img src="screenshots/c1-01-github-commits-history.png" alt="Figure 1.2: Git Branch &amp; Merge History"><br><em>Figure 1.2: Web browser view of the Git commit history showing feature commits and non-fast-forward merge commit <code>27ba223</code>.</em></p>
+<h4>Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal</h4>
+<p><img src="screenshots/c1-01-git-branch-merge-terminal.png" alt="Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal"><br><em>Figure 1.3: Terminal log displaying git branch topology and explicit merge commit integrating <code>feature/api-endpoints</code> into <code>main</code>.</em></p>
+<h4>Figure 1.4: Maven Build &amp; Unit Test Success Terminal</h4>
+<p><img src="screenshots/c1-02-maven-build-terminal.png" alt="Figure 1.4: Maven Build &amp; Unit Test Success Terminal"><br><em>Figure 1.4: Terminal output of <code>mvn clean test package</code> confirming 15 passing tests, fat JAR packaging, and BUILD SUCCESS.</em></p>
+<h4>Figure 1.5: REST API Local Verification Terminal</h4>
+<p><img src="screenshots/c1-03-rest-api-tests-terminal.png" alt="Figure 1.5: REST API Local Verification Terminal"><br><em>Figure 1.5: Terminal execution of cURL verifying HTTP 200 on <code>/health</code>, retrieval of seed tasks, and validation handling.</em></p>
+<h4>Figure 1.6: Jenkins Pipeline Dashboard</h4>
+<p><img src="screenshots/c1-04-jenkins-dashboard.png" alt="Figure 1.6: Jenkins Pipeline Dashboard"><br><em>Figure 1.6: Jenkins home dashboard showing <code>devops-task-manager-pipeline</code> with green checkmark status and Build #2 execution duration (52 sec).</em></p>
+<h4>Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend</h4>
+<p><img src="screenshots/c1-04-jenkins-pipeline-stageview.png" alt="Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend"><br><em>Figure 1.7: Jenkins Stage View displaying 5 green pipeline stages (Checkout, Build, Test, Package, Archive) and test trend.</em></p>
+<h4>Figure 1.8: Jenkins Interactive JUnit 5 Test Report</h4>
+<p><img src="screenshots/c1-05-jenkins-junit-test-report.png" alt="Figure 1.8: Jenkins Interactive JUnit 5 Test Report"><br><em>Figure 1.8: Interactive Jenkins test result report displaying &quot;All tests are passing! (15/15 tests passing)&quot; with zero failures.</em></p>
+<h4>Figure 1.9: Jenkins Archived Fat JAR Artifact</h4>
+<p><img src="screenshots/c1-06-jenkins-archived-artifact.png" alt="Figure 1.9: Jenkins Archived Fat JAR Artifact"><br><em>Figure 1.9: Build #2 detail view confirming archived artifact <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB), SCM polling cause, and commit revision.</em></p>
+<hr>
+<h3>9.3 Verification Summary Matrix</h3>
 <h4>Table 1.4: Component 1 Verification Evidence</h4>
 <table>
 <thead>
@@ -1065,21 +1104,36 @@ public class HealthControllerTest {
 </tr>
 <tr>
 <td align="left"><strong>Figure 1.3</strong></td>
+<td align="left"><code>screenshots/c1-01-git-branch-merge-terminal.png</code></td>
+<td align="left">Terminal view of Git commit graph and branch list</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.4</strong></td>
+<td align="left"><code>screenshots/c1-02-maven-build-terminal.png</code></td>
+<td align="left">Terminal view of <code>mvn clean test package</code> execution</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.5</strong></td>
+<td align="left"><code>screenshots/c1-03-rest-api-tests-terminal.png</code></td>
+<td align="left">Terminal view of cURL REST API tests</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.6</strong></td>
 <td align="left"><code>screenshots/c1-04-jenkins-dashboard.png</code></td>
 <td align="left">Jenkins dashboard showing <code>devops-task-manager-pipeline</code> with green status</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 1.4</strong></td>
+<td align="left"><strong>Figure 1.7</strong></td>
 <td align="left"><code>screenshots/c1-04-jenkins-pipeline-stageview.png</code></td>
 <td align="left">Pipeline Stage View showing all 5 stages successful and test result trend</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 1.5</strong></td>
+<td align="left"><strong>Figure 1.8</strong></td>
 <td align="left"><code>screenshots/c1-05-jenkins-junit-test-report.png</code></td>
 <td align="left">Interactive Jenkins JUnit report: &quot;All tests are passing! (15/15)&quot;</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 1.6</strong></td>
+<td align="left"><strong>Figure 1.9</strong></td>
 <td align="left"><code>screenshots/c1-06-jenkins-archived-artifact.png</code></td>
 <td align="left">Build #2 details showing archived <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
 </tr>

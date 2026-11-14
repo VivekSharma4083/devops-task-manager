@@ -121,14 +121,33 @@
     color: #0369a1;
   }
   img {
-    max-width: 95%;
-    height: auto;
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
     display: block;
-    margin: 1em auto 0.5em auto;
+    margin: 1em auto 0.4em auto;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
     page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
   }
   .page-break {
     page-break-before: always;
@@ -800,7 +819,28 @@ taskmanager-7fcd6ddf9f-zzvjh   0/1     Terminating   0          18s   10.244.0.1
 <p>Finally, I transitioned to container orchestration using Kubernetes on Minikube. I authored <code>deployment.yaml</code> and <code>service.yaml</code>, configuring resource requests/limits, NodePort 30080, and the mandatory deployment enhancement: <strong>Liveness and Readiness Probes</strong>. After applying the manifests, I verified the 3 initial replicas. I demonstrated manual horizontal pod scaling by scaling up to 5 replicas (<code>kubectl scale deployment taskmanager --replicas=5</code>) and watching all 5 pods enter Running state within 22 seconds. I then scaled back down to 3 replicas, observing graceful <code>SIGTERM</code> pod terminations. Throughout this lifecycle, I queried the application health endpoint through the Kubernetes NodePort forwarding, verifying continuous 100% availability.</p>
 <hr>
 <h2>10. RESULTS &amp; VERIFICATION EVIDENCE</h2>
-<p>Table 2.3 maps the genuine screenshots and verifiable logs preserved in the project directory:</p>
+<h3>10.1 Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2</h4>
+<p><img src="screenshots/c2-01-ansible-wsl-terminal.png" alt="Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2"><br><em>Figure 2.1: Terminal view of <code>ansible-playbook -i inventory playbook.yml -v</code> executed in Ubuntu 26.04 on WSL2 showing PLAY RECAP (ok=14, changed=8, failed=0).</em></p>
+<h4>Figure 2.2: Systemd Service Unit Active State</h4>
+<p><img src="screenshots/c2-01-systemd-status-terminal.png" alt="Figure 2.2: Systemd Service Unit Active State"><br><em>Figure 2.2: Terminal output of <code>systemctl status taskmanager.service</code> confirming active (running) state and process metadata.</em></p>
+<h4>Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal</h4>
+<p><img src="screenshots/c2-02-docker-terminal.png" alt="Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal"><br><em>Figure 2.3: Docker CLI output showing container running in healthy state on port 8082:8080 and image size of 228MB.</em></p>
+<h4>Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal</h4>
+<p><img src="screenshots/c2-03-k8s-3pods-terminal.png" alt="Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal"><br><em>Figure 2.4: Kubernetes deployment with 3 running pods and NodePort service on port 30080.</em></p>
+<h4>Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale5-terminal.png" alt="Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal"><br><em>Figure 2.5: Terminal output demonstrating manual horizontal scaling to 5 running replicas via <code>kubectl scale</code>.</em></p>
+<h4>Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale3-terminal.png" alt="Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal"><br><em>Figure 2.6: Terminal output demonstrating graceful SIGTERM termination of 2 excess pods back down to baseline 3 replicas.</em></p>
+<h4>Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection</h4>
+<p><img src="screenshots/c2-04-k8s-probes-terminal.png" alt="Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection"><br><em>Figure 2.7: Terminal output of <code>kubectl describe deployment taskmanager</code> highlighting probe configurations on <code>/health</code>.</em></p>
+<h4>Figure 2.8: Kubernetes Service Health Response in Web Browser</h4>
+<p><img src="screenshots/c2-05-k8s-service-health-browser.png" alt="Figure 2.8: Kubernetes Service Health Response in Web Browser"><br><em>Figure 2.8: Web browser view querying <code>/health</code> through the Kubernetes NodePort service forwarding, returning status UP.</em></p>
+<h4>Figure 2.9: Microservice Application Health JSON Response</h4>
+<p><img src="screenshots/c2-05-k8s-application-health.png" alt="Figure 2.9: Microservice Application Health JSON Response"><br><em>Figure 2.9: Web browser view showing JSON response payload with status UP and JVM memory metrics.</em></p>
+<hr>
+<h3>10.2 Verification Summary Matrix</h3>
 <h4>Table 2.3: Component 2 Verification Evidence</h4>
 <table>
 <thead>
@@ -812,11 +852,46 @@ taskmanager-7fcd6ddf9f-zzvjh   0/1     Terminating   0          18s   10.244.0.1
 </thead>
 <tbody><tr>
 <td align="left"><strong>Figure 2.1</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-wsl-terminal.png</code></td>
+<td align="left">Terminal view of Ansible playbook execution in WSL2</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.2</strong></td>
+<td align="left"><code>screenshots/c2-01-systemd-status-terminal.png</code></td>
+<td align="left">Terminal view of systemd service status</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.3</strong></td>
+<td align="left"><code>screenshots/c2-02-docker-terminal.png</code></td>
+<td align="left">Terminal view of Docker container build, run, and healthcheck</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.4</strong></td>
+<td align="left"><code>screenshots/c2-03-k8s-3pods-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes 3 pods and NodePort service</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.5</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale5-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale up to 5 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.6</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale3-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale down to 3 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.7</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-probes-terminal.png</code></td>
+<td align="left">Terminal view of probe configuration in deployment</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.8</strong></td>
 <td align="left"><code>screenshots/c2-05-k8s-service-health-browser.png</code></td>
 <td align="left">Browser view querying <code>http://localhost:8089/health</code> via Kubernetes NodePort</td>
 </tr>
 <tr>
-<td align="left"><strong>Figure 2.2</strong></td>
+<td align="left"><strong>Figure 2.9</strong></td>
 <td align="left"><code>screenshots/c2-05-k8s-application-health.png</code></td>
 <td align="left">Browser view showing JSON payload with status <code>UP</code> and JVM memory metrics</td>
 </tr>

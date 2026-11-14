@@ -136,14 +136,33 @@ const baseCss = `
     color: #0369a1;
   }
   img {
-    max-width: 95%;
-    height: auto;
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
     display: block;
-    margin: 1em auto 0.5em auto;
+    margin: 1em auto 0.4em auto;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
     page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
   }
   .page-break {
     page-break-before: always;

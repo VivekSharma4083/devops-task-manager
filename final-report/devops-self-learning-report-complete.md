@@ -382,15 +382,62 @@ I configured Apache Maven 3.9.9 (`pom.xml`) for Java 17 bytecode, using `spring-
 
 ## 9. RESULTS & VERIFICATION EVIDENCE (COMPONENT 1)
 
+### Visual Verification Screenshots & Evidence Figures
+
+The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:
+
+#### Figure 1.1: GitHub Repository Overview on Main Branch
+![Figure 1.1: GitHub Repository Overview](screenshots/c1-01-github-repository-main.png)
+*Figure 1.1: Web browser view of the public GitHub repository (`https://github.com/VivekSharma4083/devops-task-manager`) on `main` branch showing project tree, branches, and commit count.*
+
+#### Figure 1.2: Git Branch & Merge History on GitHub
+![Figure 1.2: Git Branch & Merge History](screenshots/c1-01-github-commits-history.png)
+*Figure 1.2: Web browser view of the Git commit history showing feature commits and non-fast-forward merge commit `27ba223`.*
+
+#### Figure 1.3: Git Branch & Non-Fast-Forward Merge Terminal
+![Figure 1.3: Git Branch & Non-Fast-Forward Merge Terminal](screenshots/c1-01-git-branch-merge-terminal.png)
+*Figure 1.3: Terminal log displaying git branch topology and explicit merge commit integrating `feature/api-endpoints` into `main`.*
+
+#### Figure 1.4: Maven Build & Unit Test Success Terminal
+![Figure 1.4: Maven Build & Unit Test Success Terminal](screenshots/c1-02-maven-build-terminal.png)
+*Figure 1.4: Terminal output of `mvn clean test package` confirming 15 passing tests, fat JAR packaging, and BUILD SUCCESS.*
+
+#### Figure 1.5: REST API Local Verification Terminal
+![Figure 1.5: REST API Local Verification Terminal](screenshots/c1-03-rest-api-tests-terminal.png)
+*Figure 1.5: Terminal execution of cURL verifying HTTP 200 on `/health`, retrieval of seed tasks, and validation handling.*
+
+#### Figure 1.6: Jenkins Pipeline Dashboard
+![Figure 1.6: Jenkins Pipeline Dashboard](screenshots/c1-04-jenkins-dashboard.png)
+*Figure 1.6: Jenkins home dashboard showing `devops-task-manager-pipeline` with green checkmark status and Build #2 execution duration (52 sec).*
+
+#### Figure 1.7: Jenkins Pipeline Stage View & Test Trend
+![Figure 1.7: Jenkins Pipeline Stage View & Test Trend](screenshots/c1-04-jenkins-pipeline-stageview.png)
+*Figure 1.7: Jenkins Stage View displaying 5 green pipeline stages (Checkout, Build, Test, Package, Archive) and test trend.*
+
+#### Figure 1.8: Jenkins Interactive JUnit 5 Test Report
+![Figure 1.8: Jenkins Interactive JUnit 5 Test Report](screenshots/c1-05-jenkins-junit-test-report.png)
+*Figure 1.8: Interactive Jenkins test result report displaying "All tests are passing! (15/15 tests passing)" with zero failures.*
+
+#### Figure 1.9: Jenkins Archived Fat JAR Artifact
+![Figure 1.9: Jenkins Archived Fat JAR Artifact](screenshots/c1-06-jenkins-archived-artifact.png)
+*Figure 1.9: Build #2 detail view confirming archived artifact `devops-task-manager-1.0.0.jar` (20.62 MiB), SCM polling cause, and commit revision.*
+
+---
+
+### Verification Summary Matrix
+
 #### Table 1.4: Component 1 Verification Evidence
 | Evidence Item | File Reference | Description / Verification Detail |
 | :--- | :--- | :--- |
 | **Figure 1.1** | `screenshots/c1-01-github-repository-main.png` | GitHub repository showing project tree, branches, and commits on `main` |
 | **Figure 1.2** | `screenshots/c1-01-github-commits-history.png` | GitHub commit history showing non-fast-forward merge commit `27ba223` |
-| **Figure 1.3** | `screenshots/c1-04-jenkins-dashboard.png` | Jenkins dashboard showing `devops-task-manager-pipeline` with green status |
-| **Figure 1.4** | `screenshots/c1-04-jenkins-pipeline-stageview.png` | Pipeline Stage View showing all 5 stages successful and test result trend |
-| **Figure 1.5** | `screenshots/c1-05-jenkins-junit-test-report.png` | Interactive Jenkins JUnit report: "All tests are passing! (15/15)" |
-| **Figure 1.6** | `screenshots/c1-06-jenkins-archived-artifact.png` | Build #2 details showing archived `devops-task-manager-1.0.0.jar` (20.62 MiB) |
+| **Figure 1.3** | `screenshots/c1-01-git-branch-merge-terminal.png` | Terminal view of Git commit graph and branch list |
+| **Figure 1.4** | `screenshots/c1-02-maven-build-terminal.png` | Terminal view of `mvn clean test package` execution |
+| **Figure 1.5** | `screenshots/c1-03-rest-api-tests-terminal.png` | Terminal view of cURL REST API tests |
+| **Figure 1.6** | `screenshots/c1-04-jenkins-dashboard.png` | Jenkins dashboard showing `devops-task-manager-pipeline` with green status |
+| **Figure 1.7** | `screenshots/c1-04-jenkins-pipeline-stageview.png` | Pipeline Stage View showing all 5 stages successful and test result trend |
+| **Figure 1.8** | `screenshots/c1-05-jenkins-junit-test-report.png` | Interactive Jenkins JUnit report: "All tests are passing! (15/15)" |
+| **Figure 1.9** | `screenshots/c1-06-jenkins-archived-artifact.png` | Build #2 details showing archived `devops-task-manager-1.0.0.jar` (20.62 MiB) |
 | **Log 1.1** | `screenshots/c1-01-git-branch-merge.txt` | Raw Git branch and non-fast-forward merge log |
 | **Log 1.2** | `screenshots/c1-02-maven-build-success.txt` | Terminal output of `mvn clean test package` (`BUILD SUCCESS` in 71s) |
 | **Log 1.3** | `screenshots/c1-03-rest-api-tests.txt` | Live terminal JSON responses for API endpoints |
@@ -715,11 +762,62 @@ I then built the `Dockerfile` using `eclipse-temurin:17-jre-alpine` with an unpr
 
 ## 10. RESULTS & VERIFICATION EVIDENCE (COMPONENT 2)
 
+### Visual Verification Screenshots & Evidence Figures
+
+The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:
+
+#### Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2
+![Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2](screenshots/c2-01-ansible-wsl-terminal.png)
+*Figure 2.1: Terminal view of `ansible-playbook -i inventory playbook.yml -v` executed in Ubuntu 26.04 on WSL2 showing PLAY RECAP (ok=14, changed=8, failed=0).*
+
+#### Figure 2.2: Systemd Service Unit Active State
+![Figure 2.2: Systemd Service Unit Active State](screenshots/c2-01-systemd-status-terminal.png)
+*Figure 2.2: Terminal output of `systemctl status taskmanager.service` confirming active (running) state and process metadata.*
+
+#### Figure 2.3: Docker Image Build, Run & Healthcheck Terminal
+![Figure 2.3: Docker Image Build, Run & Healthcheck Terminal](screenshots/c2-02-docker-terminal.png)
+*Figure 2.3: Docker CLI output showing container running in healthy state on port 8082:8080 and image size of 228MB.*
+
+#### Figure 2.4: Kubernetes 3 Running Pods & NodePort Service Terminal
+![Figure 2.4: Kubernetes 3 Running Pods & NodePort Service Terminal](screenshots/c2-03-k8s-3pods-terminal.png)
+*Figure 2.4: Kubernetes deployment with 3 running pods and NodePort service on port 30080.*
+
+#### Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal
+![Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal](screenshots/c2-04-k8s-scale5-terminal.png)
+*Figure 2.5: Terminal output demonstrating manual horizontal scaling to 5 running replicas via `kubectl scale`.*
+
+#### Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal
+![Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal](screenshots/c2-04-k8s-scale3-terminal.png)
+*Figure 2.6: Terminal output demonstrating graceful SIGTERM termination of 2 excess pods back down to baseline 3 replicas.*
+
+#### Figure 2.7: Kubernetes Liveness & Readiness Probes Inspection
+![Figure 2.7: Kubernetes Liveness & Readiness Probes Inspection](screenshots/c2-04-k8s-probes-terminal.png)
+*Figure 2.7: Terminal output of `kubectl describe deployment taskmanager` highlighting probe configurations on `/health`.*
+
+#### Figure 2.8: Kubernetes Service Health Response in Web Browser
+![Figure 2.8: Kubernetes Service Health Response in Web Browser](screenshots/c2-05-k8s-service-health-browser.png)
+*Figure 2.8: Web browser view querying `/health` through the Kubernetes NodePort service forwarding, returning status UP.*
+
+#### Figure 2.9: Microservice Application Health JSON Response
+![Figure 2.9: Microservice Application Health JSON Response](screenshots/c2-05-k8s-application-health.png)
+*Figure 2.9: Web browser view showing JSON response payload with status UP and JVM memory metrics.*
+
+---
+
+### Verification Summary Matrix
+
 #### Table 2.3: Component 2 Verification Evidence
 | Evidence Item | File Reference | Description / Verification Detail |
 | :--- | :--- | :--- |
-| **Figure 2.1** | `screenshots/c2-05-k8s-service-health-browser.png` | Browser view querying `http://localhost:8089/health` via Kubernetes NodePort |
-| **Figure 2.2** | `screenshots/c2-05-k8s-application-health.png` | Browser view showing JSON payload with status `UP` and JVM memory metrics |
+| **Figure 2.1** | `screenshots/c2-01-ansible-wsl-terminal.png` | Terminal view of Ansible playbook execution in WSL2 |
+| **Figure 2.2** | `screenshots/c2-01-systemd-status-terminal.png` | Terminal view of systemd service status |
+| **Figure 2.3** | `screenshots/c2-02-docker-terminal.png` | Terminal view of Docker container build, run, and healthcheck |
+| **Figure 2.4** | `screenshots/c2-03-k8s-3pods-terminal.png` | Terminal view of Kubernetes 3 pods and NodePort service |
+| **Figure 2.5** | `screenshots/c2-04-k8s-scale5-terminal.png` | Terminal view of Kubernetes scale up to 5 replicas |
+| **Figure 2.6** | `screenshots/c2-04-k8s-scale3-terminal.png` | Terminal view of Kubernetes scale down to 3 replicas |
+| **Figure 2.7** | `screenshots/c2-04-k8s-probes-terminal.png` | Terminal view of probe configuration in deployment |
+| **Figure 2.8** | `screenshots/c2-05-k8s-service-health-browser.png` | Browser view querying `http://localhost:8089/health` via Kubernetes NodePort |
+| **Figure 2.9** | `screenshots/c2-05-k8s-application-health.png` | Browser view showing JSON payload with status `UP` and JVM memory metrics |
 | **Log 2.1** | `screenshots/c2-01-ansible-execution-wsl.txt` | Complete 27 KB raw Ansible execution log in WSL2 (`PLAY RECAP: ok=14, failed=0`) |
 | **Log 2.2** | `screenshots/c2-01-ansible-validation.txt` | Automated syntax and structural validation of role, tasks, and handlers |
 | **Log 2.3** | `screenshots/c2-02-docker-build-and-run.txt` | Docker build output, container logs, and healthcheck verification |
