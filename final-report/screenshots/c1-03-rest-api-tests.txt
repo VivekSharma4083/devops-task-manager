@@ -1,0 +1,30 @@
+﻿=== REST API RUNTIME VERIFICATION EVIDENCE ===
+GET /health Response (HTTP 200 OK):
+{
+    "status": "UP",
+    "service": "DevOps Task Manager API",
+    "version": "1.0.0",
+    "details": {
+        "storage": "in-memory concurrent hash map",
+        "activeTaskCount": 3,
+        "jvmMemoryFreeMb": 17,
+        "jvmMemoryTotalMb": 42
+    }
+}
+
+GET /tasks Response (HTTP 200 OK):
+[
+    {"id":1,"title":"Setup CI/CD Pipeline","description":"Configure automated Jenkins builds with testing","status":"COMPLETED"},
+    {"id":2,"title":"Containerize with Docker","description":"Build lightweight Java 17 container image","status":"IN_PROGRESS"},
+    {"id":3,"title":"Deploy to Kubernetes","description":"Deploy with 3 replicas and liveness/readiness probes","status":"PENDING"}
+]
+
+POST /tasks (HTTP 201 CREATED):
+{"title":"Automate with Jenkins","description":"Set up SCM polling pipeline in Jenkinsfile","status":"PENDING"}
+-> Returned ID: 4
+
+DELETE /tasks/4 (HTTP 200 OK):
+{"success": true, "message": "Task deleted successfully", "id": 4}
+
+POST /tasks with empty title (HTTP 400 BAD REQUEST):
+Interception by GlobalExceptionHandler: Validation Failed on field 'title'

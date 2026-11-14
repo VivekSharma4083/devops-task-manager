@@ -1,0 +1,91 @@
+﻿================================================================================
+DOCKER BUILD & RUN VERIFICATION EVIDENCE
+Image: devops-task-manager:1.0.0
+Container: taskmanager-app
+Date: 2026-11-13 22:00:41
+================================================================================
+
+1. DOCKER IMAGE DETAILS:
+IMAGE                       ID             DISK USAGE   CONTENT SIZE   EXTRA
+devops-task-manager:1.0.0   f45c6772f2f1        228MB             0B   U    
+
+
+2. DOCKER RUN COMMAND:
+docker run -d --name taskmanager-app -p 8082:8080 devops-task-manager:1.0.0
+
+3. DOCKER CONTAINER STATUS:
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                    PORTS                                         NAMES
+e6609a19dcdc   devops-task-manager:1.0.0   "sh -c 'java $JAVA_O…"   46 seconds ago   Up 45 seconds (healthy)   0.0.0.0:8082->8080/tcp, [::]:8082->8080/tcp   taskmanager-app
+
+
+4. APPLICATION HEALTH ENDPOINT (http://localhost:8082/health):
+{
+    "status":  "UP",
+    "service":  "DevOps Task Manager API",
+    "version":  "1.0.0",
+    "timestamp":  "2026-11-13T16:30:40.419242674",
+    "details":  {
+                    "jvmMemoryTotalMb":  128,
+                    "storage":  "in-memory concurrent hash map",
+                    "activeTaskCount":  3,
+                    "jvmMemoryFreeMb":  107
+                }
+}
+
+5. REST API TASKS ENDPOINT (http://localhost:8082/tasks):
+[
+    {
+        "id":  1,
+        "title":  "Setup CI/CD Pipeline",
+        "description":  "Configure automated Jenkins builds with testing",
+        "status":  "COMPLETED",
+        "createdAt":  "2026-11-13T16:30:03.975029876",
+        "updatedAt":  "2026-11-13T16:30:03.975078976"
+    },
+    {
+        "id":  2,
+        "title":  "Containerize with Docker",
+        "description":  "Build lightweight Java 17 container image",
+        "status":  "IN_PROGRESS",
+        "createdAt":  "2026-11-13T16:30:03.975161576",
+        "updatedAt":  "2026-11-13T16:30:03.975172076"
+    },
+    {
+        "id":  3,
+        "title":  "Deploy to Kubernetes",
+        "description":  "Deploy with 3 replicas and liveness/readiness probes",
+        "status":  "PENDING",
+        "createdAt":  "2026-11-13T16:30:03.975185676",
+        "updatedAt":  "2026-11-13T16:30:03.975192376"
+    }
+]
+
+6. DOCKER CONTAINER HEALTH STATUS (HEALTHCHECK):
+{"Status":"healthy","FailingStreak":0,"Log":[{"Start":"2026-11-13T16:30:00.896894786Z","End":"2026-11-13T16:30:01.146899017Z","ExitCode":1,"Output":"wget: can't connect to remote host: Connection refused\n"},{"Start":"2026-11-13T16:30:06.153165382Z","End":"2026-11-13T16:30:07.103162911Z","ExitCode":0,"Output":""},{"Start":"2026-11-13T16:30:22.1424373Z","End":"2026-11-13T16:30:22.991183385Z","ExitCode":0,"Output":""},{"Start":"2026-11-13T16:30:37.992130425Z","End":"2026-11-13T16:30:38.066264421Z","ExitCode":0,"Output":""}]}
+
+7. CONTAINER STARTUP LOGS (LAST 30 LINES):
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-11-13 16:30:00 [main] INFO  c.d.t.TaskManagerApplication - Starting TaskManagerApplication v1.0.0 using Java 17.0.21 with PID 1 (/app/app.jar started by appuser in /app)
+2026-11-13 16:30:00 [main] DEBUG c.d.t.TaskManagerApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-11-13 16:30:00 [main] INFO  c.d.t.TaskManagerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-11-13 16:30:03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-11-13 16:30:03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-11-13 16:30:03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-11-13 16:30:03 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-11-13 16:30:03 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3330 ms
+2026-11-13 16:30:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-11-13 16:30:05 [main] INFO  c.d.t.TaskManagerApplication - Started TaskManagerApplication in 7.571 seconds (process running for 9.139)
+2026-11-13 16:30:06 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-13 16:30:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-11-13 16:30:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+
+================================================================================

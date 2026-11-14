@@ -1,0 +1,13 @@
+﻿* 44e4c5c docs: finalize verified GitHub repository URL and branch information in repo_link.txt
+* 9bfcf0d docs: add comprehensive README, component 1 & 2 academic reports, and verification scripts
+* d92eb81 feat(ops): add production Dockerfile, Ansible roles, and Kubernetes manifests with probes
+*   27ba223 Merge branch 'feature/api-endpoints' into main
+|\  
+| * ec0d6b0 ci: add Jenkins declarative pipeline with SCM polling and JUnit test reporting
+| * 8202388 feat: implement Task Manager REST API endpoints and JUnit 5 test suite
+|/  
+* f46d666 feat: initial project setup with Maven POM, .gitignore and repo config
+  feature/api-endpoints
+* main
+  remotes/origin/feature/api-endpoints
+  remotes/origin/main

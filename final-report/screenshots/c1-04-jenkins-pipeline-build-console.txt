@@ -1,0 +1,299 @@
+﻿Started by an SCM change
+Obtained Jenkinsfile from git https://github.com/VivekSharma4083/devops-task-manager.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/VivekSharma4083/devops-task-manager.git # timeout=10
+Fetching upstream changes from https://github.com/VivekSharma4083/devops-task-manager.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.53.0.windows.2'
+ > git.exe fetch --tags --force --progress -- https://github.com/VivekSharma4083/devops-task-manager.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 6084b9161868b0f2538eb52310ce570008407aa8 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 6084b9161868b0f2538eb52310ce570008407aa8 # timeout=10
+Commit message: "docs(reports): update component 1 and 2 reports with live Jenkins build execution and toolchain audit"
+ > git.exe rev-list --no-walk 0a1beddf996ebbbf5b06d7d714449fb09645334f # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+[2026-11-13T14:23:20.775Z] Timeout set to expire in 30 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] echo
+[2026-11-13T14:23:20.935Z] ==========================================
+[Pipeline] echo
+[2026-11-13T14:23:20.960Z] Stage 1: Checking out code from SCM
+[Pipeline] echo
+[2026-11-13T14:23:20.987Z] ==========================================
+[Pipeline] checkout
+[2026-11-13T14:23:21.022Z] Selected Git installation does not exist. Using Default
+[2026-11-13T14:23:21.022Z] The recommended git tool is: NONE
+[2026-11-13T14:23:21.022Z] No credentials specified
+[2026-11-13T14:23:21.023Z]  > git.exe rev-parse --resolve-git-dir C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\.git # timeout=10
+[2026-11-13T14:23:21.133Z] Fetching changes from the remote Git repository
+[2026-11-13T14:23:21.141Z]  > git.exe config remote.origin.url https://github.com/VivekSharma4083/devops-task-manager.git # timeout=10
+[2026-11-13T14:23:21.242Z] Fetching upstream changes from https://github.com/VivekSharma4083/devops-task-manager.git
+[2026-11-13T14:23:21.242Z]  > git.exe --version # timeout=10
+[2026-11-13T14:23:21.335Z]  > git --version # 'git version 2.53.0.windows.2'
+[2026-11-13T14:23:21.336Z]  > git.exe fetch --tags --force --progress -- https://github.com/VivekSharma4083/devops-task-manager.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-11-13T14:23:22.225Z]  > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+[2026-11-13T14:23:22.316Z] Checking out Revision 6084b9161868b0f2538eb52310ce570008407aa8 (refs/remotes/origin/main)
+[2026-11-13T14:23:22.316Z]  > git.exe config core.sparsecheckout # timeout=10
+[2026-11-13T14:23:22.406Z]  > git.exe checkout -f 6084b9161868b0f2538eb52310ce570008407aa8 # timeout=10
+[2026-11-13T14:23:22.521Z] Commit message: "docs(reports): update component 1 and 2 reports with live Jenkins build execution and toolchain audit"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+[2026-11-13T14:23:22.723Z] ==========================================
+[Pipeline] echo
+[2026-11-13T14:23:22.749Z] Stage 2: Compiling Java Source Files
+[Pipeline] echo
+[2026-11-13T14:23:22.774Z] ==========================================
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+[2026-11-13T14:23:23.170Z] 
+[2026-11-13T14:23:23.170Z] C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline>mvn clean compile 
+[2026-11-13T14:23:26.435Z] [INFO] Scanning for projects...
+[2026-11-13T14:23:26.713Z] [INFO] 
+[2026-11-13T14:23:26.713Z] [INFO] -------------------< com.devops:devops-task-manager >-------------------
+[2026-11-13T14:23:26.713Z] [INFO] Building DevOps Task Manager API 1.0.0
+[2026-11-13T14:23:26.713Z] [INFO]   from pom.xml
+[2026-11-13T14:23:26.713Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-11-13T14:23:27.668Z] [INFO] 
+[2026-11-13T14:23:27.668Z] [INFO] --- clean:3.3.2:clean (default-clean) @ devops-task-manager ---
+[2026-11-13T14:23:27.950Z] [INFO] Deleting C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\target
+[2026-11-13T14:23:27.950Z] [INFO] 
+[2026-11-13T14:23:27.950Z] [INFO] --- resources:3.3.1:resources (default-resources) @ devops-task-manager ---
+[2026-11-13T14:23:28.230Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-11-13T14:23:28.230Z] [INFO] Copying 0 resource from src\main\resources to target\classes
+[2026-11-13T14:23:28.230Z] [INFO] 
+[2026-11-13T14:23:28.230Z] [INFO] --- compiler:3.13.0:compile (default-compile) @ devops-task-manager ---
+[2026-11-13T14:23:28.515Z] [INFO] Recompiling the module because of changed source code.
+[2026-11-13T14:23:28.515Z] [INFO] Compiling 11 source files with javac [debug parameters release 17] to target\classes
+[2026-11-13T14:23:31.072Z] [INFO] ------------------------------------------------------------------------
+[2026-11-13T14:23:31.072Z] [INFO] BUILD SUCCESS
+[2026-11-13T14:23:31.072Z] [INFO] ------------------------------------------------------------------------
+[2026-11-13T14:23:31.072Z] [INFO] Total time:  5.027 s
+[2026-11-13T14:23:31.072Z] [INFO] Finished at: 2026-11-13T19:53:30+05:30
+[2026-11-13T14:23:31.072Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+[2026-11-13T14:23:31.358Z] ==========================================
+[Pipeline] echo
+[2026-11-13T14:23:31.385Z] Stage 3: Executing Automated JUnit 5 Unit Tests
+[Pipeline] echo
+[2026-11-13T14:23:31.409Z] ==========================================
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+[2026-11-13T14:23:33.055Z] 
+[2026-11-13T14:23:33.056Z] C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline>mvn test 
+[2026-11-13T14:23:35.590Z] [INFO] Scanning for projects...
+[2026-11-13T14:23:36.171Z] [INFO] 
+[2026-11-13T14:23:36.171Z] [INFO] -------------------< com.devops:devops-task-manager >-------------------
+[2026-11-13T14:23:36.171Z] [INFO] Building DevOps Task Manager API 1.0.0
+[2026-11-13T14:23:36.171Z] [INFO]   from pom.xml
+[2026-11-13T14:23:36.171Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-11-13T14:23:37.114Z] [INFO] 
+[2026-11-13T14:23:37.115Z] [INFO] --- resources:3.3.1:resources (default-resources) @ devops-task-manager ---
+[2026-11-13T14:23:37.396Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-11-13T14:23:37.396Z] [INFO] Copying 0 resource from src\main\resources to target\classes
+[2026-11-13T14:23:37.396Z] [INFO] 
+[2026-11-13T14:23:37.396Z] [INFO] --- compiler:3.13.0:compile (default-compile) @ devops-task-manager ---
+[2026-11-13T14:23:37.678Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-11-13T14:23:37.678Z] [INFO] 
+[2026-11-13T14:23:37.678Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ devops-task-manager ---
+[2026-11-13T14:23:37.678Z] [INFO] skip non existing resourceDirectory C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\src\test\resources
+[2026-11-13T14:23:37.678Z] [INFO] 
+[2026-11-13T14:23:37.679Z] [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ devops-task-manager ---
+[2026-11-13T14:23:37.933Z] [INFO] Recompiling the module because of changed source code.
+[2026-11-13T14:23:37.933Z] [INFO] Compiling 4 source files with javac [debug parameters release 17] to target\test-classes
+[2026-11-13T14:23:40.486Z] [INFO] 
+[2026-11-13T14:23:40.486Z] [INFO] --- surefire:3.2.5:test (default-test) @ devops-task-manager ---
+[2026-11-13T14:23:40.742Z] [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[2026-11-13T14:23:41.009Z] [INFO] 
+[2026-11-13T14:23:41.009Z] [INFO] -------------------------------------------------------
+[2026-11-13T14:23:41.009Z] [INFO]  T E S T S
+[2026-11-13T14:23:41.009Z] [INFO] -------------------------------------------------------
+[2026-11-13T14:23:42.393Z] [INFO] Running com.devops.taskmanager.HealthControllerTest
+[2026-11-13T14:23:42.978Z] 19:53:42.647 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.devops.taskmanager.HealthControllerTest]: HealthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2026-11-13T14:23:43.265Z] 19:53:42.944 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.devops.taskmanager.TaskManagerApplication for test class com.devops.taskmanager.HealthControllerTest
+[2026-11-13T14:23:44.258Z] 
+[2026-11-13T14:23:44.259Z]   .   ____          _            __ _ _
+[2026-11-13T14:23:44.259Z]  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2026-11-13T14:23:44.259Z] ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2026-11-13T14:23:44.259Z]  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2026-11-13T14:23:44.259Z]   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2026-11-13T14:23:44.259Z]  =========|_|==============|___/=/_/_/_/
+[2026-11-13T14:23:44.259Z] 
+[2026-11-13T14:23:44.259Z]  :: Spring Boot ::                (v3.3.5)
+[2026-11-13T14:23:44.259Z] 
+[2026-11-13T14:23:44.259Z] 2026-11-13 19:53:44 [main] INFO  c.d.taskmanager.HealthControllerTest - Starting HealthControllerTest using Java 17.0.14 with PID 11240 (started by HP in C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline)
+[2026-11-13T14:23:44.259Z] 2026-11-13 19:53:44 [main] DEBUG c.d.taskmanager.HealthControllerTest - Running with Spring Boot v3.3.5, Spring v6.1.14
+[2026-11-13T14:23:44.259Z] 2026-11-13 19:53:44 [main] INFO  c.d.taskmanager.HealthControllerTest - No active profile set, falling back to 1 default profile: "default"
+[2026-11-13T14:23:47.586Z] 2026-11-13 19:53:47 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[2026-11-13T14:23:47.587Z] 2026-11-13 19:53:47 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+[2026-11-13T14:23:47.587Z] 2026-11-13 19:53:47 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+[2026-11-13T14:23:47.587Z] 2026-11-13 19:53:47 [main] INFO  c.d.taskmanager.HealthControllerTest - Started HealthControllerTest in 4.124 seconds (process running for 6.238)
+[2026-11-13T14:23:48.192Z] OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[2026-11-13T14:23:50.773Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.505 s -- in com.devops.taskmanager.HealthControllerTest
+[2026-11-13T14:23:50.773Z] [INFO] Running com.devops.taskmanager.TaskControllerTest
+[2026-11-13T14:23:50.773Z] 2026-11-13 19:53:49 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.devops.taskmanager.TaskControllerTest]: TaskControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2026-11-13T14:23:50.774Z] 2026-11-13 19:53:49 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.devops.taskmanager.TaskManagerApplication for test class com.devops.taskmanager.TaskControllerTest
+[2026-11-13T14:23:50.774Z] [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.329 s -- in com.devops.taskmanager.TaskControllerTest
+[2026-11-13T14:23:50.774Z] [INFO] Running com.devops.taskmanager.TaskManagerApplicationTests
+[2026-11-13T14:23:50.774Z] 2026-11-13 19:53:50 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.devops.taskmanager.TaskManagerApplicationTests]: TaskManagerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2026-11-13T14:23:50.774Z] 2026-11-13 19:53:50 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.devops.taskmanager.TaskManagerApplication for test class com.devops.taskmanager.TaskManagerApplicationTests
+[2026-11-13T14:23:50.774Z] 
+[2026-11-13T14:23:50.774Z]   .   ____          _            __ _ _
+[2026-11-13T14:23:50.774Z]  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2026-11-13T14:23:50.774Z] ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2026-11-13T14:23:50.774Z]  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2026-11-13T14:23:50.774Z]   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2026-11-13T14:23:50.774Z]  =========|_|==============|___/=/_/_/_/
+[2026-11-13T14:23:50.774Z] 
+[2026-11-13T14:23:50.774Z]  :: Spring Boot ::                (v3.3.5)
+[2026-11-13T14:23:50.774Z] 
+[2026-11-13T14:23:50.774Z] 2026-11-13 19:53:50 [main] INFO  c.d.t.TaskManagerApplicationTests - Starting TaskManagerApplicationTests using Java 17.0.14 with PID 11240 (started by HP in C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline)
+[2026-11-13T14:23:50.774Z] 2026-11-13 19:53:50 [main] DEBUG c.d.t.TaskManagerApplicationTests - Running with Spring Boot v3.3.5, Spring v6.1.14
+[2026-11-13T14:23:50.774Z] 2026-11-13 19:53:50 [main] INFO  c.d.t.TaskManagerApplicationTests - No active profile set, falling back to 1 default profile: "default"
+[2026-11-13T14:23:51.054Z] 2026-11-13 19:53:50 [main] INFO  c.d.t.TaskManagerApplicationTests - Started TaskManagerApplicationTests in 0.592 seconds (process running for 9.657)
+[2026-11-13T14:23:51.335Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.644 s -- in com.devops.taskmanager.TaskManagerApplicationTests
+[2026-11-13T14:23:51.335Z] [INFO] Running com.devops.taskmanager.TaskServiceTest
+[2026-11-13T14:23:51.335Z] [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in com.devops.taskmanager.TaskServiceTest
+[2026-11-13T14:23:51.335Z] [INFO] 
+[2026-11-13T14:23:51.335Z] [INFO] Results:
+[2026-11-13T14:23:51.335Z] [INFO] 
+[2026-11-13T14:23:51.335Z] [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
+[2026-11-13T14:23:51.335Z] [INFO] 
+[2026-11-13T14:23:51.336Z] [INFO] ------------------------------------------------------------------------
+[2026-11-13T14:23:51.336Z] [INFO] BUILD SUCCESS
+[2026-11-13T14:23:51.336Z] [INFO] ------------------------------------------------------------------------
+[2026-11-13T14:23:51.336Z] [INFO] Total time:  15.909 s
+[2026-11-13T14:23:51.336Z] [INFO] Finished at: 2026-11-13T19:53:51+05:30
+[2026-11-13T14:23:51.336Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Package)
+[Pipeline] echo
+[2026-11-13T14:23:52.854Z] ==========================================
+[Pipeline] echo
+[2026-11-13T14:23:52.977Z] Stage 4: Packaging Application into Runnable Fat JAR
+[Pipeline] echo
+[2026-11-13T14:23:53.124Z] ==========================================
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] bat
+[2026-11-13T14:23:53.625Z] 
+[2026-11-13T14:23:53.625Z] C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline>mvn package -DskipTests 
+[2026-11-13T14:23:56.917Z] [INFO] Scanning for projects...
+[2026-11-13T14:23:56.917Z] [INFO] 
+[2026-11-13T14:23:56.917Z] [INFO] -------------------< com.devops:devops-task-manager >-------------------
+[2026-11-13T14:23:56.917Z] [INFO] Building DevOps Task Manager API 1.0.0
+[2026-11-13T14:23:56.917Z] [INFO]   from pom.xml
+[2026-11-13T14:23:56.917Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-11-13T14:23:58.363Z] [INFO] 
+[2026-11-13T14:23:58.363Z] [INFO] --- resources:3.3.1:resources (default-resources) @ devops-task-manager ---
+[2026-11-13T14:23:58.363Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-11-13T14:23:58.363Z] [INFO] Copying 0 resource from src\main\resources to target\classes
+[2026-11-13T14:23:58.363Z] [INFO] 
+[2026-11-13T14:23:58.363Z] [INFO] --- compiler:3.13.0:compile (default-compile) @ devops-task-manager ---
+[2026-11-13T14:23:58.631Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-11-13T14:23:58.631Z] [INFO] 
+[2026-11-13T14:23:58.631Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ devops-task-manager ---
+[2026-11-13T14:23:58.631Z] [INFO] skip non existing resourceDirectory C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\src\test\resources
+[2026-11-13T14:23:58.631Z] [INFO] 
+[2026-11-13T14:23:58.631Z] [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ devops-task-manager ---
+[2026-11-13T14:23:58.892Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-11-13T14:23:58.892Z] [INFO] 
+[2026-11-13T14:23:58.892Z] [INFO] --- surefire:3.2.5:test (default-test) @ devops-task-manager ---
+[2026-11-13T14:23:59.177Z] [INFO] Tests are skipped.
+[2026-11-13T14:23:59.178Z] [INFO] 
+[2026-11-13T14:23:59.178Z] [INFO] --- jar:3.4.2:jar (default-jar) @ devops-task-manager ---
+[2026-11-13T14:24:00.131Z] [INFO] Building jar: C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\target\devops-task-manager-1.0.0.jar
+[2026-11-13T14:24:00.132Z] [INFO] 
+[2026-11-13T14:24:00.132Z] [INFO] --- spring-boot:3.3.5:repackage (repackage) @ devops-task-manager ---
+[2026-11-13T14:24:01.533Z] [INFO] Replacing main artifact C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\target\devops-task-manager-1.0.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[2026-11-13T14:24:01.534Z] [INFO] The original artifact has been renamed to C:\Users\HP\.jenkins\workspace\devops-task-manager-pipeline\target\devops-task-manager-1.0.0.jar.original
+[2026-11-13T14:24:01.534Z] [INFO] ------------------------------------------------------------------------
+[2026-11-13T14:24:01.534Z] [INFO] BUILD SUCCESS
+[2026-11-13T14:24:01.534Z] [INFO] ------------------------------------------------------------------------
+[2026-11-13T14:24:01.534Z] [INFO] Total time:  5.273 s
+[2026-11-13T14:24:01.534Z] [INFO] Finished at: 2026-11-13T19:54:01+05:30
+[2026-11-13T14:24:01.534Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Archive Artifacts)
+[Pipeline] echo
+[2026-11-13T14:24:02.156Z] ==========================================
+[Pipeline] echo
+[2026-11-13T14:24:02.395Z] Stage 5: Archiving Generated JAR Artifact
+[Pipeline] echo
+[2026-11-13T14:24:02.547Z] ==========================================
+[Pipeline] archiveArtifacts
+[2026-11-13T14:24:02.642Z] Archiving artifacts
+[2026-11-13T14:24:02.716Z] Recording fingerprints
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+[2026-11-13T14:24:03.389Z] ==========================================
+[Pipeline] echo
+[2026-11-13T14:24:03.465Z] CI Enhancement: Collecting JUnit Test Results
+[Pipeline] echo
+[2026-11-13T14:24:03.504Z] ==========================================
+[Pipeline] junit
+[2026-11-13T14:24:03.539Z] Recording test results
+[2026-11-13T14:24:03.672Z] [Checks API] No suitable checks publisher found.
+[Pipeline] echo
+[2026-11-13T14:24:03.774Z] CI/CD Pipeline Build SUCCESSFUL! Artifacts archived.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+

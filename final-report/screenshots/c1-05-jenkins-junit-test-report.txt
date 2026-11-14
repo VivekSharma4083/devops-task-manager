@@ -1,0 +1,29 @@
+﻿================================================================================
+JENKINS AUTOMATED PIPELINE & JUNIT 5 TEST REPORT
+Job Name: devops-task-manager-pipeline
+Server: http://localhost:8085
+Date: 2026-11-13 22:01:43
+================================================================================
+
+1. PIPELINE EXECUTION HISTORY:
+- Build #1: Status = SUCCESS, Duration = 78.54s, Cause = Manual Trigger
+- Build #2: Status = SUCCESS, Duration = 52.97s, Cause = Automated SCM Polling Trigger (H/5 * * * *)
+
+2. AUTOMATED JUNIT 5 TEST RESULTS (BUILD #2):
+- Total Tests Executed: 
+- Tests Passed:         15
+- Tests Failed:         0
+- Tests Skipped:        0
+- Pass Rate:            100.0%
+
+3. TEST SUITE BREAKDOWN:
+- com.devops.taskmanager.HealthControllerTest: 1/1 Passed (Duration: 7.505s)
+- com.devops.taskmanager.TaskControllerTest: 7/7 Passed (Duration: 0.329s)
+- com.devops.taskmanager.TaskManagerApplicationTests: 1/1 Passed (Duration: 0.644s)
+- com.devops.taskmanager.TaskServiceTest: 6/6 Passed (Duration: 0.033s)
+
+
+4. ARCHIVED ARTIFACTS:
+- devops-task-manager-1.0.0.jar -> Path: target/devops-task-manager-1.0.0.jar (Archived & Fingerprinted)
+
+================================================================================

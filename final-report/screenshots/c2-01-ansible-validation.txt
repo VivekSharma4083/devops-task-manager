@@ -1,0 +1,14 @@
+﻿[*] Validating YAML: C:\Users\HP\Downloads\dev_proj\ansible\playbook.yml
+    [OK] Valid YAML syntax.
+[*] Validating YAML: C:\Users\HP\Downloads\dev_proj\ansible\roles\taskmanager\defaults\main.yml
+    [OK] Valid YAML syntax.
+[*] Validating YAML: C:\Users\HP\Downloads\dev_proj\ansible\roles\taskmanager\tasks\main.yml
+    [OK] Valid YAML syntax.
+[*] Validating YAML: C:\Users\HP\Downloads\dev_proj\ansible\roles\taskmanager\handlers\main.yml
+    [OK] Valid YAML syntax.
+[*] Validating Inventory: C:\Users\HP\Downloads\dev_proj\ansible\inventory
+    [OK] Inventory verified (5 configuration directives).
+[OK] Template verified: taskmanager.service.j2 (720 bytes)
+[OK] Template verified: application.properties.j2 (352 bytes)
+
+>>> ALL ANSIBLE ARTIFACTS VALIDATED SUCCESSFULLY! <<<

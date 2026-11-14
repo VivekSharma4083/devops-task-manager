@@ -16,8 +16,20 @@
 
 The **DevOps Task Manager API** is an academic and industry-aligned DevOps demonstration project designed to showcase the complete modern software delivery lifecycle across two core components:
 
-* **[Component 1 Report (CI/CD Pipeline)](reports/component1-report.md):** REST API development using Spring Boot and Java 17, Git feature-branch workflow with non-fast-forward merge history, Apache Maven build automation, Declarative Jenkins Pipeline with automated SCM polling triggers, and an automated JUnit 5 testing enhancement.
-* **[Component 2 Report (Ansible + Docker + Kubernetes)](reports/component2-report.md):** Infrastructure provisioning with an Ansible role (`taskmanager`) containing inventory, playbooks, variables, templates, and restart handlers; production Docker containerization using Alpine Linux and non-root execution; and Kubernetes orchestration featuring 3 initial replicas, NodePort exposure, manual horizontal scaling to 5 replicas and back down, and high-reliability Liveness & Readiness health probes.
+### 🎓 Academic Submission & Final Reports (`final-report/`):
+* **[DevOps Self Learning Activity Report — Complete (PDF)](final-report/DevOps-Self-Learning-Report-Complete.pdf):** Full 20-mark comprehensive academic project report containing Title Page, Certificate, Rubrics, Marks Awarded, Component 1, Component 2, and References.
+* **[Component 1 Report (PDF)](final-report/Component1-Report.pdf):** CI/CD Pipeline report in printable PDF format.
+* **[Component 2 Report (PDF)](final-report/Component2-Report.pdf):** Ansible, Docker & Kubernetes report in printable PDF format.
+* **[Complete Report Source (Markdown)](final-report/devops-self-learning-report-complete.md):** Full academic submission Markdown source file.
+* **[Component 1 Report Source (Markdown)](final-report/component1-report.md):** Component 1 Markdown source file.
+* **[Component 2 Report Source (Markdown)](final-report/component2-report.md):** Component 2 Markdown source file.
+* **[Evidence & Visual Screenshots Folder](final-report/screenshots/):** High-resolution visual browser screenshots and raw execution logs.
+
+---
+
+### Project Scope Breakdown:
+* **Component 1 (CI/CD Pipeline):** REST API development using Spring Boot and Java 17, Git feature-branch workflow with non-fast-forward merge history (`27ba223`), Apache Maven build automation, Declarative Jenkins Pipeline with automated SCM polling triggers (`H/5 * * * *`), and an automated JUnit 5 testing enhancement (15 passing tests).
+* **Component 2 (Ansible + Docker + Kubernetes):** Infrastructure provisioning with an Ansible role (`taskmanager`) containing inventory, playbooks, variables, templates, and restart handlers; production Docker containerization using Alpine Linux and non-root execution (`appuser`); and Kubernetes orchestration featuring 3 initial replicas, NodePort exposure, manual horizontal scaling to 5 replicas and back down to 3 replicas, and high-reliability Liveness & Readiness health probes.
 * **Evidence Archives:**
   * **[Visual Screenshots Directory](screenshots/visual/):** High-resolution browser viewport PNG screenshots of Jenkins, GitHub, and Kubernetes health checks.
   * **[Raw Terminal Logs Directory](screenshots/):** Verifiable text logs containing raw command outputs from live terminal runs.
@@ -428,6 +440,8 @@ All execution stages are backed by both raw terminal evidence logs (`screenshots
 * **Target GitHub Repository:** [https://github.com/VivekSharma4083/devops-task-manager](https://github.com/VivekSharma4083/devops-task-manager)
 * **Author:** Vivek Shreeranga Sharma M V (USN: 1MS24CY069)
 * **Department:** Department of Computer Science & Engineering (Cyber Security)
-* **Institution:** Ramaiah Institute of Technology, Bengaluru
-* **Faculty Supervisor:** Prashanth Reddy, Assistant Professor
+* **Institution:** M. S. Ramaiah Institute of Technology, Bengaluru
+* **Faculty Supervisor / Guide:** Mr. Prashanth Reddy C, Senior Lecturer, Department of CSE (AI & ML) and CSE (Cyber Security)
+* **Course:** DevOps (Course Code: 24CYAEC59, Credits: 1:0:0, 15L, Max Marks: 20)
+* **Academic Year:** 2026–2027
 * **License:** MIT License
