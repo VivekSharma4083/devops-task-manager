@@ -1,6 +1,6 @@
 # DevOps Task Manager API
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+[![CI](https://github.com/VivekSharma4083/devops-task-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/VivekSharma4083/devops-task-manager/actions/workflows/ci.yml)
 [![Java](https://img.shields.io/badge/Java-17%2B-orange.svg)]()
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.5-brightgreen.svg)]()
 [![Maven](https://img.shields.io/badge/Maven-3.9-blue.svg)]()
