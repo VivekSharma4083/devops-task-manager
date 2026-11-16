@@ -1,0 +1,86 @@
+﻿================================================================================
+KUBERNETES DEPLOYMENT & SERVICE VERIFICATION EVIDENCE
+Date: 2026-11-13 22:00:53
+Cluster: Minikube (v1.37.0)
+Namespace: default
+================================================================================
+
+1. CLUSTER NODES:
+NAME       STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION                              CONTAINER-RUNTIME
+minikube   Ready    control-plane   26m   v1.37.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   6.18.58.1-microsoft-standard-WSL2 (amd64)   containerd://2.3.4
+
+
+2. DEPLOYMENT STATUS (3 REPLICAS):
+NAME          READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS    IMAGES                      SELECTOR
+taskmanager   3/3     3            3           24m   taskmanager   devops-task-manager:1.0.0   app=taskmanager
+
+
+3. SERVICE STATUS (NodePort 30080):
+NAME                  TYPE       CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE   SELECTOR
+taskmanager-service   NodePort   10.97.0.15   <none>        8080:30080/TCP   24m   app=taskmanager
+
+
+4. RUNNING PODS:
+NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running   0          24m   10.244.0.3   minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running   0          24m   10.244.0.5   minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running   0          24m   10.244.0.4   minikube   <none>           <none>
+
+
+5. HTTP HEALTH ENDPOINT VIA NODEPORT SERVICE (http://localhost:30080/health):
+{"status":"UP","service":"DevOps Task Manager API","version":"1.0.0","timestamp":"2026-11-13T16:30:51.224879352","details":{"jvmMemoryFreeMb":65,"activeTaskCount":3,"storage":"in-memory concurrent hash map","jvmMemoryTotalMb":128}}
+
+6. REST API TASKS ENDPOINT VIA NODEPORT SERVICE (http://localhost:30080/tasks):
+[{"id":1,"title":"Setup CI/CD Pipeline","description":"Configure automated Jenkins builds with testing","status":"COMPLETED","createdAt":"2026-11-13T16:06:52.311499978","updatedAt":"2026-11-13T16:06:52.311535778"},{"id":2,"title":"Containerize with Docker","description":"Build lightweight Java 17 container image","status":"IN_PROGRESS","createdAt":"2026-11-13T16:06:52.311581878","updatedAt":"2026-11-13T16:06:52.311594878"},{"id":3,"title":"Deploy to Kubernetes","description":"Deploy with 3 replicas and liveness/readiness probes","status":"PENDING","createdAt":"2026-11-13T16:06:52.311615278","updatedAt":"2026-11-13T16:06:52.311627778"}]
+
+7. DEPLOYMENT SPECIFICATION & PROBES CONFIGURATION:
+Name:                   taskmanager
+Namespace:              default
+CreationTimestamp:      Fri, 13 Nov 2026 21:36:30 +0530
+Labels:                 app=taskmanager
+                        environment=production
+                        tier=backend
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=taskmanager
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  0 max unavailable, 1 max surge
+Pod Template:
+  Labels:  app=taskmanager
+           environment=production
+           tier=backend
+  Containers:
+   taskmanager:
+    Image:      devops-task-manager:1.0.0
+    Port:       8080/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     500m
+      memory:  384Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:8080/health delay=20s timeout=3s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8080/health delay=15s timeout=3s period=5s #success=1 #failure=2
+    Environment:
+      SERVER_PORT:  8080
+    Mounts:         <none>
+  Volumes:          <none>
+  Node-Selectors:   <none>
+  Tolerations:      <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   taskmanager-7fcd6ddf9f (3/3 replicas created)
+Events:
+  Type    Reason             Age                  From                   Message
+  ----    ------             ----                 ----                   -------
+  Normal  ScalingReplicaSet  24m                  deployment-controller  Scaled up replica set taskmanager-7fcd6ddf9f from 0 to 3
+  Normal  ScalingReplicaSet  3m40s (x2 over 21m)  deployment-controller  Scaled up replica set taskmanager-7fcd6ddf9f from 3 to 5
+  Normal  ScalingReplicaSet  2m52s (x2 over 20m)  deployment-controller  Scaled down replica set taskmanager-7fcd6ddf9f from 5 to 3
+
+================================================================================

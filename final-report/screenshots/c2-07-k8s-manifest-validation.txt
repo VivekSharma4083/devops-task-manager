@@ -1,0 +1,11 @@
+﻿[*] Validating Kubernetes Manifest: C:\Users\HP\Downloads\dev_proj\kubernetes\deployment.yaml
+    [OK] Resource: Deployment (apps/v1), Name: 'taskmanager'
+         Initial Replicas: 3
+         Container: taskmanager, Image: devops-task-manager:1.0.0, Port: 8080
+         Liveness Probe Path: /health
+         Readiness Probe Path: /health
+[*] Validating Kubernetes Manifest: C:\Users\HP\Downloads\dev_proj\kubernetes\service.yaml
+    [OK] Resource: Service (v1), Name: 'taskmanager-service'
+         Service Type: NodePort, Ports: [{'name': 'http', 'port': 8080, 'targetPort': 8080, 'nodePort': 30080, 'protocol': 'TCP'}]
+
+>>> ALL KUBERNETES MANIFESTS VALIDATED SUCCESSFULLY! <<<

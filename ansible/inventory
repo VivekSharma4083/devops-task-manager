@@ -1,0 +1,12 @@
+# ==============================================================================
+# Ansible Inventory for DevOps Task Manager API
+# ==============================================================================
+
+[taskmanager_servers]
+# Target host definition (target Linux/Ubuntu server or local managed node)
+target-host-01 ansible_host=127.0.0.1 ansible_connection=local
+
+[taskmanager_servers:vars]
+# Configuration variables for target hosts
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu

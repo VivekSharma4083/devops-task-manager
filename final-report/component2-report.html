@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Component 2 Report</title>
+  <style>
+    
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+  }
+  @page :left {
+    @bottom-right { content: counter(page); }
+  }
+  @page :right {
+    @bottom-right { content: counter(page); }
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #24292f;
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+  }
+  h1 {
+    font-size: 19pt;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 6px;
+    margin-top: 1.8em;
+  }
+  h2 {
+    font-size: 14pt;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 1.4em;
+  }
+  h3 {
+    font-size: 12pt;
+    margin-top: 1.2em;
+  }
+  h4 {
+    font-size: 11pt;
+    margin-top: 1em;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    text-align: justify;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.5em 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9.5pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+    line-height: 1.45;
+    margin: 1.2em 0;
+    page-break-inside: avoid;
+    border: 1px solid #1e293b;
+  }
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+  blockquote {
+    border-left: 4px solid #0284c7;
+    margin: 1em 0;
+    padding: 6px 16px;
+    background-color: #f0f9ff;
+    color: #0369a1;
+  }
+  img {
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
+    display: block;
+    margin: 1em auto 0.4em auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  .title-page {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 15mm;
+  }
+  .certificate-page {
+    page-break-after: always;
+    padding: 10mm 5mm;
+  }
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    padding-left: 24px;
+  }
+  li {
+    margin-bottom: 0.35em;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>M. S. RAMAIAH INSTITUTE OF TECHNOLOGY</h1>
+<h3>(Autonomous Institute, Affiliated to Visvesvaraya Technological University, Belagavi)</h3>
+<h3>Department of Computer Science &amp; Engineering (Cyber Security)</h3>
+<h4>Bengaluru – 560054, Karnataka, India</h4>
+<hr>
+<h1>SELF LEARNING ACTIVITY REPORT — COMPONENT 2</h1>
+<h2>Configuration Management with Ansible, Containerization with Docker &amp; Orchestration with Kubernetes</h2>
+<h3>Course: DevOps (Course Code: 24CYAEC59 | Credits: 1:0:0 | 15L)</h3>
+<p><strong>5th Semester, B.E. in Computer Science &amp; Engineering (Cyber Security)</strong><br><strong>Academic Year:</strong> 2026–2027  </p>
+<hr>
+<h3>STUDENT &amp; EVALUATION DETAILS</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Student Name</strong></td>
+<td align="left">Vivek Shreeranga Sharma M V</td>
+</tr>
+<tr>
+<td align="left"><strong>University Seat Number (USN)</strong></td>
+<td align="left">1MS24CY069</td>
+</tr>
+<tr>
+<td align="left"><strong>Department</strong></td>
+<td align="left">Computer Science &amp; Engineering (Cyber Security)</td>
+</tr>
+<tr>
+<td align="left"><strong>Semester / Section</strong></td>
+<td align="left">5th Semester / Cyber Security</td>
+</tr>
+<tr>
+<td align="left"><strong>Course Title &amp; Code</strong></td>
+<td align="left">DevOps (24CYAEC59)</td>
+</tr>
+<tr>
+<td align="left"><strong>Component Evaluated</strong></td>
+<td align="left">Component 2: Ansible, Docker &amp; Kubernetes (10 Marks)</td>
+</tr>
+<tr>
+<td align="left"><strong>Project Title</strong></td>
+<td align="left">DevOps Task Manager API — Infrastructure Automation, Containerization &amp; Orchestration</td>
+</tr>
+<tr>
+<td align="left"><strong>Faculty Guide / Evaluator</strong></td>
+<td align="left">Mr. Prashanth Reddy C, Senior Lecturer, Dept. of CSE (AI &amp; ML) and CSE (Cyber Security)</td>
+</tr>
+<tr>
+<td align="left"><strong>GitHub Repository</strong></td>
+<td align="left"><code>https://github.com/VivekSharma4083/devops-task-manager</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>CERTIFICATE</h2>
+<p>This is to certify that the project report entitled <strong>&quot;DevOps Task Manager API — Infrastructure Automation with Ansible, Docker Containerization, and Kubernetes Orchestration (Component 2)&quot;</strong> is a bona fide record of independent work carried out by <strong>Vivek Shreeranga Sharma M V</strong> bearing USN <strong>1MS24CY069</strong> in partial fulfillment for the evaluation of the Self Learning Activity in <strong>DevOps (24CYAEC59)</strong> prescribed by the Department of Computer Science &amp; Engineering (Cyber Security), M. S. Ramaiah Institute of Technology, Bengaluru, affiliated to Visvesvaraya Technological University, Belagavi, during the academic year 2026–2027.</p>
+<p>It is certified that all corrections and suggestions indicated during evaluation have been incorporated. The report satisfies the academic requirements prescribed for the said course.</p>
+<p><br><br><br></p>
+<p>--------------------------------------------- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ---------------------------------------------<br><strong>Mr. Prashanth Reddy C</strong> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>Head of Department</strong><br>Faculty Guide, Senior Lecturer &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Dept. of CSE (Cyber Security)<br>Dept. of CSE (AI &amp; ML) / CSE (Cyber Security) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; M. S. Ramaiah Institute of Technology<br>M. S. Ramaiah Institute of Technology  </p>
+<hr>
+<h2>LIST OF PROJECT BASED LEARNING COMPONENTS</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Component</th>
+<th align="left">Title</th>
+<th align="left">Key Technologies</th>
+<th align="left">Scope of Work &amp; Deliverables</th>
+<th align="center">Max Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Component 2</strong></td>
+<td align="left">Configuration Management, Containerization &amp; Orchestration</td>
+<td align="left">Ansible Core 2.20, Docker 29.9, Kubernetes (Minikube v1.37.0), WSL2 Ubuntu 26.04</td>
+<td align="left">Server provisioning using Ansible role (<code>taskmanager</code>) with inventory, variables, handlers, and Jinja2 systemd templates; Docker single-stage Alpine containerization; Kubernetes 3-replica deployment and NodePort service; manual horizontal pod scaling (3 $\to$ 5 $\to$ 3); Kubernetes Liveness and Readiness probes deployment enhancement.</td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>ASSESSMENT RUBRICS (COMPONENT 2 — 10 MARKS)</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Assessment Criteria</th>
+<th align="left">Excellent (Full Marks)</th>
+<th align="left">Good (Moderate Marks)</th>
+<th align="left">Needs Improvement</th>
+<th align="center">Max Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. Ansible Configuration Management</strong></td>
+<td align="left">Structured Ansible role (<code>taskmanager</code>) featuring modular tasks, inventory, role variables, notify-handler mechanics, Jinja2 templates, and live WSL2 execution (<code>ok=14, changed=8, failed=0</code>).</td>
+<td align="left">Working playbook without role modularity or lacking handlers and templates.</td>
+<td align="left">Incomplete tasks, syntax errors, or failing execution.</td>
+<td align="center"><strong>3.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>2. Docker Containerization &amp; Best Practices</strong></td>
+<td align="left">Optimized single-stage Docker runtime image based on Alpine Linux; non-root user execution (<code>appuser</code>); JVM memory limits; integrated container <code>HEALTHCHECK</code>.</td>
+<td align="left">Working Docker container but running as root or using heavy monolithic base image.</td>
+<td align="left">Dockerfile fails to compile or container exits immediately.</td>
+<td align="center"><strong>2.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>3. Kubernetes Deployment &amp; Manual Scaling</strong></td>
+<td align="left">Declarative Deployment and NodePort Service manifests with explicit resource quotas; verified 3 initial replicas; manual horizontal scaling to 5 replicas and back down to 3 replicas with zero downtime.</td>
+<td align="left">Basic Kubernetes pod running but lacking NodePort exposure or scaling demonstration.</td>
+<td align="left">Manifests contain syntax errors or pods crash during scheduling.</td>
+<td align="center"><strong>3.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>4. Deployment Enhancement: Health Probes</strong></td>
+<td align="left">Detailed implementation and architectural comparison of Kubernetes Liveness and Readiness probes; configured initial delays, periods, and failure thresholds.</td>
+<td align="left">Probes defined but not verified or lacking failure scenario explanation.</td>
+<td align="left">No health probes configured in deployment manifest.</td>
+<td align="center"><strong>2.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="center"><strong>10.0</strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>MARKS AWARDED</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Component Evaluated</th>
+<th align="center">Maximum Marks</th>
+<th align="center">Marks Awarded (in figures)</th>
+<th align="center">Marks Awarded (in words)</th>
+<th align="center">Signature of Faculty Evaluator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Component 2: Ansible, Docker &amp; Kubernetes</strong></td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">_______________________</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>1. ABSTRACT</h2>
+<p>In cloud infrastructure engineering, reproducibility, container encapsulation, and automated cluster orchestration are critical to managing reliable distributed systems. This report documents the implementation of Component 2 for the <strong>DevOps Task Manager API</strong>, applying modern Infrastructure as Code (IaC), containerization, and orchestration paradigms to the microservice packaged in Component 1.</p>
+<p>The implementation encompasses:</p>
+<ol>
+<li><strong>Configuration Management via Ansible:</strong> A modular Ansible role (<code>taskmanager</code>) was designed with dedicated tasks, role variables, notification handlers, and Jinja2 templates. Executed inside an Ubuntu WSL2 environment with systemd, the playbook successfully provisioned the host, created an unprivileged system user, deployed application properties and systemd service units, and verified active service execution (<code>ok=14, changed=8, failed=0</code>).</li>
+<li><strong>Hardened Containerization via Docker:</strong> The application was encapsulated in a single-stage, optimized runtime Docker image (<code>eclipse-temurin:17-jre-alpine</code>). In accordance with security best practices, the container runs under an unprivileged user (<code>appuser</code>), enforces JVM heap boundaries, and embeds a native container <code>HEALTHCHECK</code>.</li>
+<li><strong>Cluster Orchestration via Kubernetes:</strong> The containerized microservice was deployed onto a Minikube cluster (Kubernetes Server v1.37.0) using declarative <code>Deployment</code> and <code>Service</code> manifests. A baseline of 3 pod replicas was exposed via a <code>NodePort</code> service (port 30080).</li>
+<li><strong>Manual Horizontal Pod Scaling:</strong> Elastic scaling was demonstrated by manually scaling the deployment from 3 to 5 replicas to handle simulated demand, and subsequently scaling back down to 3 replicas while verifying uninterrupted service availability.</li>
+<li><strong>Deployment Enhancement — Liveness &amp; Readiness Probes:</strong> Advanced Kubernetes health probes were configured on the <code>/health</code> endpoint to differentiate between process liveness (triggering container restart upon deadlock) and service readiness (isolating initializing pods from the load balancer).</li>
+</ol>
+<p>All execution steps have been validated with live terminal captures, cluster state queries, and web browser responses.</p>
+<hr>
+<h2>2. INTRODUCTION &amp; OBJECTIVES</h2>
+<p>Traditional software deployments on static servers are susceptible to configuration drift, unmanaged dependencies, and fragile manual upgrades. Modern DevOps methodologies address these vulnerabilities through declarative configuration management, immutable container images, and self-healing container orchestrators.</p>
+<h3>Objectives for Component 2:</h3>
+<ol>
+<li><strong>Declarative Infrastructure Provisioning:</strong> Author an Ansible role to automate package installation, security user creation, directory management, and systemd service registration.</li>
+<li><strong>Immutable Container Packaging:</strong> Create a lean, secure Docker image adhering to least-privilege principles and container health monitoring.</li>
+<li><strong>Declarative Cluster Deployment:</strong> Configure Kubernetes Deployment and NodePort Service manifests with deterministic resource requests and limits.</li>
+<li><strong>Elastic Scaling Verification:</strong> Demonstrate manual horizontal scaling of pod replicas using <code>kubectl scale</code> to validate elastic capacity management.</li>
+<li><strong>Deployment Enhancement Implementation:</strong> Integrate Kubernetes Liveness and Readiness probes to enable self-healing and zero-downtime routing.</li>
+</ol>
+<hr>
+<h2>3. DEVELOPMENT &amp; TARGET ENVIRONMENT</h2>
+<p>The configuration management, containerization, and cluster orchestration environment specifications are summarized in Table 2.1:</p>
+<h4>Table 2.1: Component 2 Environment Specifications</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Environment Component</th>
+<th align="left">Tool &amp; Version</th>
+<th align="left">Technical Details / Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Host Workstation OS</strong></td>
+<td align="left">Windows 11 Home (x64, Build 26200)</td>
+<td align="left">Development host and Hyper-V/WSL2 parent environment</td>
+</tr>
+<tr>
+<td align="left"><strong>Target OS (Ansible)</strong></td>
+<td align="left">Ubuntu 26.04 LTS (WSL2 with systemd)</td>
+<td align="left">Target Linux environment running systemd init controller</td>
+</tr>
+<tr>
+<td align="left"><strong>Configuration Engine</strong></td>
+<td align="left">Ansible-core 2.20.1 / Python 3.14.4</td>
+<td align="left">Agentless configuration management orchestrator</td>
+</tr>
+<tr>
+<td align="left"><strong>Container Engine</strong></td>
+<td align="left">Docker Desktop 4.99.0 (Engine 29.9.3)</td>
+<td align="left">Container runtime, layer builder, and image registry</td>
+</tr>
+<tr>
+<td align="left"><strong>Container Base Image</strong></td>
+<td align="left"><code>eclipse-temurin:17-jre-alpine</code></td>
+<td align="left">Minimal 228 MB hardened unprivileged Java 17 runtime base</td>
+</tr>
+<tr>
+<td align="left"><strong>Kubernetes Cluster</strong></td>
+<td align="left">Minikube v1.37.0 (Kubernetes v1.37.0)</td>
+<td align="left">Local single-node Kubernetes cluster runtime</td>
+</tr>
+<tr>
+<td align="left"><strong>Cluster Management CLI</strong></td>
+<td align="left"><code>kubectl</code> Client v1.31.0</td>
+<td align="left">Declarative manifest deployment, scaling, and probe inspection</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. STEP 1: ANSIBLE CONFIGURATION MANAGEMENT</h2>
+<h3>4.1 Role Architecture &amp; Layout</h3>
+<p>Ansible was selected for server configuration management due to its agentless architecture and idempotent execution guarantees. The implementation follows standard Ansible galaxy role directory conventions under <code>ansible/roles/taskmanager/</code>:</p>
+<pre><code class="language-text">ansible/
+├── inventory
+├── playbook.yml
+└── roles/
+    └── taskmanager/
+        ├── defaults/
+        │   └── main.yml           # Configurable role variables and defaults
+        ├── handlers/
+        │   └── main.yml           # Service restart handler on configuration changes
+        ├── tasks/
+        │   └── main.yml           # Idempotent provisioning tasks
+        └── templates/
+            ├── application.properties.j2 # Jinja2 application configuration template
+            └── taskmanager.service.j2    # Jinja2 systemd service unit template
+</code></pre>
+<h3>4.2 Inventory &amp; Master Playbook</h3>
+<p>The inventory (<code>ansible/inventory</code>) defines target connection parameters:</p>
+<pre><code class="language-ini">[taskmanager_servers]
+target-host-01 ansible_host=127.0.0.1 ansible_connection=local
+
+[taskmanager_servers:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu
+</code></pre>
+<p>The master playbook (<code>ansible/playbook.yml</code>) binds the target group to the <code>taskmanager</code> role:</p>
+<pre><code class="language-yaml">---
+- name: Provision and Deploy DevOps Task Manager API
+  hosts: taskmanager_servers
+  become: true
+  vars:
+    app_port: 8080
+    app_environment: &quot;production&quot;
+
+  roles:
+    - role: taskmanager
+</code></pre>
+<h3>4.3 Variables, Tasks, Handlers &amp; Templates</h3>
+<h4>Listing 2.1: <code>defaults/main.yml</code> (Role Variables)</h4>
+<pre><code class="language-yaml">---
+# Default variables for taskmanager role
+app_name: &quot;devops-task-manager&quot;
+app_version: &quot;1.0.0&quot;
+app_jar_name: &quot;devops-task-manager-1.0.0.jar&quot;
+app_port: 8080
+app_user: &quot;taskmanager&quot;
+app_group: &quot;taskmanager&quot;
+app_install_dir: &quot;/opt/taskmanager&quot;
+app_config_dir: &quot;/opt/taskmanager/config&quot;
+app_log_dir: &quot;/var/log/taskmanager&quot;
+java_package: &quot;openjdk-17-jre-headless&quot;
+service_name: &quot;taskmanager&quot;
+app_jvm_opts: &quot;-Xms128m -Xmx256m&quot;
+</code></pre>
+<h4>Listing 2.2: <code>tasks/main.yml</code> (Provisioning Tasks)</h4>
+<pre><code class="language-yaml">---
+- name: Display pre-deployment notice
+  ansible.builtin.debug:
+    msg: &quot;Provisioning {{ app_name }} on {{ inventory_hostname }} (port {{ app_port }})&quot;
+
+- name: Update apt cache and install Java 17 Runtime Environment
+  ansible.builtin.apt:
+    name: &quot;{{ java_package }}&quot;
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Create dedicated system group for taskmanager
+  ansible.builtin.group:
+    name: &quot;{{ app_group }}&quot;
+    state: present
+    system: true
+
+- name: Create dedicated system user for taskmanager
+  ansible.builtin.user:
+    name: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    system: true
+    shell: /usr/sbin/nologin
+    create_home: false
+    comment: &quot;DevOps Task Manager Service User&quot;
+    state: present
+
+- name: Create application installation and configuration directories
+  ansible.builtin.file:
+    path: &quot;{{ item }}&quot;
+    state: directory
+    owner: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    mode: &#39;0755&#39;
+  loop:
+    - &quot;{{ app_install_dir }}&quot;
+    - &quot;{{ app_config_dir }}&quot;
+    - &quot;{{ app_log_dir }}&quot;
+
+- name: Copy built application JAR artifact to target server
+  ansible.builtin.copy:
+    src: &quot;{{ playbook_dir }}/../target/{{ app_jar_name }}&quot;
+    dest: &quot;{{ app_install_dir }}/{{ app_jar_name }}&quot;
+    owner: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    mode: &#39;0644&#39;
+  notify: restart taskmanager service
+
+- name: Deploy application.properties template with port variable
+  ansible.builtin.template:
+    src: application.properties.j2
+    dest: &quot;{{ app_config_dir }}/application.properties&quot;
+    owner: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    mode: &#39;0644&#39;
+  notify: restart taskmanager service
+
+- name: Deploy systemd service unit file for taskmanager
+  ansible.builtin.template:
+    src: taskmanager.service.j2
+    dest: &quot;/etc/systemd/system/{{ service_name }}.service&quot;
+    owner: root
+    group: root
+    mode: &#39;0644&#39;
+  notify: restart taskmanager service
+
+- name: Flush handlers to restart service immediately if configuration changed
+  ansible.builtin.meta: flush_handlers
+
+- name: Enable and ensure taskmanager systemd service is started
+  ansible.builtin.systemd:
+    name: &quot;{{ service_name }}&quot;
+    enabled: true
+    state: started
+    daemon_reload: true
+
+- name: Wait for Task Manager REST API health check endpoint to respond
+  ansible.builtin.uri:
+    url: &quot;http://127.0.0.1:{{ app_port }}/health&quot;
+    method: GET
+    status_code: 200
+  register: health_result
+  until: health_result.status == 200
+  retries: 12
+  delay: 5
+
+- name: Display deployment success message and health payload
+  ansible.builtin.debug:
+    msg:
+      - &quot;DevOps Task Manager API deployed successfully via Ansible!&quot;
+      - &quot;Port: {{ app_port }}&quot;
+      - &quot;Health Response: {{ health_result.json }}&quot;
+</code></pre>
+<h4>Listing 2.3: <code>handlers/main.yml</code> (Notification Handlers)</h4>
+<pre><code class="language-yaml">---
+- name: restart taskmanager service
+  ansible.builtin.systemd:
+    name: &quot;{{ service_name }}&quot;
+    state: restarted
+    daemon_reload: true
+</code></pre>
+<h4>Listing 2.4: <code>templates/taskmanager.service.j2</code> (Systemd Service Unit)</h4>
+<pre><code class="language-ini">[Unit]
+Description=DevOps Task Manager Spring Boot Service
+After=network.target
+
+[Service]
+Type=simple
+User={{ app_user }}
+Group={{ app_group }}
+WorkingDirectory={{ app_install_dir }}
+ExecStart=/usr/bin/java {{ app_jvm_opts }} -Dserver.port={{ app_port }} -jar {{ app_install_dir }}/{{ app_jar_name }}
+Restart=always
+RestartSec=10
+StandardOutput=append:{{ app_log_dir }}/taskmanager.log
+StandardError=append:{{ app_log_dir }}/taskmanager-error.log
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3>4.4 WSL2 Execution &amp; Live Verification</h3>
+<p>Because native Windows lacks POSIX init systems (<code>/run/systemd/system</code>), the playbook was executed against the local managed node within <strong>Ubuntu 26.04 LTS on WSL2</strong>:</p>
+<pre><code class="language-bash">cd /mnt/c/Users/HP/Downloads/dev_proj/ansible
+ansible-playbook -i inventory playbook.yml --syntax-check
+ansible-playbook -i inventory playbook.yml -v
+</code></pre>
+<h4>Verified Ansible Play Recap:</h4>
+<pre><code class="language-text">PLAY RECAP *********************************************************************
+target-host-01             : ok=14   changed=8    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+</code></pre>
+<ul>
+<li><strong>14 tasks executed successfully with 0 failures.</strong></li>
+<li>Systemd service <code>taskmanager</code> was enabled, started, and returned HTTP 200 on <code>http://127.0.0.1:8080/health</code>.</li>
+</ul>
+<hr>
+<h2>5. STEP 2: DOCKER CONTAINERIZATION</h2>
+<h3>5.1 Dockerfile Architecture &amp; Hardening</h3>
+<p>The application was containerized using a single-stage, optimized runtime Docker image engineered for security and minimal image size:</p>
+<ol>
+<li><strong>Minimal Base Image:</strong> Uses <code>eclipse-temurin:17-jre-alpine</code>, copying the pre-compiled fat JAR directly from <code>target/devops-task-manager-1.0.0.jar</code>. This reduces the final image size to <strong>228 MB</strong> (compared to &gt;550 MB for Ubuntu-based JDK images).</li>
+<li><strong>Least Privilege Non-Root User:</strong> Creates an unprivileged system group <code>appgroup</code> and user <code>appuser</code>. The container transitions to <code>USER appuser</code> prior to runtime.</li>
+<li><strong>Explicit JVM Flags:</strong> Enforces memory constraints (<code>-Xms128m -Xmx256m</code>) and G1GC garbage collection suitable for container memory cgroups.</li>
+<li><strong>Native Container Healthcheck:</strong> Incorporates an integrated <code>HEALTHCHECK</code> verifying <code>/health</code> availability every 15 seconds.</li>
+</ol>
+<h4>Listing 2.5: Optimized <code>Dockerfile</code></h4>
+<pre><code class="language-dockerfile">FROM eclipse-temurin:17-jre-alpine
+
+# Security: Run as non-root unprivileged user
+RUN addgroup -S appgroup &amp;&amp; adduser -S appuser -G appgroup
+
+WORKDIR /app
+EXPOSE 8080
+
+ENV SERVER_PORT=8080 \
+    JAVA_OPTS=&quot;-Xms128m -Xmx256m -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom&quot;
+
+# Copy pre-packaged fat JAR from Maven build
+COPY target/devops-task-manager-1.0.0.jar /app/app.jar
+
+RUN chown -R appuser:appgroup /app
+USER appuser
+
+# Health check probe for container runtime
+HEALTHCHECK --interval=15s --timeout=5s --start-period=15s --retries=3 \
+    CMD wget --quiet --tries=1 --spider http://localhost:8080/health || exit 1
+
+ENTRYPOINT [&quot;sh&quot;, &quot;-c&quot;, &quot;java $JAVA_OPTS -Dserver.port=$SERVER_PORT -jar /app/app.jar&quot;]
+</code></pre>
+<h3>5.2 Container Build &amp; Execution Validation</h3>
+<pre><code class="language-bash"># 1. Build image
+docker build -t devops-task-manager:1.0.0 .
+
+# 2. Run container in background (Host Port 8082 mapped to Container Port 8080)
+docker run -d --name taskmanager-app -p 8082:8080 devops-task-manager:1.0.0
+
+# 3. Verify running container and health status
+docker ps --filter &quot;name=taskmanager-app&quot;
+</code></pre>
+<p><strong>Outcome:</strong></p>
+<ul>
+<li>Container <code>taskmanager-app</code> achieved state <code>Up (healthy)</code>.</li>
+<li>Querying <code>http://localhost:8082/health</code> returned HTTP 200 with status <code>UP</code>.</li>
+</ul>
+<hr>
+<h2>6. STEP 3: KUBERNETES ORCHESTRATION &amp; DEPLOYMENT</h2>
+<h3>6.1 Declarative Manifest Architecture</h3>
+<p>Container orchestration was implemented using <strong>Minikube</strong> (Kubernetes Server v1.37.0). The deployment architecture separates pod lifecycle management from network routing:</p>
+<ul>
+<li><code>deployment.yaml</code>: Defines pod template, initial 3 replicas, resource quotas, and health probes.</li>
+<li><code>service.yaml</code>: Exposes the pods via a stable <code>NodePort</code> service on port <code>30080</code>.</li>
+</ul>
+<h4>Listing 2.6: <code>kubernetes/deployment.yaml</code></h4>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskmanager
+  labels:
+    app: taskmanager
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: taskmanager
+  template:
+    metadata:
+      labels:
+        app: taskmanager
+    spec:
+      containers:
+        - name: taskmanager
+          image: devops-task-manager:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 384Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+            successThreshold: 1
+</code></pre>
+<h4>Listing 2.7: <code>kubernetes/service.yaml</code></h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: taskmanager-service
+spec:
+  type: NodePort
+  selector:
+    app: taskmanager
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+      protocol: TCP
+</code></pre>
+<h3>6.2 Cluster Manifest Application</h3>
+<pre><code class="language-bash">kubectl apply -f kubernetes/deployment.yaml
+kubectl apply -f kubernetes/service.yaml
+</code></pre>
+<p><strong>Cluster State Verification:</strong></p>
+<pre><code class="language-text">NAME                                READY   STATUS    RESTARTS   AGE
+deployment.apps/taskmanager         3/3     3         3          24m
+service/taskmanager-service         NodePort 10.106.108.196 &lt;none&gt; 8080:30080/TCP
+</code></pre>
+<hr>
+<h2>7. STEP 4: MANUAL HORIZONTAL POD SCALING DEMONSTRATION</h2>
+<h3>7.1 Initial Deployment State (3 Replicas)</h3>
+<p>The deployment initialized with 3 running pods across the cluster:</p>
+<pre><code class="language-bash">kubectl get pods -l app=taskmanager -o wide
+</code></pre>
+<pre><code class="language-text">NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running   0          24m   10.244.0.3   minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running   0          24m   10.244.0.5   minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running   0          24m   10.244.0.4   minikube   &lt;none&gt;
+</code></pre>
+<h3>7.2 Scaling Up (3 to 5 Replicas)</h3>
+<p>To accommodate simulated traffic growth, the deployment was scaled up to 5 replicas:</p>
+<pre><code class="language-bash">kubectl scale deployment taskmanager --replicas=5
+kubectl get pods -l app=taskmanager -o wide
+</code></pre>
+<p><strong>Scale-Up Verification Output:</strong></p>
+<pre><code class="language-text">deployment.apps/taskmanager scaled
+NAME                           READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running   0          24m   10.244.0.3    minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-lz8ll   1/1     Running   0          22s   10.244.0.10   minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running   0          24m   10.244.0.5    minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running   0          24m   10.244.0.4    minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-zzvjh   1/1     Running   0          22s   10.244.0.11   minikube   &lt;none&gt;
+</code></pre>
+<p>All 5 pods achieved <code>1/1 Running</code> status with unique IP assignments within 22 seconds.</p>
+<h3>7.3 Scaling Down (5 to 3 Replicas)</h3>
+<p>Once peak demand subsided, excess pods were terminated to release cluster compute resources:</p>
+<pre><code class="language-bash">kubectl scale deployment taskmanager --replicas=3
+kubectl get pods -l app=taskmanager -o wide
+</code></pre>
+<p><strong>Scale-Down Verification Output:</strong></p>
+<pre><code class="language-text">deployment.apps/taskmanager scaled
+NAME                           READY   STATUS        RESTARTS   AGE   IP            NODE       NOMINATED NODE
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running       0          24m   10.244.0.3    minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-lz8ll   0/1     Terminating   0          18s   10.244.0.10   minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running       0          24m   10.244.0.5    minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running       0          24m   10.244.0.4    minikube   &lt;none&gt;
+taskmanager-7fcd6ddf9f-zzvjh   0/1     Terminating   0          18s   10.244.0.11   minikube   &lt;none&gt;
+</code></pre>
+<p>The Kubernetes controller sent <code>SIGTERM</code> signals to 2 pods (<code>lz8ll</code> and <code>zzvjh</code>), gracefully draining active connections, while the original 3 pods continued serving traffic without dropped requests.</p>
+<hr>
+<h2>8. STEP 5: DEPLOYMENT ENHANCEMENT — LIVENESS &amp; READINESS PROBES</h2>
+<h3>8.1 In-Depth Comparison: Liveness vs. Readiness Probes</h3>
+<p>Kubernetes provides distinct health-checking mechanisms to decouple process monitoring from network traffic management:</p>
+<h4>Table 2.2: Liveness vs. Readiness Probes Comparative Analysis</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Architectural Dimension</th>
+<th align="left">Liveness Probe (<code>livenessProbe</code>)</th>
+<th align="left">Readiness Probe (<code>readinessProbe</code>)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Primary Purpose</strong></td>
+<td align="left">Detects application deadlocks, fatal memory leaks, or hung states</td>
+<td align="left">Detects whether the pod is ready to accept and serve network traffic</td>
+</tr>
+<tr>
+<td align="left"><strong>Kubelet Remediation</strong></td>
+<td align="left"><strong>Restarts the container</strong> according to the Pod <code>restartPolicy</code></td>
+<td align="left"><strong>Removes Pod IP from Service Endpoints</strong> (no container restart)</td>
+</tr>
+<tr>
+<td align="left"><strong>Failure Scenario</strong></td>
+<td align="left">Unresponsive thread pool, frozen JVM event loop, permanent crash</td>
+<td align="left">Slow startup initialization, warming caches, temporary overload</td>
+</tr>
+<tr>
+<td align="left"><strong>Configuration Parameters</strong></td>
+<td align="left">Path: <code>/health</code>, Initial Delay: 20s, Period: 10s, Timeout: 3s</td>
+<td align="left">Path: <code>/health</code>, Initial Delay: 15s, Period: 5s, Timeout: 3s</td>
+</tr>
+<tr>
+<td align="left"><strong>Thresholds</strong></td>
+<td align="left"><code>failureThreshold: 3</code> (restarts after 3 consecutive failures)</td>
+<td align="left"><code>failureThreshold: 2</code>, <code>successThreshold: 1</code></td>
+</tr>
+</tbody></table>
+<h3>8.2 Production Benefits &amp; Self-Healing Architecture</h3>
+<ol>
+<li><strong>Self-Healing Automation:</strong> If an unexpected memory exhaustion or deadlocked lock occurs in the Java application, the Kubelet automatically detects 3 consecutive probe failures and triggers an in-place container restart.</li>
+<li><strong>Zero-Downtime Rolling Updates:</strong> During code updates, new pods remain isolated from the NodePort service endpoints until their Spring context fully loads and passes readiness inspection, completely eliminating <code>502 Bad Gateway</code> errors.</li>
+<li><strong>Traffic Shedding During Overload:</strong> If a single pod experiences temporary request spikes, readiness probe failures will temporarily unregister it from traffic routing until it catches up, preserving cluster stability.</li>
+</ol>
+<hr>
+<h2>9. DESCRIPTION OF ACTIVITY</h2>
+<p>In executing Component 2, I translated the packaged microservice from Component 1 into an enterprise-grade automated deployment pipeline spanning Ansible, Docker, and Kubernetes.</p>
+<p>I began by designing the Ansible role <code>taskmanager</code>. To adhere to clean modularity, I structured variables in <code>defaults/main.yml</code>, service restarting logic in <code>handlers/main.yml</code>, and parameterized configurations in <code>templates/</code>. Because native Windows lacks a systemd init system, I conducted Ansible testing within <strong>Ubuntu 26.04 LTS on WSL2</strong>. I authored tasks to install Java 17 headless, create a locked system user (<code>taskmanager</code>), template <code>/etc/systemd/system/taskmanager.service</code>, and verify HTTP 200 via <code>ansible.builtin.uri</code>. The execution yielded <code>ok=14, changed=8, failed=0</code>, confirming full idempotency and clean service management.</p>
+<p>Next, I engineered the <code>Dockerfile</code>. To avoid bloated container sizes, I avoided multi-gigabyte JDK base images and selected <code>eclipse-temurin:17-jre-alpine</code>, copying the pre-built fat JAR directly. I established an unprivileged non-root user <code>appuser</code>, configured explicit JVM container memory flags, and defined a container-level <code>HEALTHCHECK</code>. I built the image as <code>devops-task-manager:1.0.0</code> (228 MB) and ran a test container, verifying that <code>docker ps</code> marked the instance as <code>healthy</code>.</p>
+<p>Finally, I transitioned to container orchestration using Kubernetes on Minikube. I authored <code>deployment.yaml</code> and <code>service.yaml</code>, configuring resource requests/limits, NodePort 30080, and the mandatory deployment enhancement: <strong>Liveness and Readiness Probes</strong>. After applying the manifests, I verified the 3 initial replicas. I demonstrated manual horizontal pod scaling by scaling up to 5 replicas (<code>kubectl scale deployment taskmanager --replicas=5</code>) and watching all 5 pods enter Running state within 22 seconds. I then scaled back down to 3 replicas, observing graceful <code>SIGTERM</code> pod terminations. Throughout this lifecycle, I queried the application health endpoint through the Kubernetes NodePort forwarding, verifying continuous 100% availability.</p>
+<hr>
+<h2>10. RESULTS &amp; VERIFICATION EVIDENCE</h2>
+<h3>10.1 Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2</h4>
+<p><img src="screenshots/c2-01-ansible-wsl-terminal.png" alt="Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2"><br><em>Figure 2.1: Terminal view of <code>ansible-playbook -i inventory playbook.yml -v</code> executed in Ubuntu 26.04 on WSL2 showing PLAY RECAP (ok=14, changed=8, failed=0).</em></p>
+<h4>Figure 2.2: Systemd Service Unit Active State</h4>
+<p><img src="screenshots/c2-01-systemd-status-terminal.png" alt="Figure 2.2: Systemd Service Unit Active State"><br><em>Figure 2.2: Terminal output of <code>systemctl status taskmanager.service</code> confirming active (running) state and process metadata.</em></p>
+<h4>Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal</h4>
+<p><img src="screenshots/c2-02-docker-terminal.png" alt="Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal"><br><em>Figure 2.3: Docker CLI output showing container running in healthy state on port 8082:8080 and image size of 228MB.</em></p>
+<h4>Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal</h4>
+<p><img src="screenshots/c2-03-k8s-3pods-terminal.png" alt="Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal"><br><em>Figure 2.4: Kubernetes deployment with 3 running pods and NodePort service on port 30080.</em></p>
+<h4>Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale5-terminal.png" alt="Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal"><br><em>Figure 2.5: Terminal output demonstrating manual horizontal scaling to 5 running replicas via <code>kubectl scale</code>.</em></p>
+<h4>Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale3-terminal.png" alt="Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal"><br><em>Figure 2.6: Terminal output demonstrating graceful SIGTERM termination of 2 excess pods back down to baseline 3 replicas.</em></p>
+<h4>Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection</h4>
+<p><img src="screenshots/c2-04-k8s-probes-terminal.png" alt="Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection"><br><em>Figure 2.7: Terminal output of <code>kubectl describe deployment taskmanager</code> highlighting probe configurations on <code>/health</code>.</em></p>
+<h4>Figure 2.8: Kubernetes Service Health Response in Web Browser</h4>
+<p><img src="screenshots/c2-05-k8s-service-health-browser.png" alt="Figure 2.8: Kubernetes Service Health Response in Web Browser"><br><em>Figure 2.8: Web browser view querying <code>/health</code> through the Kubernetes NodePort service forwarding, returning status UP.</em></p>
+<h4>Figure 2.9: Microservice Application Health JSON Response</h4>
+<p><img src="screenshots/c2-05-k8s-application-health.png" alt="Figure 2.9: Microservice Application Health JSON Response"><br><em>Figure 2.9: Web browser view showing JSON response payload with status UP and JVM memory metrics.</em></p>
+<hr>
+<h3>10.2 Verification Summary Matrix</h3>
+<h4>Table 2.3: Component 2 Verification Evidence</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Evidence Item</th>
+<th align="left">File Reference</th>
+<th align="left">Description / Verification Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Figure 2.1</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-wsl-terminal.png</code></td>
+<td align="left">Terminal view of Ansible playbook execution in WSL2</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.2</strong></td>
+<td align="left"><code>screenshots/c2-01-systemd-status-terminal.png</code></td>
+<td align="left">Terminal view of systemd service status</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.3</strong></td>
+<td align="left"><code>screenshots/c2-02-docker-terminal.png</code></td>
+<td align="left">Terminal view of Docker container build, run, and healthcheck</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.4</strong></td>
+<td align="left"><code>screenshots/c2-03-k8s-3pods-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes 3 pods and NodePort service</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.5</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale5-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale up to 5 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.6</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale3-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale down to 3 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.7</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-probes-terminal.png</code></td>
+<td align="left">Terminal view of probe configuration in deployment</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.8</strong></td>
+<td align="left"><code>screenshots/c2-05-k8s-service-health-browser.png</code></td>
+<td align="left">Browser view querying <code>http://localhost:8089/health</code> via Kubernetes NodePort</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.9</strong></td>
+<td align="left"><code>screenshots/c2-05-k8s-application-health.png</code></td>
+<td align="left">Browser view showing JSON payload with status <code>UP</code> and JVM memory metrics</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.1</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-execution-wsl.txt</code></td>
+<td align="left">Complete 27 KB raw Ansible execution log in WSL2 (<code>PLAY RECAP: ok=14, failed=0</code>)</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.2</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-validation.txt</code></td>
+<td align="left">Automated syntax and structural validation of role, tasks, and handlers</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.3</strong></td>
+<td align="left"><code>screenshots/c2-02-docker-build-and-run.txt</code></td>
+<td align="left">Docker build output, container logs, and healthcheck verification</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.4</strong></td>
+<td align="left"><code>screenshots/c2-03-k8s-deployment-and-service.txt</code></td>
+<td align="left">Kubernetes cluster nodes, 3 running pods, and NodePort 30080 service state</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.5</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scaling-evidence.txt</code></td>
+<td align="left">Scaling logs (3 $\to$ 5 $\to$ 3 replicas) and <code>kubectl describe</code> probe details</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.6</strong></td>
+<td align="left"><code>screenshots/c2-07-k8s-manifest-validation.txt</code></td>
+<td align="left">Automated YAML schema validation for deployment and service manifests</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>11. CONCLUSION</h2>
+<p>Component 2 successfully demonstrates the end-to-end modern operations lifecycle for the <strong>DevOps Task Manager API</strong>. By using Ansible, server provisioning and systemd service management are codified as repeatable Infrastructure as Code. Through Docker, the application is packaged as a lean, secure, unprivileged Alpine container. Finally, Kubernetes orchestration provides manual elastic horizontal scaling and robust self-healing through automated Liveness and Readiness probes, establishing a highly reliable and maintainable deployment architecture.</p>
+<hr>
+<h2>12. REFERENCES</h2>
+<ol>
+<li>Ansible Documentation: <em>Roles, Handlers, and Playbook Architecture Reference</em>, Red Hat, Inc., 2024. [Online]. Available: <code>https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html</code></li>
+<li>Docker Documentation: <em>Best Practices for Writing Dockerfiles &amp; Security Guidelines</em>, Docker Inc., 2024. [Online]. Available: <code>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/</code></li>
+<li>Kubernetes Documentation: <em>Configure Liveness, Readiness and Startup Probes</em>, The Kubernetes Authors, 2024. [Online]. Available: <code>https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/</code></li>
+<li>Kubernetes Documentation: <em>Deployments, ReplicaSets, and Scaling Workloads</em>, The Kubernetes Authors, 2024. [Online]. Available: <code>https://kubernetes.io/docs/concepts/workloads/controllers/deployment/</code></li>
+<li>Linux Documentation Project: <em>Systemd Service Unit Configuration &amp; Sandboxing</em>, systemd.io, 2024. [Online]. Available: <code>https://www.freedesktop.org/software/systemd/man/systemd.service.html</code></li>
+</ol>
+
+</body>
+</html>

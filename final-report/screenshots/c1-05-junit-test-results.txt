@@ -1,0 +1,16 @@
+﻿-------------------------------------------------------------------------------
+Test set: com.devops.taskmanager.HealthControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.668 s -- in com.devops.taskmanager.HealthControllerTest
+-------------------------------------------------------------------------------
+Test set: com.devops.taskmanager.TaskControllerTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.522 s -- in com.devops.taskmanager.TaskControllerTest
+-------------------------------------------------------------------------------
+Test set: com.devops.taskmanager.TaskManagerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.653 s -- in com.devops.taskmanager.TaskManagerApplicationTests
+-------------------------------------------------------------------------------
+Test set: com.devops.taskmanager.TaskServiceTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s -- in com.devops.taskmanager.TaskServiceTest

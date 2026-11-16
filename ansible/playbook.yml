@@ -1,0 +1,25 @@
+---
+# ==============================================================================
+# Master Ansible Playbook: Deploy DevOps Task Manager API
+# ==============================================================================
+
+- name: Provision and Deploy DevOps Task Manager API
+  hosts: taskmanager_servers
+  become: true
+  vars:
+    # Port variable definition (can be overridden with -e "app_port=8081")
+    app_port: 8080
+    app_environment: "production"
+
+  pre_tasks:
+    - name: Display pre-deployment notice
+      ansible.builtin.debug:
+        msg: "Provisioning {{ app_name }} on {{ inventory_hostname }} (port {{ app_port }})"
+
+  roles:
+    - role: taskmanager
+
+  post_tasks:
+    - name: Final deployment confirmation
+      ansible.builtin.debug:
+        msg: "Deployment of {{ app_name }} completed successfully!"

@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete DevOps Self Learning Activity Report</title>
+  <style>
+    
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+  }
+  @page :left {
+    @bottom-right { content: counter(page); }
+  }
+  @page :right {
+    @bottom-right { content: counter(page); }
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #24292f;
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+  }
+  h1 {
+    font-size: 19pt;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 6px;
+    margin-top: 1.8em;
+  }
+  h2 {
+    font-size: 14pt;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 1.4em;
+  }
+  h3 {
+    font-size: 12pt;
+    margin-top: 1.2em;
+  }
+  h4 {
+    font-size: 11pt;
+    margin-top: 1em;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    text-align: justify;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.5em 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9.5pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+    line-height: 1.45;
+    margin: 1.2em 0;
+    page-break-inside: avoid;
+    border: 1px solid #1e293b;
+  }
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+  blockquote {
+    border-left: 4px solid #0284c7;
+    margin: 1em 0;
+    padding: 6px 16px;
+    background-color: #f0f9ff;
+    color: #0369a1;
+  }
+  img {
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
+    display: block;
+    margin: 1em auto 0.4em auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  .title-page {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 15mm;
+  }
+  .certificate-page {
+    page-break-after: always;
+    padding: 10mm 5mm;
+  }
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    padding-left: 24px;
+  }
+  li {
+    margin-bottom: 0.35em;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>M. S. RAMAIAH INSTITUTE OF TECHNOLOGY</h1>
+<h3>(Autonomous Institute, Affiliated to Visvesvaraya Technological University, Belagavi)</h3>
+<h3>Department of Computer Science &amp; Engineering (Cyber Security)</h3>
+<h4>Bengaluru – 560054, Karnataka, India</h4>
+<hr>
+<h1>SELF LEARNING ACTIVITY REPORT</h1>
+<h2>DEVOPS (Course Code: 24CYAEC59)</h2>
+<h3>Credits: 1:0:0 (15L) | Maximum Marks: 20</h3>
+<p><strong>5th Semester, Bachelor of Engineering in Computer Science &amp; Engineering (Cyber Security)</strong><br><strong>Academic Year:</strong> 2026–2027  </p>
+<hr>
+<h2>PROJECT TITLE:</h2>
+<h1>DEVOPS TASK MANAGER REST API</h1>
+<h3>Continuous Integration / Continuous Delivery (CI/CD) Pipeline, Infrastructure as Code with Ansible, Docker Containerization, and Kubernetes Cluster Orchestration</h3>
+<hr>
+<h3>SUBMITTED BY:</h3>
+<p><strong>Vivek Shreeranga Sharma M V</strong><br><strong>USN: 1MS24CY069</strong><br>Department of Computer Science &amp; Engineering (Cyber Security)<br>M. S. Ramaiah Institute of Technology, Bengaluru  </p>
+<hr>
+<h3>UNDER THE GUIDANCE OF:</h3>
+<p><strong>Mr. Prashanth Reddy C</strong><br>Senior Lecturer, Department of CSE (AI &amp; ML) and CSE (Cyber Security)<br>M. S. Ramaiah Institute of Technology, Bengaluru  </p>
+<hr>
+<h2>CERTIFICATE</h2>
+<p>This is to certify that the Self Learning Activity project report entitled <strong>&quot;DEVOPS TASK MANAGER REST API — CI/CD Pipeline, Ansible Configuration Management, Docker Containerization &amp; Kubernetes Orchestration&quot;</strong> is a bona fide record of independent work carried out by <strong>Vivek Shreeranga Sharma M V</strong> bearing USN <strong>1MS24CY069</strong> in partial fulfillment for the evaluation of the Self Learning Activity in <strong>DevOps (Course Code: 24CYAEC59)</strong> prescribed by the Department of Computer Science &amp; Engineering (Cyber Security), M. S. Ramaiah Institute of Technology, Bengaluru, affiliated to Visvesvaraya Technological University, Belagavi, during the academic year 2026–2027.</p>
+<p>It is certified that all corrections and suggestions indicated during internal evaluation have been incorporated into this report. The project report has been approved as it satisfies the academic requirements in respect of Self Learning Activity prescribed for the said course.</p>
+<p><br><br><br></p>
+<p>--------------------------------------------- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ---------------------------------------------<br><strong>Mr. Prashanth Reddy C</strong> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>Head of Department</strong><br>Faculty Guide, Senior Lecturer &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Dept. of CSE (Cyber Security)<br>Dept. of CSE (AI &amp; ML) / CSE (Cyber Security) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; M. S. Ramaiah Institute of Technology<br>M. S. Ramaiah Institute of Technology  </p>
+<hr>
+<h2>LIST OF PROJECT BASED LEARNING COMPONENTS</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Sl. No.</th>
+<th align="left">Component Name</th>
+<th align="left">Tools &amp; Technologies</th>
+<th align="left">Detailed Scope of Work &amp; Deliverables</th>
+<th align="center">Maximum Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>1</strong></td>
+<td align="left"><strong>Component 1: Automated CI/CD Pipeline</strong></td>
+<td align="left">Java 17, Spring Boot 3.3.5, Apache Maven 3.9, Git, GitHub, Jenkins 2.580 LTS, JUnit 5</td>
+<td align="left">Engineered REST API microservice; Git trunk/feature branching workflow; non-fast-forward merge commit (<code>27ba223</code>); Maven build automation; Declarative Jenkins pipeline with automated SCM polling trigger (<code>H/5 * * * *</code>); automated testing quality gate (15 JUnit tests); archived fat JAR artifact.</td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="left"><strong>Component 2: Ansible, Docker &amp; Kubernetes</strong></td>
+<td align="left">Ansible Core 2.20, Docker 29.9, Kubernetes (Minikube v1.37.0), WSL2 Ubuntu 26.04</td>
+<td align="left">Server provisioning using Ansible role (<code>taskmanager</code>) with inventory, variables, handlers, and Jinja2 systemd templates; Docker single-stage Alpine containerization; Kubernetes 3-replica deployment and NodePort service; manual horizontal pod scaling (3 $\to$ 5 $\to$ 3); Kubernetes Liveness and Readiness probes deployment enhancement.</td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr>
+<td align="center"><strong>TOTAL</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="center"><strong>20</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>ASSESSMENT RUBRICS (TOTAL: 20 MARKS)</h2>
+<h3>Component 1 Rubrics (10 Marks)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Assessment Criteria</th>
+<th align="left">Excellent (Full Marks)</th>
+<th align="left">Good (Moderate Marks)</th>
+<th align="left">Needs Improvement</th>
+<th align="center">Max Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. REST API Design &amp; Git Branching</strong></td>
+<td align="left">Clean Spring Boot REST API adhering to HTTP semantics; Git feature branch workflow with non-fast-forward merge commit and verified commit graph on GitHub.</td>
+<td align="left">Working API with basic endpoints; basic Git commits without distinct feature branch integration.</td>
+<td align="left">Incomplete endpoints or direct commits to main branch without merge history.</td>
+<td align="center"><strong>2.5</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>2. Maven Build &amp; Dependency Management</strong></td>
+<td align="left">Clean <code>pom.xml</code> configuration with pinned dependencies; automated compilation and fat JAR packaging using <code>spring-boot-maven-plugin</code>.</td>
+<td align="left">Standard build works but missing optimization or dependency exclusions.</td>
+<td align="left">Build fails or uses non-standard packaging without dependency management.</td>
+<td align="center"><strong>2.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>3. Jenkins Declarative Pipeline &amp; Automation</strong></td>
+<td align="left">Fully automated declarative <code>Jenkinsfile</code> with 5 stages, SCM polling trigger (<code>H/5 * * * *</code>), live verified builds (Build #1 &amp; Build #2), and archived fat JAR artifact with SHA256 fingerprinting.</td>
+<td align="left">Jenkins pipeline runs manually but lacks automated triggers or artifact archiving.</td>
+<td align="left">Freestyle job or incomplete script with syntax failures.</td>
+<td align="center"><strong>3.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>4. CI Enhancement: Automated Testing Quality Gate</strong></td>
+<td align="left">Comprehensive JUnit 5 test suite (15 test cases across 4 classes) integrated into the pipeline; automated test parsing and failure gates via Jenkins <code>junit</code> post-action.</td>
+<td align="left">Basic unit tests without full coverage; tests executed outside Jenkins pipeline.</td>
+<td align="left">Minimal or no unit testing; pipeline does not evaluate test outcomes.</td>
+<td align="center"><strong>2.5</strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3>Component 2 Rubrics (10 Marks)</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Assessment Criteria</th>
+<th align="left">Excellent (Full Marks)</th>
+<th align="left">Good (Moderate Marks)</th>
+<th align="left">Needs Improvement</th>
+<th align="center">Max Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. Ansible Configuration Management</strong></td>
+<td align="left">Structured Ansible role (<code>taskmanager</code>) featuring modular tasks, inventory, role variables, notify-handler mechanics, Jinja2 templates, and live WSL2 execution (<code>ok=14, changed=8, failed=0</code>).</td>
+<td align="left">Working playbook without role modularity or lacking handlers and templates.</td>
+<td align="left">Incomplete tasks, syntax errors, or failing execution.</td>
+<td align="center"><strong>3.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>2. Docker Containerization &amp; Best Practices</strong></td>
+<td align="left">Optimized single-stage Docker runtime image based on Alpine Linux; non-root user execution (<code>appuser</code>); JVM memory limits; integrated container <code>HEALTHCHECK</code>.</td>
+<td align="left">Working Docker container but running as root or using heavy monolithic base image.</td>
+<td align="left">Dockerfile fails to compile or container exits immediately.</td>
+<td align="center"><strong>2.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>3. Kubernetes Deployment &amp; Manual Scaling</strong></td>
+<td align="left">Declarative Deployment and NodePort Service manifests with explicit resource quotas; verified 3 initial replicas; manual horizontal scaling to 5 replicas and back down to 3 replicas with zero downtime.</td>
+<td align="left">Basic Kubernetes pod running but lacking NodePort exposure or scaling demonstration.</td>
+<td align="left">Manifests contain syntax errors or pods crash during scheduling.</td>
+<td align="center"><strong>3.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>4. Deployment Enhancement: Health Probes</strong></td>
+<td align="left">Detailed implementation and architectural comparison of Kubernetes Liveness and Readiness probes; configured initial delays, periods, and failure thresholds.</td>
+<td align="left">Probes defined but not verified or lacking failure scenario explanation.</td>
+<td align="left">No health probes configured in deployment manifest.</td>
+<td align="center"><strong>2.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL EVALUATION MARKS</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="center"><strong>20.0</strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>MARKS AWARDED</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Component Evaluated</th>
+<th align="center">Maximum Marks</th>
+<th align="center">Marks Awarded (in figures)</th>
+<th align="center">Marks Awarded (in words)</th>
+<th align="center">Signature of Faculty Evaluator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Component 1: Automated CI/CD Pipeline</strong></td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">_______________________</td>
+</tr>
+<tr>
+<td align="left"><strong>Component 2: Ansible, Docker &amp; Kubernetes</strong></td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">_______________________</td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL MARKS AWARDED</strong></td>
+<td align="center"><strong>20</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">_______________________</td>
+</tr>
+</tbody></table>
+<hr>
+<div class="page-break"></div><h1>COMPONENT 1: AUTOMATED CI/CD PIPELINE &amp; REST API DEVELOPMENT</h1>
+<h2>1. ABSTRACT</h2>
+<p>In modern cloud-native software engineering, Continuous Integration (CI) and Continuous Delivery (CI/CD) pipelines serve as the backbone of high-velocity, reliable software delivery. This section presents the design, architectural implementation, and automated continuous integration pipeline for the <strong>DevOps Task Manager API</strong>, an enterprise-grade REST microservice built from scratch using <strong>Java 17</strong>, <strong>Spring Boot 3.3.5</strong>, and <strong>Apache Maven 3.9.9</strong>.</p>
+<p>The project enforces strict version control via Git using trunk-based feature branching (<code>feature/api-endpoints</code> merged into <code>main</code> via a non-fast-forward merge commit <code>27ba223</code>), packages a self-contained executable fat JAR via Maven, and deploys a 5-stage declarative pipeline using Jenkins 2.580.2 LTS with automated SCM polling triggers (<code>H/5 * * * *</code>). As an essential CI enhancement, an automated regression test suite featuring <strong>15 JUnit 5 test cases</strong> is executed in the pipeline, enforcing an automated quality gate that prevents defective code from progressing to artifact packaging.</p>
+<h2>2. INTRODUCTION &amp; OBJECTIVES</h2>
+<p>Manual software compilation, testing, and deployment workflows are fraught with human error, environmental inconsistency, and deployment bottlenecks. Continuous Integration resolves these impediments by codifying the integration lifecycle: every developer commit is automatically pulled, compiled, validated against automated test suites, packaged into an immutable binary, and archived.</p>
+<h3>Component 1 Objectives:</h3>
+<ol>
+<li>Develop a high-performance RESTful API microservice with input validation and in-memory thread safety.</li>
+<li>Enforce professional Git workflows with feature branches and explicit merge commits.</li>
+<li>Automate compilation, testing, and packaging using Apache Maven 3.9 and Java 17.</li>
+<li>Establish an automated Jenkins Declarative Pipeline with automated SCM polling.</li>
+<li>Integrate JUnit 5 test reporting as an automated quality gate.</li>
+</ol>
+<h2>3. DEVELOPMENT ENVIRONMENT SPECIFICATION</h2>
+<h4>Table 1.1: Component 1 Development &amp; Build Environment</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Component</th>
+<th align="left">Specification / Tool</th>
+<th align="left">Purpose in Pipeline</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Host Workstation OS</strong></td>
+<td align="left">Microsoft Windows 11 Home (x64, Build 26200)</td>
+<td align="left">Development, container host, and orchestration workstation</td>
+</tr>
+<tr>
+<td align="left"><strong>Java Development Kit</strong></td>
+<td align="left">Eclipse Adoptium OpenJDK 17.0.14+7 (HotSpot 64-bit)</td>
+<td align="left">Application source compilation, byte-code target, and runtime</td>
+</tr>
+<tr>
+<td align="left"><strong>Build Management</strong></td>
+<td align="left">Apache Maven 3.9.9</td>
+<td align="left">Dependency resolution, test runner orchestration, and packaging</td>
+</tr>
+<tr>
+<td align="left"><strong>Version Control System</strong></td>
+<td align="left">Git 2.53.0.windows.1 / GitHub CLI 2.104.0</td>
+<td align="left">Distributed source code management and remote repository synchronization</td>
+</tr>
+<tr>
+<td align="left"><strong>Remote Repository</strong></td>
+<td align="left">GitHub (<code>https://github.com/VivekSharma4083/devops-task-manager</code>)</td>
+<td align="left">Upstream Git hosting, branch management, and webhook/SCM polling endpoint</td>
+</tr>
+<tr>
+<td align="left"><strong>Application Framework</strong></td>
+<td align="left">Spring Boot 3.3.5 (Spring Framework 6.1.14)</td>
+<td align="left">Embedded Tomcat container, REST routing, and Bean validation</td>
+</tr>
+<tr>
+<td align="left"><strong>Testing Framework</strong></td>
+<td align="left">JUnit Jupiter 5.10.3, AssertJ 3.25.3, Spring MockMvc</td>
+<td align="left">Automated unit, service, and controller integration testing</td>
+</tr>
+<tr>
+<td align="left"><strong>CI Automation Server</strong></td>
+<td align="left">Jenkins 2.580.2 LTS (OpenJDK 21.0.6 runtime, port 8085)</td>
+<td align="left">Declarative CI pipeline automation, SCM polling, and artifact archiving</td>
+</tr>
+</tbody></table>
+<h2>4. STEP 1: REST API DEVELOPMENT &amp; GIT VERSION CONTROL</h2>
+<h3>4.1 Domain Architecture &amp; Microservice Design</h3>
+<p>The <strong>DevOps Task Manager API</strong> is engineered around thread-safe in-memory collections (<code>ConcurrentHashMap&lt;Long, Task&gt;</code>) and an atomic counter (<code>AtomicLong</code>) to ensure fast bootstrapping and portability.</p>
+<h4>Listing 1.1: <code>Task.java</code> (Domain Entity)</h4>
+<pre><code class="language-java">package com.devops.taskmanager.model;
+
+import java.time.LocalDateTime;
+
+public class Task {
+    private Long id;
+    private String title;
+    private String description;
+    private TaskStatus status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    public Task() {}
+
+    public Task(Long id, String title, String description, TaskStatus status,
+                LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public TaskStatus getStatus() { return status; }
+    public void setStatus(TaskStatus status) { this.status = status; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+}
+</code></pre>
+<h4>Listing 1.2: <code>TaskController.java</code> (REST Controller)</h4>
+<pre><code class="language-java">package com.devops.taskmanager.controller;
+
+import com.devops.taskmanager.dto.ApiResponse;
+import com.devops.taskmanager.dto.CreateTaskRequest;
+import com.devops.taskmanager.model.Task;
+import com.devops.taskmanager.service.TaskService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/tasks&quot;)
+public class TaskController {
+
+    private final TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;Task&gt;&gt; getAllTasks() {
+        return ResponseEntity.ok(taskService.getAllTasks());
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Task&gt; getTaskById(@PathVariable Long id) {
+        return ResponseEntity.ok(taskService.getTaskById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;ApiResponse&lt;Task&gt;&gt; createTask(@Valid @RequestBody CreateTaskRequest request) {
+        Task created = taskService.createTask(request);
+        ApiResponse&lt;Task&gt; response = new ApiResponse&lt;&gt;(
+                true, &quot;Task created successfully&quot;, created
+        );
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Void&gt;&gt; deleteTask(@PathVariable Long id) {
+        taskService.deleteTask(id);
+        ApiResponse&lt;Void&gt; response = new ApiResponse&lt;&gt;(
+                true, &quot;Task with ID &quot; + id + &quot; deleted successfully&quot;, null
+        );
+        return ResponseEntity.ok(response);
+    }
+}
+</code></pre>
+<h4>Listing 1.3: <code>HealthController.java</code> (Health &amp; Telemetry Endpoint)</h4>
+<pre><code class="language-java">package com.devops.taskmanager.controller;
+
+import com.devops.taskmanager.dto.HealthResponse;
+import com.devops.taskmanager.service.TaskService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class HealthController {
+
+    private final TaskService taskService;
+
+    public HealthController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    @GetMapping(&quot;/health&quot;)
+    public ResponseEntity&lt;HealthResponse&gt; healthCheck() {
+        Runtime runtime = Runtime.getRuntime();
+        long freeMemory = runtime.freeMemory() / (1024 * 1024);
+        long totalMemory = runtime.totalMemory() / (1024 * 1024);
+
+        Map&lt;String, Object&gt; details = new HashMap&lt;&gt;();
+        details.put(&quot;activeTaskCount&quot;, taskService.getAllTasks().size());
+        details.put(&quot;jvmMemoryFreeMb&quot;, freeMemory);
+        details.put(&quot;jvmMemoryTotalMb&quot;, totalMemory);
+        details.put(&quot;storage&quot;, &quot;in-memory concurrent hash map&quot;);
+
+        HealthResponse response = new HealthResponse(&quot;UP&quot;, &quot;DevOps Task Manager API&quot;, &quot;1.0.0&quot;, details);
+        return ResponseEntity.ok(response);
+    }
+}
+</code></pre>
+<h3>4.2 Git Version Control &amp; Branching Workflow</h3>
+<p>The Git workflow adhered to strict feature isolation:</p>
+<ol>
+<li>Created feature branch: <code>git checkout -b feature/api-endpoints</code></li>
+<li>Committed REST implementation (<code>8202388</code>) and Jenkinsfile pipeline (<code>ec0d6b0</code>).</li>
+<li>Switched to <code>main</code> and executed a non-fast-forward merge:<pre><code class="language-bash">git checkout main
+git merge --no-ff feature/api-endpoints -m &quot;Merge branch &#39;feature/api-endpoints&#39; into main&quot;
+</code></pre>
+</li>
+<li>Pushed both branches to GitHub (<code>https://github.com/VivekSharma4083/devops-task-manager</code>).</li>
+</ol>
+<h4>Listing 1.4: Verified Git Commit &amp; Merge Graph Log</h4>
+<pre><code class="language-text">* d92eb81 (HEAD -&gt; main, origin/main) feat(ops): add production Dockerfile, Ansible roles, and Kubernetes manifests with probes
+*   27ba223 Merge branch &#39;feature/api-endpoints&#39; into main
+|\  
+| * ec0d6b0 (origin/feature/api-endpoints, feature/api-endpoints) ci: add Jenkins declarative pipeline with SCM polling and JUnit test reporting
+| * 8202388 feat: implement Task Manager REST API endpoints and JUnit 5 test suite
+|/  
+* f46d666 feat: initial project setup with Maven POM, .gitignore and repo config
+</code></pre>
+<h2>5. STEP 2: MAVEN BUILD CONFIGURATION</h2>
+<p>The Maven build (<code>pom.xml</code>) coordinates dependency resolution, byte-code compilation to Java 17, and fat JAR assembly using the <code>spring-boot-maven-plugin</code> and <code>maven-surefire-plugin</code> (version 3.2.5).</p>
+<pre><code class="language-bash">mvn clean test package
+</code></pre>
+<p><strong>Outcome:</strong></p>
+<ul>
+<li><code>BUILD SUCCESS</code> achieved in 71 seconds.</li>
+<li>Artifact generated: <code>target/devops-task-manager-1.0.0.jar</code> (20.62 MiB).</li>
+</ul>
+<h2>6. STEP 3: JENKINS DECLARATIVE PIPELINE</h2>
+<h4>Listing 1.5: Declarative <code>Jenkinsfile</code></h4>
+<pre><code class="language-groovy">pipeline {
+    agent any
+
+    triggers {
+        // Poll SCM every 5 minutes for new commits
+        pollSCM(&#39;H/5 * * * *&#39;)
+    }
+
+    stages {
+        stage(&#39;Checkout&#39;) {
+            steps { checkout scm }
+        }
+        stage(&#39;Build&#39;) {
+            steps {
+                script {
+                    if (isUnix()) { sh &#39;mvn clean compile -Dmaven.test.skip=true&#39; }
+                    else { bat &#39;mvn clean compile -Dmaven.test.skip=true&#39; }
+                }
+            }
+        }
+        stage(&#39;Test&#39;) {
+            steps {
+                script {
+                    if (isUnix()) { sh &#39;mvn test&#39; }
+                    else { bat &#39;mvn test&#39; }
+                }
+            }
+        }
+        stage(&#39;Package&#39;) {
+            steps {
+                script {
+                    if (isUnix()) { sh &#39;mvn package -DskipTests&#39; }
+                    else { bat &#39;mvn package -DskipTests&#39; }
+                }
+            }
+        }
+        stage(&#39;Archive Artifacts&#39;) {
+            steps {
+                archiveArtifacts artifacts: &#39;target/*.jar&#39;, fingerprint: true, allowEmptyArchive: false
+            }
+        }
+    }
+
+    post {
+        always {
+            junit testResults: &#39;target/surefire-reports/*.xml&#39;, allowEmptyResults: false
+        }
+    }
+}
+</code></pre>
+<h4>Table 1.2: Jenkins Pipeline Execution Summary</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Build #</th>
+<th align="left">Trigger Reason</th>
+<th align="center">Duration</th>
+<th align="center">JUnit Tests</th>
+<th align="left">Archived Artifact</th>
+<th align="center">Build Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>#1</strong></td>
+<td align="left">Manual Trigger (Initial Baseline)</td>
+<td align="center">78.54s</td>
+<td align="center">15 / 15 Passed</td>
+<td align="left"><code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
+<td align="center"><strong>SUCCESS</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>#2</strong></td>
+<td align="left">Automated SCM Polling (<code>H/5 * * * *</code>)</td>
+<td align="center">52.97s</td>
+<td align="center">15 / 15 Passed</td>
+<td align="left"><code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
+<td align="center"><strong>SUCCESS</strong></td>
+</tr>
+</tbody></table>
+<h2>7. STEP 4: CI ENHANCEMENT — AUTOMATED TESTING QUALITY GATE</h2>
+<p>A comprehensive test suite of <strong>15 test cases</strong> was implemented using JUnit 5, AssertJ, and MockMvc across 4 test classes:</p>
+<ul>
+<li><code>HealthControllerTest</code>: Verifies HTTP 200, status <code>UP</code>, and JVM memory metrics.</li>
+<li><code>TaskControllerTest</code>: Verifies full CRUD REST operations and error handling.</li>
+<li><code>TaskServiceTest</code>: Unit tests business logic and thread-safe persistence.</li>
+<li><code>TaskManagerApplicationTests</code>: Verifies Spring ApplicationContext loading.</li>
+</ul>
+<h4>Table 1.3: Automated Test Suite Summary</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Test Class</th>
+<th align="center">Test Cases</th>
+<th align="center">Failures</th>
+<th align="center">Elapsed Time</th>
+<th align="center">Pass Rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>HealthControllerTest</code></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">6.67s</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="center">7</td>
+<td align="center">0</td>
+<td align="center">0.52s</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="center">6</td>
+<td align="center">0</td>
+<td align="center">0.04s</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="left"><code>TaskManagerApplicationTests</code></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0.65s</td>
+<td align="center">100%</td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL</strong></td>
+<td align="center"><strong>15</strong></td>
+<td align="center"><strong>0</strong></td>
+<td align="center"><strong>7.89s</strong></td>
+<td align="center"><strong>100% PASS</strong></td>
+</tr>
+</tbody></table>
+<h2>8. DESCRIPTION OF ACTIVITY (COMPONENT 1)</h2>
+<p>In executing Component 1, I designed the RESTful architecture of the <strong>DevOps Task Manager API</strong>, separating concerns across controllers, services, DTOs, and global exception mappers. I initialized Git version control, configured <code>.gitignore</code>, and established a dedicated feature branch named <code>feature/api-endpoints</code>. In this branch, I developed the API, input validation, and unit tests. After local validation, I performed a non-fast-forward merge (<code>git merge --no-ff</code>) into <code>main</code>, creating merge commit <code>27ba223</code>, and pushed to GitHub.</p>
+<p>I configured Apache Maven 3.9.9 (<code>pom.xml</code>) for Java 17 bytecode, using <code>spring-boot-maven-plugin</code> and <code>maven-surefire-plugin</code>. I then deployed Jenkins 2.580.2 LTS on port 8085 and defined a 5-stage declarative pipeline with automated SCM polling (<code>H/5 * * * *</code>). When an executor disk space threshold paused execution, I resolved it by clearing installer temporary files and bringing the node online. Both Build #1 and Build #2 executed successfully, validating all 15 JUnit tests and archiving the 20.62 MiB fat JAR artifact.</p>
+<h2>9. RESULTS &amp; VERIFICATION EVIDENCE (COMPONENT 1)</h2>
+<h3>Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 1.1: GitHub Repository Overview on Main Branch</h4>
+<p><img src="screenshots/c1-01-github-repository-main.png" alt="Figure 1.1: GitHub Repository Overview"><br><em>Figure 1.1: Web browser view of the public GitHub repository (<code>https://github.com/VivekSharma4083/devops-task-manager</code>) on <code>main</code> branch showing project tree, branches, and commit count.</em></p>
+<h4>Figure 1.2: Git Branch &amp; Merge History on GitHub</h4>
+<p><img src="screenshots/c1-01-github-commits-history.png" alt="Figure 1.2: Git Branch &amp; Merge History"><br><em>Figure 1.2: Web browser view of the Git commit history showing feature commits and non-fast-forward merge commit <code>27ba223</code>.</em></p>
+<h4>Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal</h4>
+<p><img src="screenshots/c1-01-git-branch-merge-terminal.png" alt="Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal"><br><em>Figure 1.3: Terminal log displaying git branch topology and explicit merge commit integrating <code>feature/api-endpoints</code> into <code>main</code>.</em></p>
+<h4>Figure 1.4: Maven Build &amp; Unit Test Success Terminal</h4>
+<p><img src="screenshots/c1-02-maven-build-terminal.png" alt="Figure 1.4: Maven Build &amp; Unit Test Success Terminal"><br><em>Figure 1.4: Terminal output of <code>mvn clean test package</code> confirming 15 passing tests, fat JAR packaging, and BUILD SUCCESS.</em></p>
+<h4>Figure 1.5: REST API Local Verification Terminal</h4>
+<p><img src="screenshots/c1-03-rest-api-tests-terminal.png" alt="Figure 1.5: REST API Local Verification Terminal"><br><em>Figure 1.5: Terminal execution of cURL verifying HTTP 200 on <code>/health</code>, retrieval of seed tasks, and validation handling.</em></p>
+<h4>Figure 1.6: Jenkins Pipeline Dashboard</h4>
+<p><img src="screenshots/c1-04-jenkins-dashboard.png" alt="Figure 1.6: Jenkins Pipeline Dashboard"><br><em>Figure 1.6: Jenkins home dashboard showing <code>devops-task-manager-pipeline</code> with green checkmark status and Build #2 execution duration (52 sec).</em></p>
+<h4>Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend</h4>
+<p><img src="screenshots/c1-04-jenkins-pipeline-stageview.png" alt="Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend"><br><em>Figure 1.7: Jenkins Stage View displaying 5 green pipeline stages (Checkout, Build, Test, Package, Archive) and test trend.</em></p>
+<h4>Figure 1.8: Jenkins Interactive JUnit 5 Test Report</h4>
+<p><img src="screenshots/c1-05-jenkins-junit-test-report.png" alt="Figure 1.8: Jenkins Interactive JUnit 5 Test Report"><br><em>Figure 1.8: Interactive Jenkins test result report displaying &quot;All tests are passing! (15/15 tests passing)&quot; with zero failures.</em></p>
+<h4>Figure 1.9: Jenkins Archived Fat JAR Artifact</h4>
+<p><img src="screenshots/c1-06-jenkins-archived-artifact.png" alt="Figure 1.9: Jenkins Archived Fat JAR Artifact"><br><em>Figure 1.9: Build #2 detail view confirming archived artifact <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB), SCM polling cause, and commit revision.</em></p>
+<hr>
+<h3>Verification Summary Matrix</h3>
+<h4>Table 1.4: Component 1 Verification Evidence</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Evidence Item</th>
+<th align="left">File Reference</th>
+<th align="left">Description / Verification Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Figure 1.1</strong></td>
+<td align="left"><code>screenshots/c1-01-github-repository-main.png</code></td>
+<td align="left">GitHub repository showing project tree, branches, and commits on <code>main</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.2</strong></td>
+<td align="left"><code>screenshots/c1-01-github-commits-history.png</code></td>
+<td align="left">GitHub commit history showing non-fast-forward merge commit <code>27ba223</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.3</strong></td>
+<td align="left"><code>screenshots/c1-01-git-branch-merge-terminal.png</code></td>
+<td align="left">Terminal view of Git commit graph and branch list</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.4</strong></td>
+<td align="left"><code>screenshots/c1-02-maven-build-terminal.png</code></td>
+<td align="left">Terminal view of <code>mvn clean test package</code> execution</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.5</strong></td>
+<td align="left"><code>screenshots/c1-03-rest-api-tests-terminal.png</code></td>
+<td align="left">Terminal view of cURL REST API tests</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.6</strong></td>
+<td align="left"><code>screenshots/c1-04-jenkins-dashboard.png</code></td>
+<td align="left">Jenkins dashboard showing <code>devops-task-manager-pipeline</code> with green status</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.7</strong></td>
+<td align="left"><code>screenshots/c1-04-jenkins-pipeline-stageview.png</code></td>
+<td align="left">Pipeline Stage View showing all 5 stages successful and test result trend</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.8</strong></td>
+<td align="left"><code>screenshots/c1-05-jenkins-junit-test-report.png</code></td>
+<td align="left">Interactive Jenkins JUnit report: &quot;All tests are passing! (15/15)&quot;</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.9</strong></td>
+<td align="left"><code>screenshots/c1-06-jenkins-archived-artifact.png</code></td>
+<td align="left">Build #2 details showing archived <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.1</strong></td>
+<td align="left"><code>screenshots/c1-01-git-branch-merge.txt</code></td>
+<td align="left">Raw Git branch and non-fast-forward merge log</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.2</strong></td>
+<td align="left"><code>screenshots/c1-02-maven-build-success.txt</code></td>
+<td align="left">Terminal output of <code>mvn clean test package</code> (<code>BUILD SUCCESS</code> in 71s)</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.3</strong></td>
+<td align="left"><code>screenshots/c1-03-rest-api-tests.txt</code></td>
+<td align="left">Live terminal JSON responses for API endpoints</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.4</strong></td>
+<td align="left"><code>screenshots/c1-04-jenkins-pipeline-build-console.txt</code></td>
+<td align="left">Complete 20 KB raw console log of Jenkins Build #2</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.5</strong></td>
+<td align="left"><code>screenshots/c1-05-jenkins-junit-test-report.txt</code></td>
+<td align="left">Console test report summary of 15 passing tests</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.6</strong></td>
+<td align="left"><code>screenshots/c1-06-archived-jar-artifact.txt</code></td>
+<td align="left">Checksum and artifact fingerprint verification</td>
+</tr>
+</tbody></table>
+<h2>10. CONCLUSION (COMPONENT 1)</h2>
+<p>Component 1 established an automated Continuous Integration pipeline. By unifying Git branching, Maven build packaging, Declarative Jenkins automation, and automated JUnit 5 quality gates, software regression defects are detected before packaging, providing reproducible and reliable release binaries.</p>
+<hr>
+<div class="page-break"></div><h1>COMPONENT 2: CONFIGURATION MANAGEMENT (ANSIBLE), CONTAINERIZATION (DOCKER) &amp; ORCHESTRATION (KUBERNETES)</h1>
+<h2>1. ABSTRACT</h2>
+<p>Component 2 applies modern Infrastructure as Code (IaC), container encapsulation, and cluster orchestration to the <strong>DevOps Task Manager API</strong> packaged in Component 1. Infrastructure configuration was codified using an Ansible role (<code>taskmanager</code>) containing modular tasks, variables, handlers, and Jinja2 templates, executed within Ubuntu 26.04 LTS on WSL2 with systemd (<code>ok=14, changed=8, failed=0</code>).</p>
+<p>The application was containerized using a hardened, single-stage Docker runtime image based on <code>eclipse-temurin:17-jre-alpine</code>, running as an unprivileged user (<code>appuser</code>) with native container healthcheck monitoring. Container orchestration was established on Minikube (Kubernetes Server v1.37.0) with an initial 3-replica deployment and NodePort service (port 30080). Manual horizontal pod scaling was demonstrated by scaling to 5 replicas and scaling back down to 3 replicas with zero downtime. As a core deployment enhancement, Kubernetes Liveness and Readiness probes were configured to enable self-healing restarts and traffic isolation during container startup.</p>
+<h2>2. INTRODUCTION &amp; OBJECTIVES</h2>
+<p>Deploying microservices onto bare-metal or unmanaged virtual machines introduces configuration drift, manual maintenance overhead, and horizontal scaling limitations. Modern production environments require declarative infrastructure automation, lightweight container runtimes, and automated cluster orchestrators.</p>
+<h3>Component 2 Objectives:</h3>
+<ol>
+<li>Codify server provisioning and systemd service management using an Ansible role.</li>
+<li>Build an optimized, unprivileged Docker container image.</li>
+<li>Author declarative Kubernetes Deployment and NodePort Service manifests.</li>
+<li>Demonstrate manual horizontal pod scaling (3 $\to$ 5 $\to$ 3 replicas).</li>
+<li>Integrate and analyze Kubernetes Liveness and Readiness probes as a deployment enhancement.</li>
+</ol>
+<h2>3. DEVELOPMENT &amp; TARGET ENVIRONMENT</h2>
+<h4>Table 2.1: Component 2 Environment Specifications</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Environment Component</th>
+<th align="left">Tool &amp; Version</th>
+<th align="left">Technical Details / Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Host Workstation OS</strong></td>
+<td align="left">Windows 11 Home (x64, Build 26200)</td>
+<td align="left">Development host and Hyper-V/WSL2 parent environment</td>
+</tr>
+<tr>
+<td align="left"><strong>Target OS (Ansible)</strong></td>
+<td align="left">Ubuntu 26.04 LTS (WSL2 with systemd)</td>
+<td align="left">Target Linux environment running systemd init controller</td>
+</tr>
+<tr>
+<td align="left"><strong>Configuration Engine</strong></td>
+<td align="left">Ansible-core 2.20.1 / Python 3.14.4</td>
+<td align="left">Agentless configuration management orchestrator</td>
+</tr>
+<tr>
+<td align="left"><strong>Container Engine</strong></td>
+<td align="left">Docker Desktop 4.99.0 (Engine 29.9.3)</td>
+<td align="left">Container runtime, layer builder, and image registry</td>
+</tr>
+<tr>
+<td align="left"><strong>Container Base Image</strong></td>
+<td align="left"><code>eclipse-temurin:17-jre-alpine</code></td>
+<td align="left">Minimal 228 MB hardened unprivileged Java 17 runtime base</td>
+</tr>
+<tr>
+<td align="left"><strong>Kubernetes Cluster</strong></td>
+<td align="left">Minikube v1.37.0 (Kubernetes v1.37.0)</td>
+<td align="left">Local single-node Kubernetes cluster runtime</td>
+</tr>
+<tr>
+<td align="left"><strong>Cluster Management CLI</strong></td>
+<td align="left"><code>kubectl</code> Client v1.31.0</td>
+<td align="left">Declarative manifest deployment, scaling, and probe inspection</td>
+</tr>
+</tbody></table>
+<h2>4. STEP 1: ANSIBLE CONFIGURATION MANAGEMENT</h2>
+<h3>4.1 Role Architecture &amp; Layout</h3>
+<p>The Ansible implementation follows standard role conventions under <code>ansible/roles/taskmanager/</code>:</p>
+<ul>
+<li><code>defaults/main.yml</code>: Pinned configuration defaults (port 8080, system user, install paths).</li>
+<li><code>tasks/main.yml</code>: Idempotent provisioning tasks (APT install, user/group creation, directory setup, artifact deployment, templating, and health check).</li>
+<li><code>handlers/main.yml</code>: Service restart handler executed when templates or artifacts change.</li>
+<li><code>templates/</code>: Jinja2 templates for <code>taskmanager.service.j2</code> (systemd unit) and <code>application.properties.j2</code>.</li>
+</ul>
+<h4>Listing 2.1: Ansible Master Playbook (<code>ansible/playbook.yml</code>)</h4>
+<pre><code class="language-yaml">---
+- name: Provision and Deploy DevOps Task Manager API
+  hosts: taskmanager_servers
+  become: true
+  vars:
+    app_port: 8080
+    app_environment: &quot;production&quot;
+
+  roles:
+    - role: taskmanager
+</code></pre>
+<h4>Listing 2.2: Ansible Tasks (<code>ansible/roles/taskmanager/tasks/main.yml</code>)</h4>
+<pre><code class="language-yaml">---
+- name: Display pre-deployment notice
+  ansible.builtin.debug:
+    msg: &quot;Provisioning {{ app_name }} on {{ inventory_hostname }} (port {{ app_port }})&quot;
+
+- name: Update apt cache and install Java 17 Runtime Environment
+  ansible.builtin.apt:
+    name: &quot;{{ java_package }}&quot;
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Create dedicated system group for taskmanager
+  ansible.builtin.group:
+    name: &quot;{{ app_group }}&quot;
+    state: present
+    system: true
+
+- name: Create dedicated system user for taskmanager
+  ansible.builtin.user:
+    name: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    system: true
+    shell: /usr/sbin/nologin
+    create_home: false
+    comment: &quot;DevOps Task Manager Service User&quot;
+    state: present
+
+- name: Create application installation and configuration directories
+  ansible.builtin.file:
+    path: &quot;{{ item }}&quot;
+    state: directory
+    owner: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    mode: &#39;0755&#39;
+  loop:
+    - &quot;{{ app_install_dir }}&quot;
+    - &quot;{{ app_config_dir }}&quot;
+    - &quot;{{ app_log_dir }}&quot;
+
+- name: Copy built application JAR artifact to target server
+  ansible.builtin.copy:
+    src: &quot;{{ playbook_dir }}/../target/{{ app_jar_name }}&quot;
+    dest: &quot;{{ app_install_dir }}/{{ app_jar_name }}&quot;
+    owner: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    mode: &#39;0644&#39;
+  notify: restart taskmanager service
+
+- name: Deploy application.properties template with port variable
+  ansible.builtin.template:
+    src: application.properties.j2
+    dest: &quot;{{ app_config_dir }}/application.properties&quot;
+    owner: &quot;{{ app_user }}&quot;
+    group: &quot;{{ app_group }}&quot;
+    mode: &#39;0644&#39;
+  notify: restart taskmanager service
+
+- name: Deploy systemd service unit file for taskmanager
+  ansible.builtin.template:
+    src: taskmanager.service.j2
+    dest: &quot;/etc/systemd/system/{{ service_name }}.service&quot;
+    owner: root
+    group: root
+    mode: &#39;0644&#39;
+  notify: restart taskmanager service
+
+- name: Flush handlers to restart service immediately if configuration changed
+  ansible.builtin.meta: flush_handlers
+
+- name: Enable and ensure taskmanager systemd service is started
+  ansible.builtin.systemd:
+    name: &quot;{{ service_name }}&quot;
+    enabled: true
+    state: started
+    daemon_reload: true
+
+- name: Wait for Task Manager REST API health check endpoint to respond
+  ansible.builtin.uri:
+    url: &quot;http://127.0.0.1:{{ app_port }}/health&quot;
+    method: GET
+    status_code: 200
+  register: health_result
+  until: health_result.status == 200
+  retries: 12
+  delay: 5
+
+- name: Display deployment success message and health payload
+  ansible.builtin.debug:
+    msg:
+      - &quot;DevOps Task Manager API deployed successfully via Ansible!&quot;
+      - &quot;Port: {{ app_port }}&quot;
+      - &quot;Health Response: {{ health_result.json }}&quot;
+</code></pre>
+<h3>4.2 Live Execution in Ubuntu WSL2</h3>
+<p>Executed inside Ubuntu on WSL2 against the local managed node:</p>
+<pre><code class="language-bash">cd /mnt/c/Users/HP/Downloads/dev_proj/ansible
+ansible-playbook -i inventory playbook.yml -v
+</code></pre>
+<p><strong>Play Recap:</strong></p>
+<pre><code class="language-text">PLAY RECAP *********************************************************************
+target-host-01             : ok=14   changed=8    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+</code></pre>
+<p>Systemd service <code>taskmanager</code> was enabled, started, and returned HTTP 200 on <code>http://127.0.0.1:8080/health</code>.</p>
+<h2>5. STEP 2: DOCKER CONTAINERIZATION</h2>
+<p>The application was containerized using a hardened, single-stage runtime Dockerfile based on <code>eclipse-temurin:17-jre-alpine</code>, resulting in a lean <strong>228 MB</strong> image.</p>
+<h4>Listing 2.3: Production <code>Dockerfile</code></h4>
+<pre><code class="language-dockerfile">FROM eclipse-temurin:17-jre-alpine
+
+# Security: Run as non-root unprivileged user
+RUN addgroup -S appgroup &amp;&amp; adduser -S appuser -G appgroup
+
+WORKDIR /app
+EXPOSE 8080
+
+ENV SERVER_PORT=8080 \
+    JAVA_OPTS=&quot;-Xms128m -Xmx256m -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom&quot;
+
+# Copy pre-packaged fat JAR from Maven build
+COPY target/devops-task-manager-1.0.0.jar /app/app.jar
+
+RUN chown -R appuser:appgroup /app
+USER appuser
+
+# Health check probe for container runtime
+HEALTHCHECK --interval=15s --timeout=5s --start-period=15s --retries=3 \
+    CMD wget --quiet --tries=1 --spider http://localhost:8080/health || exit 1
+
+ENTRYPOINT [&quot;sh&quot;, &quot;-c&quot;, &quot;java $JAVA_OPTS -Dserver.port=$SERVER_PORT -jar /app/app.jar&quot;]
+</code></pre>
+<h3>Build &amp; Run Verification:</h3>
+<pre><code class="language-bash">docker build -t devops-task-manager:1.0.0 .
+docker run -d --name taskmanager-app -p 8082:8080 devops-task-manager:1.0.0
+</code></pre>
+<p>Verified container state: <code>Up (healthy)</code>. <code>GET http://localhost:8082/health</code> returned HTTP 200 with status <code>UP</code>.</p>
+<h2>6. STEP 3: KUBERNETES ORCHESTRATION &amp; DEPLOYMENT</h2>
+<p>The application was deployed to a Minikube cluster (Kubernetes Server v1.37.0) using declarative manifests:</p>
+<ul>
+<li><code>kubernetes/deployment.yaml</code>: Configures 3 replicas, resource requests/limits (CPU: 100m–500m, Memory: 128Mi–384Mi), and health probes.</li>
+<li><code>kubernetes/service.yaml</code>: Exposes the pods via NodePort <code>30080</code>.</li>
+</ul>
+<h4>Listing 2.4: <code>kubernetes/deployment.yaml</code></h4>
+<pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskmanager
+  labels:
+    app: taskmanager
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: taskmanager
+  template:
+    metadata:
+      labels:
+        app: taskmanager
+    spec:
+      containers:
+        - name: taskmanager
+          image: devops-task-manager:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 384Mi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+            successThreshold: 1
+</code></pre>
+<h4>Listing 2.5: <code>kubernetes/service.yaml</code></h4>
+<pre><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: taskmanager-service
+spec:
+  type: NodePort
+  selector:
+    app: taskmanager
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+      protocol: TCP
+</code></pre>
+<h2>7. STEP 4: MANUAL HORIZONTAL POD SCALING DEMONSTRATION</h2>
+<ol>
+<li><strong>Initial Deployment State (3 Replicas):</strong><pre><code class="language-bash">kubectl get pods -l app=taskmanager -o wide
+</code></pre>
+Verified 3 pods running in <code>default</code> namespace.</li>
+<li><strong>Scaling Up (3 to 5 Replicas):</strong><pre><code class="language-bash">kubectl scale deployment taskmanager --replicas=5
+</code></pre>
+Observed 2 new pods spin up and transition to <code>1/1 Running</code> within 22 seconds across the cluster.</li>
+<li><strong>Scaling Down (5 to 3 Replicas):</strong><pre><code class="language-bash">kubectl scale deployment taskmanager --replicas=3
+</code></pre>
+Observed Kubernetes send <code>SIGTERM</code> signals to 2 excess pods, gracefully terminating them while the 3 baseline pods continued serving traffic uninterrupted.</li>
+</ol>
+<h2>8. STEP 5: DEPLOYMENT ENHANCEMENT — LIVENESS &amp; READINESS PROBES</h2>
+<h4>Table 2.2: Liveness vs. Readiness Probes Comparative Analysis</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Architectural Dimension</th>
+<th align="left">Liveness Probe (<code>livenessProbe</code>)</th>
+<th align="left">Readiness Probe (<code>readinessProbe</code>)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Primary Purpose</strong></td>
+<td align="left">Detects application deadlocks, fatal memory leaks, or hung states</td>
+<td align="left">Detects whether the pod is ready to accept and serve network traffic</td>
+</tr>
+<tr>
+<td align="left"><strong>Kubelet Remediation</strong></td>
+<td align="left"><strong>Restarts the container</strong> according to the Pod <code>restartPolicy</code></td>
+<td align="left"><strong>Removes Pod IP from Service Endpoints</strong> (no container restart)</td>
+</tr>
+<tr>
+<td align="left"><strong>Failure Scenario</strong></td>
+<td align="left">Unresponsive thread pool, frozen JVM event loop, permanent crash</td>
+<td align="left">Slow startup initialization, warming caches, temporary overload</td>
+</tr>
+<tr>
+<td align="left"><strong>Configuration Parameters</strong></td>
+<td align="left">Path: <code>/health</code>, Initial Delay: 20s, Period: 10s, Timeout: 3s</td>
+<td align="left">Path: <code>/health</code>, Initial Delay: 15s, Period: 5s, Timeout: 3s</td>
+</tr>
+<tr>
+<td align="left"><strong>Thresholds</strong></td>
+<td align="left"><code>failureThreshold: 3</code> (restarts after 3 consecutive failures)</td>
+<td align="left"><code>failureThreshold: 2</code>, <code>successThreshold: 1</code></td>
+</tr>
+</tbody></table>
+<h2>9. DESCRIPTION OF ACTIVITY (COMPONENT 2)</h2>
+<p>In executing Component 2, I implemented infrastructure automation, container packaging, and cluster orchestration. I authored the Ansible role <code>taskmanager</code>, structuring tasks, handlers, variables, and templates. Because native Windows lacks POSIX systemd controls, I ran the playbook in Ubuntu 26.04 on WSL2, verifying that 14 tasks executed successfully (<code>ok=14, changed=8, failed=0</code>) and the systemd service started cleanly.</p>
+<p>I then built the <code>Dockerfile</code> using <code>eclipse-temurin:17-jre-alpine</code> with an unprivileged non-root user <code>appuser</code> and container healthcheck, producing a 228 MB image. I deployed the application to Minikube using declarative manifests with 3 initial replicas. I demonstrated manual horizontal scaling to 5 replicas and scaling back down to 3 replicas, observing graceful pod termination. I verified that the NodePort service forwarded traffic to healthy pods and confirmed that Liveness and Readiness probes actively monitored container health.</p>
+<h2>10. RESULTS &amp; VERIFICATION EVIDENCE (COMPONENT 2)</h2>
+<h3>Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2</h4>
+<p><img src="screenshots/c2-01-ansible-wsl-terminal.png" alt="Figure 2.1: Ansible Playbook Execution in Ubuntu WSL2"><br><em>Figure 2.1: Terminal view of <code>ansible-playbook -i inventory playbook.yml -v</code> executed in Ubuntu 26.04 on WSL2 showing PLAY RECAP (ok=14, changed=8, failed=0).</em></p>
+<h4>Figure 2.2: Systemd Service Unit Active State</h4>
+<p><img src="screenshots/c2-01-systemd-status-terminal.png" alt="Figure 2.2: Systemd Service Unit Active State"><br><em>Figure 2.2: Terminal output of <code>systemctl status taskmanager.service</code> confirming active (running) state and process metadata.</em></p>
+<h4>Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal</h4>
+<p><img src="screenshots/c2-02-docker-terminal.png" alt="Figure 2.3: Docker Image Build, Run &amp; Healthcheck Terminal"><br><em>Figure 2.3: Docker CLI output showing container running in healthy state on port 8082:8080 and image size of 228MB.</em></p>
+<h4>Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal</h4>
+<p><img src="screenshots/c2-03-k8s-3pods-terminal.png" alt="Figure 2.4: Kubernetes 3 Running Pods &amp; NodePort Service Terminal"><br><em>Figure 2.4: Kubernetes deployment with 3 running pods and NodePort service on port 30080.</em></p>
+<h4>Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale5-terminal.png" alt="Figure 2.5: Kubernetes Manual Scaling to 5 Replicas Terminal"><br><em>Figure 2.5: Terminal output demonstrating manual horizontal scaling to 5 running replicas via <code>kubectl scale</code>.</em></p>
+<h4>Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal</h4>
+<p><img src="screenshots/c2-04-k8s-scale3-terminal.png" alt="Figure 2.6: Kubernetes Scaling Back Down to 3 Replicas Terminal"><br><em>Figure 2.6: Terminal output demonstrating graceful SIGTERM termination of 2 excess pods back down to baseline 3 replicas.</em></p>
+<h4>Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection</h4>
+<p><img src="screenshots/c2-04-k8s-probes-terminal.png" alt="Figure 2.7: Kubernetes Liveness &amp; Readiness Probes Inspection"><br><em>Figure 2.7: Terminal output of <code>kubectl describe deployment taskmanager</code> highlighting probe configurations on <code>/health</code>.</em></p>
+<h4>Figure 2.8: Kubernetes Service Health Response in Web Browser</h4>
+<p><img src="screenshots/c2-05-k8s-service-health-browser.png" alt="Figure 2.8: Kubernetes Service Health Response in Web Browser"><br><em>Figure 2.8: Web browser view querying <code>/health</code> through the Kubernetes NodePort service forwarding, returning status UP.</em></p>
+<h4>Figure 2.9: Microservice Application Health JSON Response</h4>
+<p><img src="screenshots/c2-05-k8s-application-health.png" alt="Figure 2.9: Microservice Application Health JSON Response"><br><em>Figure 2.9: Web browser view showing JSON response payload with status UP and JVM memory metrics.</em></p>
+<hr>
+<h3>Verification Summary Matrix</h3>
+<h4>Table 2.3: Component 2 Verification Evidence</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Evidence Item</th>
+<th align="left">File Reference</th>
+<th align="left">Description / Verification Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Figure 2.1</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-wsl-terminal.png</code></td>
+<td align="left">Terminal view of Ansible playbook execution in WSL2</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.2</strong></td>
+<td align="left"><code>screenshots/c2-01-systemd-status-terminal.png</code></td>
+<td align="left">Terminal view of systemd service status</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.3</strong></td>
+<td align="left"><code>screenshots/c2-02-docker-terminal.png</code></td>
+<td align="left">Terminal view of Docker container build, run, and healthcheck</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.4</strong></td>
+<td align="left"><code>screenshots/c2-03-k8s-3pods-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes 3 pods and NodePort service</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.5</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale5-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale up to 5 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.6</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scale3-terminal.png</code></td>
+<td align="left">Terminal view of Kubernetes scale down to 3 replicas</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.7</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-probes-terminal.png</code></td>
+<td align="left">Terminal view of probe configuration in deployment</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.8</strong></td>
+<td align="left"><code>screenshots/c2-05-k8s-service-health-browser.png</code></td>
+<td align="left">Browser view querying <code>http://localhost:8089/health</code> via Kubernetes NodePort</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 2.9</strong></td>
+<td align="left"><code>screenshots/c2-05-k8s-application-health.png</code></td>
+<td align="left">Browser view showing JSON payload with status <code>UP</code> and JVM memory metrics</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.1</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-execution-wsl.txt</code></td>
+<td align="left">Complete 27 KB raw Ansible execution log in WSL2 (<code>PLAY RECAP: ok=14, failed=0</code>)</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.2</strong></td>
+<td align="left"><code>screenshots/c2-01-ansible-validation.txt</code></td>
+<td align="left">Automated syntax and structural validation of role, tasks, and handlers</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.3</strong></td>
+<td align="left"><code>screenshots/c2-02-docker-build-and-run.txt</code></td>
+<td align="left">Docker build output, container logs, and healthcheck verification</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.4</strong></td>
+<td align="left"><code>screenshots/c2-03-k8s-deployment-and-service.txt</code></td>
+<td align="left">Kubernetes cluster nodes, 3 running pods, and NodePort 30080 service state</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.5</strong></td>
+<td align="left"><code>screenshots/c2-04-k8s-scaling-evidence.txt</code></td>
+<td align="left">Scaling logs (3 $\to$ 5 $\to$ 3 replicas) and <code>kubectl describe</code> probe details</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 2.6</strong></td>
+<td align="left"><code>screenshots/c2-07-k8s-manifest-validation.txt</code></td>
+<td align="left">Automated YAML schema validation for deployment and service manifests</td>
+</tr>
+</tbody></table>
+<h2>11. CONCLUSION (COMPONENT 2)</h2>
+<p>Component 2 demonstrated an end-to-end modern operations lifecycle. Infrastructure provisioning is codified with Ansible, the Java application is encapsulated in a lean Alpine container, and Kubernetes orchestrates manual horizontal scaling and self-healing through Liveness and Readiness probes.</p>
+<hr>
+<h2>12. COMPREHENSIVE REFERENCES</h2>
+<ol>
+<li>Spring Boot Documentation: <em>Building a RESTful Web Service</em>, Spring Framework Documentation, 2024. [Online]. Available: <code>https://spring.io/guides/gs/rest-service/</code></li>
+<li>Apache Maven Project: <em>Maven Surefire Plugin &amp; Build Lifecycle Reference</em>, Apache Software Foundation, 2024. [Online]. Available: <code>https://maven.apache.org/surefire/maven-surefire-plugin/</code></li>
+<li>Jenkins Documentation: <em>Pipeline Syntax, Declarative Pipelines, and SCM Triggers</em>, Jenkins Project, 2024. [Online]. Available: <code>https://www.jenkins.io/doc/book/pipeline/</code></li>
+<li>JUnit 5 User Guide: <em>Jupiter Test Engine, Assertions, and MockMvc Integration</em>, JUnit Team, 2024. [Online]. Available: <code>https://junit.org/junit5/docs/current/user-guide/</code></li>
+<li>Pro Git: <em>Git Branching Strategies and Merging Workflows</em>, Scott Chacon and Ben Straub, Apress, 2023. [Online]. Available: <code>https://git-scm.com/book/en/v2</code></li>
+<li>Ansible Documentation: <em>Roles, Handlers, and Playbook Architecture Reference</em>, Red Hat, Inc., 2024. [Online]. Available: <code>https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html</code></li>
+<li>Docker Documentation: <em>Best Practices for Writing Dockerfiles &amp; Security Guidelines</em>, Docker Inc., 2024. [Online]. Available: <code>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/</code></li>
+<li>Kubernetes Documentation: <em>Configure Liveness, Readiness and Startup Probes</em>, The Kubernetes Authors, 2024. [Online]. Available: <code>https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/</code></li>
+<li>Kubernetes Documentation: <em>Deployments, ReplicaSets, and Scaling Workloads</em>, The Kubernetes Authors, 2024. [Online]. Available: <code>https://kubernetes.io/docs/concepts/workloads/controllers/deployment/</code></li>
+<li>Linux Documentation Project: <em>Systemd Service Unit Configuration &amp; Sandboxing</em>, systemd.io, 2024. [Online]. Available: <code>https://www.freedesktop.org/software/systemd/man/systemd.service.html</code></li>
+</ol>
+
+</body>
+</html>

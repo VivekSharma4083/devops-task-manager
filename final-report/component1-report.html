@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Component 1 Report</title>
+  <style>
+    
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+  }
+  @page :left {
+    @bottom-right { content: counter(page); }
+  }
+  @page :right {
+    @bottom-right { content: counter(page); }
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #24292f;
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+  }
+  h1 {
+    font-size: 19pt;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 6px;
+    margin-top: 1.8em;
+  }
+  h2 {
+    font-size: 14pt;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-top: 1.4em;
+  }
+  h3 {
+    font-size: 12pt;
+    margin-top: 1.2em;
+  }
+  h4 {
+    font-size: 11pt;
+    margin-top: 1em;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    text-align: justify;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.5em 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9.5pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+  }
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 9pt;
+    line-height: 1.45;
+    margin: 1.2em 0;
+    page-break-inside: avoid;
+    border: 1px solid #1e293b;
+  }
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+  blockquote {
+    border-left: 4px solid #0284c7;
+    margin: 1em 0;
+    padding: 6px 16px;
+    background-color: #f0f9ff;
+    color: #0369a1;
+  }
+  img {
+    max-width: 96%;
+    max-height: 430px;
+    object-fit: contain;
+    display: block;
+    margin: 1em auto 0.4em auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    page-break-inside: avoid;
+  }
+  p:has(img) {
+    page-break-inside: avoid;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  p em {
+    display: block;
+    text-align: center;
+    font-size: 8.5pt;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 22px;
+    page-break-after: avoid;
+  }
+  h4 {
+    page-break-after: avoid;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  .title-page {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 15mm;
+  }
+  .certificate-page {
+    page-break-after: always;
+    padding: 10mm 5mm;
+  }
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    padding-left: 24px;
+  }
+  li {
+    margin-bottom: 0.35em;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>M. S. RAMAIAH INSTITUTE OF TECHNOLOGY</h1>
+<h3>(Autonomous Institute, Affiliated to Visvesvaraya Technological University, Belagavi)</h3>
+<h3>Department of Computer Science &amp; Engineering (Cyber Security)</h3>
+<h4>Bengaluru – 560054, Karnataka, India</h4>
+<hr>
+<h1>SELF LEARNING ACTIVITY REPORT — COMPONENT 1</h1>
+<h2>Automated CI/CD Pipeline &amp; REST API Development</h2>
+<h3>Course: DevOps (Course Code: 24CYAEC59 | Credits: 1:0:0 | 15L)</h3>
+<p><strong>5th Semester, B.E. in Computer Science &amp; Engineering (Cyber Security)</strong><br><strong>Academic Year:</strong> 2026–2027  </p>
+<hr>
+<h3>STUDENT &amp; EVALUATION DETAILS</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Student Name</strong></td>
+<td align="left">Vivek Shreeranga Sharma M V</td>
+</tr>
+<tr>
+<td align="left"><strong>University Seat Number (USN)</strong></td>
+<td align="left">1MS24CY069</td>
+</tr>
+<tr>
+<td align="left"><strong>Department</strong></td>
+<td align="left">Computer Science &amp; Engineering (Cyber Security)</td>
+</tr>
+<tr>
+<td align="left"><strong>Semester / Section</strong></td>
+<td align="left">5th Semester / Cyber Security</td>
+</tr>
+<tr>
+<td align="left"><strong>Course Title &amp; Code</strong></td>
+<td align="left">DevOps (24CYAEC59)</td>
+</tr>
+<tr>
+<td align="left"><strong>Component Evaluated</strong></td>
+<td align="left">Component 1: CI/CD Pipeline (10 Marks)</td>
+</tr>
+<tr>
+<td align="left"><strong>Project Title</strong></td>
+<td align="left">DevOps Task Manager REST API — Continuous Integration Pipeline</td>
+</tr>
+<tr>
+<td align="left"><strong>Faculty Guide / Evaluator</strong></td>
+<td align="left">Mr. Prashanth Reddy C, Senior Lecturer, Dept. of CSE (AI &amp; ML) and CSE (Cyber Security)</td>
+</tr>
+<tr>
+<td align="left"><strong>GitHub Repository</strong></td>
+<td align="left"><code>https://github.com/VivekSharma4083/devops-task-manager</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>CERTIFICATE</h2>
+<p>This is to certify that the project report entitled <strong>&quot;DevOps Task Manager REST API — Continuous Integration Pipeline (Component 1)&quot;</strong> is a bona fide record of independent work carried out by <strong>Vivek Shreeranga Sharma M V</strong> bearing USN <strong>1MS24CY069</strong> in partial fulfillment for the evaluation of the Self Learning Activity in <strong>DevOps (24CYAEC59)</strong> prescribed by the Department of Computer Science &amp; Engineering (Cyber Security), M. S. Ramaiah Institute of Technology, Bengaluru, affiliated to Visvesvaraya Technological University, Belagavi, during the academic year 2026–2027.</p>
+<p>It is certified that all corrections and suggestions indicated during evaluation have been incorporated. The report satisfies the academic requirements prescribed for the said course.</p>
+<p><br><br><br></p>
+<p>--------------------------------------------- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ---------------------------------------------<br><strong>Mr. Prashanth Reddy C</strong> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <strong>Head of Department</strong><br>Faculty Guide, Senior Lecturer &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Dept. of CSE (Cyber Security)<br>Dept. of CSE (AI &amp; ML) / CSE (Cyber Security) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; M. S. Ramaiah Institute of Technology<br>M. S. Ramaiah Institute of Technology  </p>
+<hr>
+<h2>LIST OF PROJECT BASED LEARNING COMPONENTS</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Component</th>
+<th align="left">Title</th>
+<th align="left">Key Technologies</th>
+<th align="left">Scope of Work &amp; Deliverables</th>
+<th align="center">Max Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Component 1</strong></td>
+<td align="left">Automated CI/CD Pipeline</td>
+<td align="left">Java 17, Spring Boot 3.3.5, Apache Maven 3.9, Git, GitHub, Jenkins 2.580 LTS, JUnit 5</td>
+<td align="left">Engineered REST API microservice; Git trunk/feature branching workflow; non-fast-forward merge commit; Maven build automation; Declarative Jenkins pipeline with automated SCM polling trigger (<code>H/5 * * * *</code>); automated testing quality gate (15 JUnit tests); archived fat JAR artifact.</td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>ASSESSMENT RUBRICS (COMPONENT 1 — 10 MARKS)</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Assessment Criteria</th>
+<th align="left">Excellent (Full Marks)</th>
+<th align="left">Good (Moderate Marks)</th>
+<th align="left">Needs Improvement</th>
+<th align="center">Max Marks</th>
+<th align="center">Marks Awarded</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. REST API Design &amp; Git Branching</strong></td>
+<td align="left">Clean Spring Boot REST API adhering to HTTP semantics; Git feature branch workflow with non-fast-forward merge commit and verified commit graph on GitHub.</td>
+<td align="left">Working API with basic endpoints; basic Git commits without distinct feature branch integration.</td>
+<td align="left">Incomplete endpoints or direct commits to main branch without merge history.</td>
+<td align="center"><strong>2.5</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>2. Maven Build &amp; Dependency Management</strong></td>
+<td align="left">Clean <code>pom.xml</code> configuration with pinned dependencies; automated compilation and fat JAR packaging using <code>spring-boot-maven-plugin</code>.</td>
+<td align="left">Standard build works but missing optimization or dependency exclusions.</td>
+<td align="left">Build fails or uses non-standard packaging without dependency management.</td>
+<td align="center"><strong>2.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>3. Jenkins Declarative Pipeline &amp; Automation</strong></td>
+<td align="left">Fully automated declarative <code>Jenkinsfile</code> with 5 stages, SCM polling trigger (<code>H/5 * * * *</code>), live verified builds (Build #1 &amp; Build #2), and archived fat JAR artifact with SHA256 fingerprinting.</td>
+<td align="left">Jenkins pipeline runs manually but lacks automated triggers or artifact archiving.</td>
+<td align="left">Freestyle job or incomplete script with syntax failures.</td>
+<td align="center"><strong>3.0</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>4. CI Enhancement: Automated Testing Quality Gate</strong></td>
+<td align="left">Comprehensive JUnit 5 test suite (15 test cases across 4 classes) integrated into the pipeline; automated test parsing and failure gates via Jenkins <code>junit</code> post-action.</td>
+<td align="left">Basic unit tests without full coverage; tests executed outside Jenkins pipeline.</td>
+<td align="left">Minimal or no unit testing; pipeline does not evaluate test outcomes.</td>
+<td align="center"><strong>2.5</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="center"><strong>10.0</strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>MARKS AWARDED</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Component Evaluated</th>
+<th align="center">Maximum Marks</th>
+<th align="center">Marks Awarded (in figures)</th>
+<th align="center">Marks Awarded (in words)</th>
+<th align="center">Signature of Faculty Evaluator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Component 1: CI/CD Pipeline</strong></td>
+<td align="center"><strong>10</strong></td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="center">_______________________</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>1. ABSTRACT</h2>
+<p>In modern cloud-native software engineering, Continuous Integration (CI) and Continuous Delivery (CI/CD) pipelines serve as the backbone of high-velocity, reliable software delivery. This report documents the architecture, implementation, and automated continuous integration lifecycle for the <strong>DevOps Task Manager API</strong>, an enterprise-grade REST microservice developed from scratch using <strong>Java 17</strong>, <strong>Spring Boot 3.3.5</strong>, and <strong>Apache Maven 3.9.9</strong>. </p>
+<p>The implementation satisfies all curriculum requirements for Component 1:</p>
+<ol>
+<li><strong>Version Control &amp; Branching Workflow:</strong> A disciplined Git feature-branching strategy was enforced, isolating new development on <code>feature/api-endpoints</code> and executing a non-fast-forward merge (<code>git merge --no-ff</code>) into <code>main</code>, creating a distinct merge commit (<code>27ba223</code>) preserved on GitHub.</li>
+<li><strong>Build Automation:</strong> Maven was configured to resolve dependencies, compile Java bytecode, run automated regression tests, and package a self-contained executable fat JAR (<code>devops-task-manager-1.0.0.jar</code>, 20.62 MiB).</li>
+<li><strong>Jenkins Declarative Pipeline:</strong> A 5-stage declarative pipeline (<code>Jenkinsfile</code>) was authored and deployed on an enterprise Jenkins 2.580.2 LTS server. Automated build triggering was realized through automated Source Code Management (SCM) polling on a schedule (<code>H/5 * * * *</code>).</li>
+<li><strong>CI Enhancement — Automated Quality Gate:</strong> As an advanced CI enhancement, a comprehensive unit and integration test suite comprising <strong>15 JUnit 5 test cases</strong> was integrated directly into the pipeline lifecycle. Using the Jenkins <code>junit</code> post-execution action, test XML reports are evaluated as an automated quality gate, guaranteeing that regressions block artifact archiving.</li>
+</ol>
+<p>All stages have been executed, verified, and evidenced through live Jenkins dashboard captures, pipeline stage views, JUnit test trends, and console logs.</p>
+<hr>
+<h2>2. INTRODUCTION &amp; OBJECTIVES</h2>
+<p>Manual software integration and ad-hoc deployment practices inevitably introduce human error, configuration drift, and undetected software defects into production environments. Continuous Integration mitigates these risks by automating the code validation workflow: every committed change is checked out from distributed version control, compiled, verified against automated test suites, packaged, and archived in an artifact repository.</p>
+<h3>Key Objectives for Component 1:</h3>
+<ol>
+<li><strong>Microservice Engineering:</strong> Implement a clean RESTful Task Management microservice with robust input validation, centralized error handling, and thread-safe in-memory persistence.</li>
+<li><strong>Distributed Version Control:</strong> Implement professional Git workflows, demonstrating isolated feature branching, atomic commit history, and non-fast-forward merge integration.</li>
+<li><strong>Reproducible Build Automation:</strong> Author a clean Maven configuration (<code>pom.xml</code>) encapsulating compilation bytecode targets, dependency trees, and executable fat JAR packaging.</li>
+<li><strong>Automated CI Orchestration:</strong> Deploy and configure a local Jenkins automation server to orchestrate a Declarative Pipeline with automated SCM polling triggers.</li>
+<li><strong>Quality Assurance Enhancement:</strong> Implement an automated testing quality gate using JUnit 5 and MockMvc to enforce 100% pass rates prior to artifact packaging and distribution.</li>
+</ol>
+<hr>
+<h2>3. DEVELOPMENT &amp; RUNTIME ENVIRONMENT</h2>
+<p>The development, compilation, and automated pipeline verification environment specifications are detailed in Table 1.1:</p>
+<h4>Table 1.1: Component 1 Development &amp; Build Environment</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Component</th>
+<th align="left">Specification / Tool</th>
+<th align="left">Purpose in Pipeline</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Host Workstation OS</strong></td>
+<td align="left">Microsoft Windows 11 Home (x64, Build 26200)</td>
+<td align="left">Development, container host, and orchestration workstation</td>
+</tr>
+<tr>
+<td align="left"><strong>Java Development Kit</strong></td>
+<td align="left">Eclipse Adoptium OpenJDK 17.0.14+7 (HotSpot 64-bit)</td>
+<td align="left">Application source compilation, byte-code target, and runtime</td>
+</tr>
+<tr>
+<td align="left"><strong>Build Management</strong></td>
+<td align="left">Apache Maven 3.9.9</td>
+<td align="left">Dependency resolution, test runner orchestration, and packaging</td>
+</tr>
+<tr>
+<td align="left"><strong>Version Control System</strong></td>
+<td align="left">Git 2.53.0.windows.1 / GitHub CLI 2.104.0</td>
+<td align="left">Distributed source code management and remote repository synchronization</td>
+</tr>
+<tr>
+<td align="left"><strong>Remote Repository</strong></td>
+<td align="left">GitHub (<code>https://github.com/VivekSharma4083/devops-task-manager</code>)</td>
+<td align="left">Upstream Git hosting, branch management, and webhook/SCM polling endpoint</td>
+</tr>
+<tr>
+<td align="left"><strong>Application Framework</strong></td>
+<td align="left">Spring Boot 3.3.5 (Spring Framework 6.1.14)</td>
+<td align="left">Embedded Tomcat container, REST routing, and Bean validation</td>
+</tr>
+<tr>
+<td align="left"><strong>Testing Framework</strong></td>
+<td align="left">JUnit Jupiter 5.10.3, AssertJ 3.25.3, Spring MockMvc</td>
+<td align="left">Automated unit, service, and controller integration testing</td>
+</tr>
+<tr>
+<td align="left"><strong>CI Automation Server</strong></td>
+<td align="left">Jenkins 2.580.2 LTS (OpenJDK 21.0.6 runtime, port 8085)</td>
+<td align="left">Declarative CI pipeline automation, SCM polling, and artifact archiving</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. STEP 1: REST API DEVELOPMENT &amp; GIT VERSION CONTROL</h2>
+<h3>4.1 Domain Architecture &amp; Microservice Design</h3>
+<p>The <strong>DevOps Task Manager API</strong> was engineered with zero external database dependencies to maximize portability, deterministic execution, and fast startup during automated pipeline runs. The domain architecture utilizes an in-memory, thread-safe <code>ConcurrentHashMap&lt;Long, Task&gt;</code> coordinated with an <code>AtomicLong</code> monotonic sequence counter to guarantee atomicity under concurrent HTTP requests.</p>
+<p>The REST API exposes the following domain model and endpoints:</p>
+<ul>
+<li><code>Task</code> Entity: <code>id</code> (Long), <code>title</code> (String, validated 3–100 characters), <code>description</code> (String, up to 500 characters), <code>status</code> (Enum: <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>), <code>createdAt</code> / <code>updatedAt</code> (LocalDateTime).</li>
+<li>Health &amp; Monitoring: <code>/health</code> returning service name, status (<code>UP</code>), active task count, and real-time JVM memory metrics.</li>
+<li>Task CRUD Lifecycle: <code>/tasks</code> (GET all, POST create), <code>/tasks/{id}</code> (GET by ID, DELETE by ID).</li>
+</ul>
+<h4>Listing 1.1: <code>Task.java</code> (Domain Entity)</h4>
+<pre><code class="language-java">package com.devops.taskmanager.model;
+
+import java.time.LocalDateTime;
+
+public class Task {
+    private Long id;
+    private String title;
+    private String description;
+    private TaskStatus status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    public Task() {}
+
+    public Task(Long id, String title, String description, TaskStatus status,
+                LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public TaskStatus getStatus() { return status; }
+    public void setStatus(TaskStatus status) { this.status = status; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+}
+</code></pre>
+<h4>Listing 1.2: <code>TaskController.java</code> (REST Controller)</h4>
+<pre><code class="language-java">package com.devops.taskmanager.controller;
+
+import com.devops.taskmanager.dto.ApiResponse;
+import com.devops.taskmanager.dto.CreateTaskRequest;
+import com.devops.taskmanager.model.Task;
+import com.devops.taskmanager.service.TaskService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/tasks&quot;)
+public class TaskController {
+
+    private final TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;Task&gt;&gt; getAllTasks() {
+        return ResponseEntity.ok(taskService.getAllTasks());
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Task&gt; getTaskById(@PathVariable Long id) {
+        return ResponseEntity.ok(taskService.getTaskById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;ApiResponse&lt;Task&gt;&gt; createTask(@Valid @RequestBody CreateTaskRequest request) {
+        Task created = taskService.createTask(request);
+        ApiResponse&lt;Task&gt; response = new ApiResponse&lt;&gt;(
+                true, &quot;Task created successfully&quot;, created
+        );
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;ApiResponse&lt;Void&gt;&gt; deleteTask(@PathVariable Long id) {
+        taskService.deleteTask(id);
+        ApiResponse&lt;Void&gt; response = new ApiResponse&lt;&gt;(
+                true, &quot;Task with ID &quot; + id + &quot; deleted successfully&quot;, null
+        );
+        return ResponseEntity.ok(response);
+    }
+}
+</code></pre>
+<h4>Listing 1.3: <code>HealthController.java</code> (Microservice Health Endpoint)</h4>
+<pre><code class="language-java">package com.devops.taskmanager.controller;
+
+import com.devops.taskmanager.dto.HealthResponse;
+import com.devops.taskmanager.service.TaskService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class HealthController {
+
+    private final TaskService taskService;
+
+    public HealthController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    @GetMapping(&quot;/health&quot;)
+    public ResponseEntity&lt;HealthResponse&gt; healthCheck() {
+        Runtime runtime = Runtime.getRuntime();
+        long freeMemory = runtime.freeMemory() / (1024 * 1024);
+        long totalMemory = runtime.totalMemory() / (1024 * 1024);
+
+        Map&lt;String, Object&gt; details = new HashMap&lt;&gt;();
+        details.put(&quot;activeTaskCount&quot;, taskService.getAllTasks().size());
+        details.put(&quot;jvmMemoryFreeMb&quot;, freeMemory);
+        details.put(&quot;jvmMemoryTotalMb&quot;, totalMemory);
+        details.put(&quot;storage&quot;, &quot;in-memory concurrent hash map&quot;);
+
+        HealthResponse response = new HealthResponse(&quot;UP&quot;, &quot;DevOps Task Manager API&quot;, &quot;1.0.0&quot;, details);
+        return ResponseEntity.ok(response);
+    }
+}
+</code></pre>
+<h3>4.2 Git Version Control &amp; Branching Strategy</h3>
+<p>To demonstrate trunk-based development and feature isolation, the Git workflow adhered to strict branching conventions:</p>
+<ol>
+<li><strong>Repository Initialization &amp; Base Setup:</strong> The repository was initialized on <code>main</code> with <code>.gitignore</code>, <code>pom.xml</code>, and initial project structure.</li>
+<li><strong>Feature Branch Creation:</strong> A dedicated branch <code>feature/api-endpoints</code> was branched off <code>main</code> to encapsulate REST controllers, service logic, DTOs, and unit tests:<pre><code class="language-bash">git checkout -b feature/api-endpoints
+# Committed REST implementation (Commit: 8202388)
+# Committed Jenkinsfile and automated testing enhancements (Commit: ec0d6b0)
+</code></pre>
+</li>
+<li><strong>Non-Fast-Forward Merge:</strong> The feature branch was merged back into <code>main</code> using the <code>--no-ff</code> flag to force the creation of an explicit merge commit:<pre><code class="language-bash">git checkout main
+git merge --no-ff feature/api-endpoints -m &quot;Merge branch &#39;feature/api-endpoints&#39; into main&quot;
+</code></pre>
+</li>
+<li><strong>Remote Synchronization:</strong> The resulting branch topology was pushed to GitHub:<pre><code class="language-bash">git push origin main
+git push origin feature/api-endpoints
+</code></pre>
+</li>
+</ol>
+<h4>Listing 1.4: Verified Git Commit &amp; Merge Graph Log</h4>
+<pre><code class="language-text">* d92eb81 (HEAD -&gt; main, origin/main) feat(ops): add production Dockerfile, Ansible roles, and Kubernetes manifests with probes
+*   27ba223 Merge branch &#39;feature/api-endpoints&#39; into main
+|\  
+| * ec0d6b0 (origin/feature/api-endpoints, feature/api-endpoints) ci: add Jenkins declarative pipeline with SCM polling and JUnit test reporting
+| * 8202388 feat: implement Task Manager REST API endpoints and JUnit 5 test suite
+|/  
+* f46d666 feat: initial project setup with Maven POM, .gitignore and repo config
+</code></pre>
+<hr>
+<h2>5. STEP 2: MAVEN BUILD CONFIGURATION</h2>
+<p>Apache Maven coordinates dependency management, test compilation, execution, and artifact packaging via <code>pom.xml</code>. The configuration targets Java 17 bytecode and uses the <code>spring-boot-maven-plugin</code> to package a fat JAR containing all embedded runtime dependencies.</p>
+<h4>Listing 1.5: <code>pom.xml</code> Specification</h4>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 
+         https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;3.3.5&lt;/version&gt;
+        &lt;relativePath/&gt;
+    &lt;/parent&gt;
+
+    &lt;groupId&gt;com.devops&lt;/groupId&gt;
+    &lt;artifactId&gt;devops-task-manager&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;name&gt;devops-task-manager&lt;/name&gt;
+    &lt;description&gt;DevOps Task Manager REST API&lt;/description&gt;
+
+    &lt;properties&gt;
+        &lt;java.version&gt;17&lt;/java.version&gt;
+        &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.2.5&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<h3>Build Execution &amp; Validation:</h3>
+<p>The build lifecycle was validated in the terminal:</p>
+<pre><code class="language-bash">mvn clean test package
+</code></pre>
+<p><strong>Outcome:</strong></p>
+<ul>
+<li><code>BUILD SUCCESS</code> achieved in 71 seconds.</li>
+<li>Artifact generated: <code>target/devops-task-manager-1.0.0.jar</code> (20.62 MiB).</li>
+<li>Surefire XML reports generated in <code>target/surefire-reports/</code>.</li>
+</ul>
+<hr>
+<h2>6. STEP 3: JENKINS DECLARATIVE PIPELINE</h2>
+<h3>6.1 Declarative Pipeline Specification</h3>
+<p>The <code>Jenkinsfile</code> defines a 5-stage declarative pipeline. It specifies automated SCM polling triggers, cross-platform execution (handling both Unix and Windows agents), and post-execution JUnit test analysis.</p>
+<h4>Listing 1.6: Complete Declarative <code>Jenkinsfile</code></h4>
+<pre><code class="language-groovy">pipeline {
+    agent any
+
+    triggers {
+        // Poll SCM every 5 minutes for new commits
+        pollSCM(&#39;H/5 * * * *&#39;)
+    }
+
+    options {
+        timeout(time: 15, unit: &#39;MINUTES&#39;)
+        buildDiscarder(logRotator(numToKeepStr: &#39;10&#39;))
+        disableConcurrentBuilds()
+    }
+
+    stages {
+        stage(&#39;Checkout&#39;) {
+            steps {
+                echo &#39;Checking out source code from Git repository...&#39;
+                checkout scm
+            }
+        }
+
+        stage(&#39;Build&#39;) {
+            steps {
+                echo &#39;Compiling Java 17 source files...&#39;
+                script {
+                    if (isUnix()) {
+                        sh &#39;mvn clean compile -Dmaven.test.skip=true&#39;
+                    } else {
+                        bat &#39;mvn clean compile -Dmaven.test.skip=true&#39;
+                    }
+                }
+            }
+        }
+
+        stage(&#39;Test&#39;) {
+            steps {
+                echo &#39;Running automated JUnit 5 unit and integration test suite...&#39;
+                script {
+                    if (isUnix()) {
+                        sh &#39;mvn test&#39;
+                    } else {
+                        bat &#39;mvn test&#39;
+                    }
+                }
+            }
+        }
+
+        stage(&#39;Package&#39;) {
+            steps {
+                echo &#39;Packaging executable Spring Boot fat JAR artifact...&#39;
+                script {
+                    if (isUnix()) {
+                        sh &#39;mvn package -DskipTests&#39;
+                    } else {
+                        bat &#39;mvn package -DskipTests&#39;
+                    }
+                }
+            }
+        }
+
+        stage(&#39;Archive Artifacts&#39;) {
+            steps {
+                echo &#39;Archiving packaged JAR artifact...&#39;
+                archiveArtifacts artifacts: &#39;target/*.jar&#39;, 
+                                 fingerprint: true, 
+                                 allowEmptyArchive: false
+            }
+        }
+    }
+
+    post {
+        always {
+            echo &#39;Collecting and publishing JUnit test results...&#39;
+            junit testResults: &#39;target/surefire-reports/*.xml&#39;, 
+                  allowEmptyResults: false
+        }
+        success {
+            echo &#39;Pipeline completed successfully! Artifact is packaged and archived.&#39;
+        }
+        failure {
+            echo &#39;Pipeline execution failed! Review build logs and test failures.&#39;
+        }
+    }
+}
+</code></pre>
+<h3>6.2 Jenkins Pipeline Execution &amp; Live Builds</h3>
+<p>The Jenkins LTS server was hosted on port 8085 (<code>http://localhost:8085</code>). The pipeline job <code>devops-task-manager-pipeline</code> was linked directly to the GitHub repository <code>https://github.com/VivekSharma4083/devops-task-manager.git</code> tracking the <code>main</code> branch.</p>
+<h4>Table 1.2: Jenkins Pipeline Execution Summary</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Build #</th>
+<th align="left">Trigger Reason</th>
+<th align="center">Duration</th>
+<th align="center">JUnit Tests</th>
+<th align="left">Archived Artifact</th>
+<th align="center">Build Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>#1</strong></td>
+<td align="left">Manual Trigger (Initial Baseline)</td>
+<td align="center">78.54s</td>
+<td align="center">15 / 15 Passed</td>
+<td align="left"><code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
+<td align="center"><strong>SUCCESS</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>#2</strong></td>
+<td align="left">Automated SCM Polling (<code>H/5 * * * *</code>)</td>
+<td align="center">52.97s</td>
+<td align="center">15 / 15 Passed</td>
+<td align="left"><code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
+<td align="center"><strong>SUCCESS</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. STEP 4: CI ENHANCEMENT — AUTOMATED TESTING QUALITY GATE</h2>
+<h3>7.1 Automated Testing Architecture</h3>
+<p>To enforce strict quality gates in the CI pipeline, an automated test suite comprising <strong>15 test cases</strong> was developed across four test classes using JUnit 5, AssertJ, and Spring Boot <code>MockMvc</code>. The test suite covers application bootstrapping, controller input validation, service business logic, and health metric calculations.</p>
+<h4>Listing 1.7: <code>TaskControllerTest.java</code> (Controller Test Suite)</h4>
+<pre><code class="language-java">package com.devops.taskmanager;
+
+import com.devops.taskmanager.dto.CreateTaskRequest;
+import com.devops.taskmanager.model.Task;
+import com.devops.taskmanager.model.TaskStatus;
+import com.devops.taskmanager.service.TaskService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+
+import java.time.LocalDateTime;
+
+import static org.hamcrest.Matchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class TaskControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private TaskService taskService;
+
+    @Test
+    @DisplayName(&quot;GET /tasks - Should return list of preloaded seed tasks&quot;)
+    void shouldReturnAllTasks() throws Exception {
+        mockMvc.perform(get(&quot;/tasks&quot;))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath(&quot;$&quot;, hasSize(greaterThanOrEqualTo(3))))
+                .andExpect(jsonPath(&quot;$[0].title&quot;, notNullValue()));
+    }
+
+    @Test
+    @DisplayName(&quot;GET /tasks/{id} - Should return task when ID exists&quot;)
+    void shouldReturnTaskByIdWhenExists() throws Exception {
+        mockMvc.perform(get(&quot;/tasks/1&quot;))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath(&quot;$.id&quot;, is(1)))
+                .andExpect(jsonPath(&quot;$.status&quot;, is(&quot;COMPLETED&quot;)));
+    }
+
+    @Test
+    @DisplayName(&quot;GET /tasks/{id} - Should return 404 when ID does not exist&quot;)
+    void shouldReturn404WhenTaskNotFound() throws Exception {
+        mockMvc.perform(get(&quot;/tasks/999&quot;))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath(&quot;$.status&quot;, is(404)))
+                .andExpect(jsonPath(&quot;$.error&quot;, is(&quot;Task Not Found&quot;)));
+    }
+
+    @Test
+    @DisplayName(&quot;POST /tasks - Should create new task and return 201 Created&quot;)
+    void shouldCreateNewTask() throws Exception {
+        CreateTaskRequest request = new CreateTaskRequest(&quot;Automate with Jenkins&quot;, &quot;Configure Declarative Pipeline&quot;);
+        mockMvc.perform(post(&quot;/tasks&quot;)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath(&quot;$.success&quot;, is(true)))
+                .andExpect(jsonPath(&quot;$.data.id&quot;, notNullValue()))
+                .andExpect(jsonPath(&quot;$.data.title&quot;, is(&quot;Automate with Jenkins&quot;)));
+    }
+
+    @Test
+    @DisplayName(&quot;POST /tasks - Should return 400 Bad Request on blank title&quot;)
+    void shouldReturn400WhenTitleIsBlank() throws Exception {
+        CreateTaskRequest request = new CreateTaskRequest(&quot;&quot;, &quot;Blank title test&quot;);
+        mockMvc.perform(post(&quot;/tasks&quot;)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath(&quot;$.status&quot;, is(400)))
+                .andExpect(jsonPath(&quot;$.details.title&quot;, notNullValue()));
+    }
+
+    @Test
+    @DisplayName(&quot;DELETE /tasks/{id} - Should delete existing task&quot;)
+    void shouldDeleteExistingTask() throws Exception {
+        CreateTaskRequest request = new CreateTaskRequest(&quot;Task to delete&quot;, &quot;Temporary&quot;);
+        Task created = taskService.createTask(request);
+
+        mockMvc.perform(delete(&quot;/tasks/&quot; + created.getId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath(&quot;$.success&quot;, is(true)));
+    }
+}
+</code></pre>
+<h4>Listing 1.8: <code>HealthControllerTest.java</code></h4>
+<pre><code class="language-java">package com.devops.taskmanager;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class HealthControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    @DisplayName(&quot;GET /health - Should return HTTP 200 and status UP with memory details&quot;)
+    void shouldReturnHealthStatusUp() throws Exception {
+        mockMvc.perform(get(&quot;/health&quot;))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath(&quot;$.status&quot;, is(&quot;UP&quot;)))
+                .andExpect(jsonPath(&quot;$.service&quot;, is(&quot;DevOps Task Manager API&quot;)))
+                .andExpect(jsonPath(&quot;$.version&quot;, is(&quot;1.0.0&quot;)))
+                .andExpect(jsonPath(&quot;$.details.storage&quot;, is(&quot;in-memory concurrent hash map&quot;)));
+    }
+}
+</code></pre>
+<h4>Table 1.3: Automated Test Suite Specification &amp; Results</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Test Class</th>
+<th align="left">Test Case Method</th>
+<th align="left">Description / Assertions</th>
+<th align="center">Elapsed Time</th>
+<th align="center">Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>HealthControllerTest</code></td>
+<td align="left"><code>shouldReturnHealthStatusUp</code></td>
+<td align="left">Validates HTTP 200, status <code>UP</code>, and JVM memory metrics payload</td>
+<td align="center">6.67s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldReturnAllTasks</code></td>
+<td align="left">Asserts GET <code>/tasks</code> returns JSON array with seed tasks</td>
+<td align="center">0.28s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldReturnTaskByIdWhenExists</code></td>
+<td align="left">Asserts GET <code>/tasks/1</code> returns correct task entity</td>
+<td align="center">0.04s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldReturn404WhenTaskNotFound</code></td>
+<td align="left">Asserts GET <code>/tasks/999</code> returns HTTP 404 with error body</td>
+<td align="center">0.03s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldCreateNewTask</code></td>
+<td align="left">Asserts POST <code>/tasks</code> persists task and returns HTTP 201</td>
+<td align="center">0.08s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldReturn400WhenTitleIsBlank</code></td>
+<td align="left">Asserts validation intercepts empty title and returns HTTP 400</td>
+<td align="center">0.04s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldDeleteExistingTask</code></td>
+<td align="left">Asserts DELETE <code>/tasks/{id}</code> removes entity and returns HTTP 200</td>
+<td align="center">0.03s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskControllerTest</code></td>
+<td align="left"><code>shouldReturn404WhenDeletingNonExistentTask</code></td>
+<td align="left">Asserts DELETE on invalid ID yields HTTP 404 error</td>
+<td align="center">0.02s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="left"><code>shouldReturnAllSeedTasks</code></td>
+<td align="left">Unit tests in-memory task map retrieval</td>
+<td align="center">0.01s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="left"><code>shouldGetTaskById</code></td>
+<td align="left">Unit tests single task lookup logic</td>
+<td align="center">0.01s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="left"><code>shouldThrowWhenTaskNotFound</code></td>
+<td align="left">Unit tests exception thrown when task is absent</td>
+<td align="center">0.01s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="left"><code>shouldCreateTaskSuccessfully</code></td>
+<td align="left">Unit tests ID generation and creation timestamps</td>
+<td align="center">0.01s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="left"><code>shouldDeleteTaskSuccessfully</code></td>
+<td align="left">Unit tests removal from concurrent hash map</td>
+<td align="center">0.01s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskServiceTest</code></td>
+<td align="left"><code>shouldThrowWhenDeletingNonExistent</code></td>
+<td align="left">Unit tests exception thrown on deleting absent ID</td>
+<td align="center">0.01s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><code>TaskManagerApplicationTests</code></td>
+<td align="left"><code>contextLoads</code></td>
+<td align="left">Asserts Spring Boot ApplicationContext boots cleanly</td>
+<td align="center">0.65s</td>
+<td align="center"><strong>PASSED</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>TOTAL</strong></td>
+<td align="left"><strong>15 Test Cases</strong></td>
+<td align="left"><strong>Zero Failures, Zero Errors, Zero Skipped</strong></td>
+<td align="center"><strong>7.89s</strong></td>
+<td align="center"><strong>100% PASS</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. DESCRIPTION OF ACTIVITY</h2>
+<p>In implementing Component 1, I began by designing the architecture of the <strong>DevOps Task Manager API</strong> to meet enterprise Spring Boot conventions while remaining lightweight and portable. I structured the project around clear separation of concerns: domain models in <code>model/</code>, HTTP controllers in <code>controller/</code>, business logic in <code>service/</code>, request/response payloads in <code>dto/</code>, and cross-cutting validation exception mappers in <code>exception/</code>.</p>
+<p>To establish a professional version control workflow, I initialized the repository with Git, established <code>.gitignore</code> to keep binary targets out of source control, and created a dedicated feature branch named <code>feature/api-endpoints</code>. In this isolated branch, I authored the REST endpoints, validation logic, and unit tests. After completing the implementation and verifying it locally with <code>mvn test</code>, I merged <code>feature/api-endpoints</code> back into <code>main</code> using <code>git merge --no-ff</code>. This created a non-fast-forward merge commit (<code>27ba223</code>), preserving the complete development trajectory. I pushed both branches to my remote GitHub repository (<code>https://github.com/VivekSharma4083/devops-task-manager</code>).</p>
+<p>Next, I configured Apache Maven 3.9.9 (<code>pom.xml</code>) targeting Java 17 bytecode. I integrated the <code>spring-boot-maven-plugin</code> to assemble self-contained fat JARs, and configured the <code>maven-surefire-plugin</code> (version 3.2.5) to capture automated test executions into standardized XML report files.</p>
+<p>For CI automation, I deployed Jenkins 2.580.2 LTS locally on port 8085. I authored a Declarative <code>Jenkinsfile</code> structured across 5 distinct stages: <code>Checkout</code>, <code>Build</code>, <code>Test</code>, <code>Package</code>, and <code>Archive Artifacts</code>. In the pipeline configuration, I added an automated build trigger using SCM polling (<code>pollSCM(&#39;H/5 * * * *&#39;)</code>). </p>
+<p>During initial Jenkins testing, I observed an environmental challenge: Jenkins placed the local build executor in an offline state due to a low disk space threshold check on the host system drive. To resolve this, I diagnosed the executor status, cleared installer temp files, and used the Jenkins administrative console to bring the node back online. </p>
+<p>I then verified the complete end-to-end pipeline automation:</p>
+<ol>
+<li><strong>Build #1 (Manual Run):</strong> Successfully validated the checkout, compilation, unit testing, packaging, and artifact archiving.</li>
+<li><strong>Build #2 (Automated SCM Polling):</strong> Triggered automatically by Jenkins upon detecting code changes in the GitHub repository. It executed all stages cleanly in 52.97 seconds, validated all 15 JUnit tests with 0 failures, and successfully archived <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB).</li>
+</ol>
+<hr>
+<h2>9. RESULTS &amp; VERIFICATION EVIDENCE</h2>
+<h3>9.1 Local API Execution Verification</h3>
+<p>Before containerization, the packaged JAR was executed on the host workstation and verified:</p>
+<ul>
+<li><strong><code>GET /health</code></strong> returned HTTP 200 with runtime memory status:<pre><code class="language-json">{
+  &quot;status&quot;: &quot;UP&quot;,
+  &quot;service&quot;: &quot;DevOps Task Manager API&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;details&quot;: {
+    &quot;storage&quot;: &quot;in-memory concurrent hash map&quot;,
+    &quot;activeTaskCount&quot;: 3,
+    &quot;jvmMemoryFreeMb&quot;: 108,
+    &quot;jvmMemoryTotalMb&quot;: 128
+  }
+}
+</code></pre>
+</li>
+<li><strong><code>POST /tasks</code></strong> with payload <code>{&quot;title&quot;: &quot;Automate with Jenkins&quot;, &quot;description&quot;: &quot;Configure Declarative Pipeline&quot;}</code> returned HTTP 201 Created and persisted ID 4.</li>
+<li><strong><code>GET /tasks/4</code></strong> returned the newly created task entity.</li>
+<li><strong><code>DELETE /tasks/4</code></strong> returned HTTP 200 with confirmation message.</li>
+</ul>
+<h3>9.2 Visual Verification Screenshots &amp; Evidence Figures</h3>
+<p>The following section presents the actual visual screenshots and verified terminal executions captured from the live environment:</p>
+<h4>Figure 1.1: GitHub Repository Overview on Main Branch</h4>
+<p><img src="screenshots/c1-01-github-repository-main.png" alt="Figure 1.1: GitHub Repository Overview"><br><em>Figure 1.1: Web browser view of the public GitHub repository (<code>https://github.com/VivekSharma4083/devops-task-manager</code>) on <code>main</code> branch showing project tree, branches, and commit count.</em></p>
+<h4>Figure 1.2: Git Branch &amp; Merge History on GitHub</h4>
+<p><img src="screenshots/c1-01-github-commits-history.png" alt="Figure 1.2: Git Branch &amp; Merge History"><br><em>Figure 1.2: Web browser view of the Git commit history showing feature commits and non-fast-forward merge commit <code>27ba223</code>.</em></p>
+<h4>Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal</h4>
+<p><img src="screenshots/c1-01-git-branch-merge-terminal.png" alt="Figure 1.3: Git Branch &amp; Non-Fast-Forward Merge Terminal"><br><em>Figure 1.3: Terminal log displaying git branch topology and explicit merge commit integrating <code>feature/api-endpoints</code> into <code>main</code>.</em></p>
+<h4>Figure 1.4: Maven Build &amp; Unit Test Success Terminal</h4>
+<p><img src="screenshots/c1-02-maven-build-terminal.png" alt="Figure 1.4: Maven Build &amp; Unit Test Success Terminal"><br><em>Figure 1.4: Terminal output of <code>mvn clean test package</code> confirming 15 passing tests, fat JAR packaging, and BUILD SUCCESS.</em></p>
+<h4>Figure 1.5: REST API Local Verification Terminal</h4>
+<p><img src="screenshots/c1-03-rest-api-tests-terminal.png" alt="Figure 1.5: REST API Local Verification Terminal"><br><em>Figure 1.5: Terminal execution of cURL verifying HTTP 200 on <code>/health</code>, retrieval of seed tasks, and validation handling.</em></p>
+<h4>Figure 1.6: Jenkins Pipeline Dashboard</h4>
+<p><img src="screenshots/c1-04-jenkins-dashboard.png" alt="Figure 1.6: Jenkins Pipeline Dashboard"><br><em>Figure 1.6: Jenkins home dashboard showing <code>devops-task-manager-pipeline</code> with green checkmark status and Build #2 execution duration (52 sec).</em></p>
+<h4>Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend</h4>
+<p><img src="screenshots/c1-04-jenkins-pipeline-stageview.png" alt="Figure 1.7: Jenkins Pipeline Stage View &amp; Test Trend"><br><em>Figure 1.7: Jenkins Stage View displaying 5 green pipeline stages (Checkout, Build, Test, Package, Archive) and test trend.</em></p>
+<h4>Figure 1.8: Jenkins Interactive JUnit 5 Test Report</h4>
+<p><img src="screenshots/c1-05-jenkins-junit-test-report.png" alt="Figure 1.8: Jenkins Interactive JUnit 5 Test Report"><br><em>Figure 1.8: Interactive Jenkins test result report displaying &quot;All tests are passing! (15/15 tests passing)&quot; with zero failures.</em></p>
+<h4>Figure 1.9: Jenkins Archived Fat JAR Artifact</h4>
+<p><img src="screenshots/c1-06-jenkins-archived-artifact.png" alt="Figure 1.9: Jenkins Archived Fat JAR Artifact"><br><em>Figure 1.9: Build #2 detail view confirming archived artifact <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB), SCM polling cause, and commit revision.</em></p>
+<hr>
+<h3>9.3 Verification Summary Matrix</h3>
+<h4>Table 1.4: Component 1 Verification Evidence</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Evidence Item</th>
+<th align="left">File Reference</th>
+<th align="left">Description / Verification Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Figure 1.1</strong></td>
+<td align="left"><code>screenshots/c1-01-github-repository-main.png</code></td>
+<td align="left">GitHub repository showing project tree, branches, and commits on <code>main</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.2</strong></td>
+<td align="left"><code>screenshots/c1-01-github-commits-history.png</code></td>
+<td align="left">GitHub commit history showing non-fast-forward merge commit <code>27ba223</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.3</strong></td>
+<td align="left"><code>screenshots/c1-01-git-branch-merge-terminal.png</code></td>
+<td align="left">Terminal view of Git commit graph and branch list</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.4</strong></td>
+<td align="left"><code>screenshots/c1-02-maven-build-terminal.png</code></td>
+<td align="left">Terminal view of <code>mvn clean test package</code> execution</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.5</strong></td>
+<td align="left"><code>screenshots/c1-03-rest-api-tests-terminal.png</code></td>
+<td align="left">Terminal view of cURL REST API tests</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.6</strong></td>
+<td align="left"><code>screenshots/c1-04-jenkins-dashboard.png</code></td>
+<td align="left">Jenkins dashboard showing <code>devops-task-manager-pipeline</code> with green status</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.7</strong></td>
+<td align="left"><code>screenshots/c1-04-jenkins-pipeline-stageview.png</code></td>
+<td align="left">Pipeline Stage View showing all 5 stages successful and test result trend</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.8</strong></td>
+<td align="left"><code>screenshots/c1-05-jenkins-junit-test-report.png</code></td>
+<td align="left">Interactive Jenkins JUnit report: &quot;All tests are passing! (15/15)&quot;</td>
+</tr>
+<tr>
+<td align="left"><strong>Figure 1.9</strong></td>
+<td align="left"><code>screenshots/c1-06-jenkins-archived-artifact.png</code></td>
+<td align="left">Build #2 details showing archived <code>devops-task-manager-1.0.0.jar</code> (20.62 MiB)</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.1</strong></td>
+<td align="left"><code>screenshots/c1-01-git-branch-merge.txt</code></td>
+<td align="left">Raw Git branch and non-fast-forward merge log</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.2</strong></td>
+<td align="left"><code>screenshots/c1-02-maven-build-success.txt</code></td>
+<td align="left">Terminal output of <code>mvn clean test package</code> (<code>BUILD SUCCESS</code> in 71s)</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.3</strong></td>
+<td align="left"><code>screenshots/c1-03-rest-api-tests.txt</code></td>
+<td align="left">Live terminal JSON responses for API endpoints</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.4</strong></td>
+<td align="left"><code>screenshots/c1-04-jenkins-pipeline-build-console.txt</code></td>
+<td align="left">Complete 20 KB raw console log of Jenkins Build #2</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.5</strong></td>
+<td align="left"><code>screenshots/c1-05-jenkins-junit-test-report.txt</code></td>
+<td align="left">Console test report summary of 15 passing tests</td>
+</tr>
+<tr>
+<td align="left"><strong>Log 1.6</strong></td>
+<td align="left"><code>screenshots/c1-06-archived-jar-artifact.txt</code></td>
+<td align="left">Checksum and artifact fingerprint verification</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>10. CONCLUSION</h2>
+<p>Component 1 has successfully established a fully automated Continuous Integration pipeline for the <strong>DevOps Task Manager API</strong>. By integrating Git version control with feature branching, Maven build lifecycle automation, and a Declarative Jenkins pipeline with automated SCM polling triggers, manual deployment bottlenecks and configuration drifts are eliminated. </p>
+<p>The integration of <strong>JUnit 5 test reporting as an automated quality gate</strong> ensures that any regression or syntax defect immediately halts the pipeline, preventing defective binaries from being packaged or promoted to downstream containerization and orchestration stages.</p>
+<hr>
+<h2>11. REFERENCES</h2>
+<ol>
+<li>Spring Boot Documentation: <em>Building a RESTful Web Service</em>, Spring Framework Documentation, 2024. [Online]. Available: <code>https://spring.io/guides/gs/rest-service/</code></li>
+<li>Apache Maven Project: <em>Maven Surefire Plugin &amp; Build Lifecycle Reference</em>, Apache Software Foundation, 2024. [Online]. Available: <code>https://maven.apache.org/surefire/maven-surefire-plugin/</code></li>
+<li>Jenkins Documentation: <em>Pipeline Syntax, Declarative Pipelines, and SCM Triggers</em>, Jenkins Project, 2024. [Online]. Available: <code>https://www.jenkins.io/doc/book/pipeline/</code></li>
+<li>JUnit 5 User Guide: <em>Jupiter Test Engine, Assertions, and MockMvc Integration</em>, JUnit Team, 2024. [Online]. Available: <code>https://junit.org/junit5/docs/current/user-guide/</code></li>
+<li>Pro Git: <em>Git Branching Strategies and Merging Workflows</em>, Scott Chacon and Ben Straub, Apress, 2023. [Online]. Available: <code>https://git-scm.com/book/en/v2</code></li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿================================================================================
+KUBERNETES SCALING DEMONSTRATION & PROBE VERIFICATION EVIDENCE
+Deployment: taskmanager
+Date: 2026-11-13 22:01:19
+================================================================================
+
+STAGE 1: INITIAL STATE (3 REPLICAS)
+NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running   0          24m   10.244.0.3   minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running   0          24m   10.244.0.5   minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running   0          24m   10.244.0.4   minikube   <none>           <none>
+
+
+STAGE 2: SCALE COMMAND EXECUTED:
+kubectl scale deployment taskmanager --replicas=5
+Result: deployment.apps/taskmanager scaled
+
+STATE WITH 5 RUNNING REPLICAS:
+NAME                           READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running   0          24m   10.244.0.3    minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-lz8ll   0/1     Running   0          12s   10.244.0.10   minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running   0          24m   10.244.0.5    minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running   0          24m   10.244.0.4    minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-zzvjh   0/1     Running   0          12s   10.244.0.11   minikube   <none>           <none>
+
+
+STAGE 3: SCALE DOWN COMMAND EXECUTED:
+kubectl scale deployment taskmanager --replicas=3
+Result: deployment.apps/taskmanager scaled
+
+STATE AFTER SCALE DOWN (3 RUNNING REPLICAS):
+NAME                           READY   STATUS        RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+taskmanager-7fcd6ddf9f-6b7gt   1/1     Running       0          24m   10.244.0.3    minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-lz8ll   0/1     Terminating   0          18s   10.244.0.10   minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-s8rdk   1/1     Running       0          24m   10.244.0.5    minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-w79rk   1/1     Running       0          24m   10.244.0.4    minikube   <none>           <none>
+taskmanager-7fcd6ddf9f-zzvjh   0/1     Terminating   0          18s   10.244.0.11   minikube   <none>           <none>
+
+
+STAGE 4: DEPLOYMENT PROBES CONFIGURATION & RECENT EVENTS:
+
+> Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+  StrategyType:           RollingUpdate
+  MinReadySeconds:        0
+  RollingUpdateStrategy:  0 max unavailable, 1 max surge
+> Pod Template:
+    Labels:  app=taskmanager
+             environment=production
+             tier=backend
+    Containers:
+     taskmanager:
+>     Liveness:   http-get http://:8080/health delay=20s timeout=3s period=10s #success=1 #failure=3
+>     Readiness:  http-get http://:8080/health delay=15s timeout=3s period=5s #success=1 #failure=2
+      Environment:
+        SERVER_PORT:  8080
+      Mounts:         <none>
+    Volumes:          <none>
+    Node-Selectors:   <none>
+> Events:
+    Type    Reason             Age                From                   Message
+    ----    ------             ----               ----                   -------
+    Normal  ScalingReplicaSet  24m                deployment-controller  Scaled up replica set taskmanager-7fcd6ddf9f 
+from 0 to 3
+    Normal  ScalingReplicaSet  19s (x3 over 21m)  deployment-controller  Scaled up replica set taskmanager-7fcd6ddf9f 
+from 3 to 5
+    Normal  ScalingReplicaSet  6s (x3 over 21m)   deployment-controller  Scaled down replica set 
+taskmanager-7fcd6ddf9f from 5 to 3
+
+
+
+================================================================================

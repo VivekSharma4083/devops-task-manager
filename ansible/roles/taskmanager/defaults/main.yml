@@ -1,0 +1,33 @@
+---
+# ==============================================================================
+# Default Variables for taskmanager Ansible Role
+# ==============================================================================
+
+# Application Identity
+app_name: "devops-task-manager"
+app_version: "1.0.0"
+service_name: "taskmanager"
+
+# System User and Group for least-privilege security
+app_user: "taskmanager"
+app_group: "taskmanager"
+
+# Networking Configuration
+app_port: 8080
+server_host: "0.0.0.0"
+
+# Filesystem Paths
+app_install_dir: "/opt/taskmanager"
+app_log_dir: "/var/log/taskmanager"
+app_config_dir: "/opt/taskmanager/config"
+app_jar_name: "devops-task-manager-1.0.0.jar"
+local_jar_path: "../target/{{ app_jar_name }}"
+
+# Java Runtime Configuration
+java_package: "openjdk-17-jre-headless"
+jvm_memory_opts: "-Xms128m -Xmx256m"
+
+# Health Check Parameters
+health_check_url: "http://127.0.0.1:{{ app_port }}/health"
+health_check_retries: 15
+health_check_delay: 2

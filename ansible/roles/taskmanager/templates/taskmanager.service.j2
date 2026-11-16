@@ -1,0 +1,21 @@
+[Unit]
+Description=DevOps Task Manager Spring Boot Service
+After=network.target syslog.target
+Documentation=https://github.com/{{ ansible_user | default('devops') }}/devops-task-manager
+
+[Service]
+Type=simple
+User={{ app_user }}
+Group={{ app_group }}
+WorkingDirectory={{ app_install_dir }}
+Environment="SPRING_CONFIG_ADDITIONAL_LOCATION=file:{{ app_config_dir }}/application.properties"
+ExecStart=/usr/bin/java {{ jvm_memory_opts }} -Dserver.port={{ app_port }} -jar {{ app_install_dir }}/{{ app_jar_name }}
+Restart=always
+RestartSec=10
+StandardOutput=append:{{ app_log_dir }}/application.log
+StandardError=append:{{ app_log_dir }}/error.log
+SuccessExitStatus=143
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
